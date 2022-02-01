@@ -1,0 +1,38 @@
+---
+title: "Report Combinations and Metric Options"
+author: "Erin Cain"
+date: "2/1/2022"
+output: rmarkdown::github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reports 
+
+There are 5 different reports that must be compared with each other. There are 10 total comparisons that must be done for each metric. Each comparison is shown below: 
+
+
+| UWMP| Conservation| eAR| Water Loss| Supply & Demand| Water Use Objective| 
+| -------------- | -------- | ------- | ------------ | ----------------| ---------- | 
+| **Conservation** | - | 1 | 2 | 3 | 4 | 
+| **eAR** | - | - | 5 | 6 | 7 | 
+| **Water Loss** | - | - | - | 8 | 9 | 
+| **Supply & Demand ?** | - | - | - | - | 10 | 
+|**Water Use Objective ?** | - | - | - | - | - | 
+
+Can we do Supply & Demand or Water Use Objective. I think we will have to hold off on these until there is data
+## Metrics
+
+```{r}
+# Conservation Report Metrics
+readr::read_rds("data/conservation_report_fields.rds")
+
+# Some of UWMP Metrics (many more tables we could pull from)
+readr::read_rds("data/UWMP_fields.rds")
+
+# Water Loss Report Metrics
+readr::read_rds("data/WLR_fields.rds")
+
+```

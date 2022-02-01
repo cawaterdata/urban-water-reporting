@@ -1,0 +1,76 @@
+---
+title: "Template Analysis"
+author: "Erin Cain"
+date: "1/31/2022"
+output: rmarkdown::github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Explore UWMP Data: 
+- Table 4-3 Wholesale: Total Water Demands  (Converted to Acre-Feet)
+- Table 2-1 Retail Only: Public Water Systems (Converted to Acre-Feet)
+
+*Many other tables that may be useful to look at 
+```{r, message=FALSE, warning=FALSE}
+UWMP_demand <- readxl::read_excel("data-raw/uwmp_table_4_3_w_view_conv_to_af.xlsx") %>% 
+  filter(WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>%
+  glimpse()
+
+UWMP_supply <- readxl::read_excel("data-raw/uwmp_table_2_2_r_conv_to_af.xlsx") %>% 
+  filter(WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>%
+  glimpse()
+
+
+
+unique(UWMP_supply$WATER_SUPPLIER_NAME)
+cols_UWMP_supply <- colnames(UWMP_supply)
+cols_UWMP_demand <- colnames(UWMP_demand)
+UWMP_fields <- unique(append(cols_UWMP_demand, cols_UWMP_supply))
+
+write_rds(UWMP_fields, "data/UWMP_fields.rds")
+```
+
+## Explore Water Loss Report Data (Converted to Acre-Feet)
+```{r message=FALSE, warning=FALSE}
+WLR <- readxl::read_excel("data-raw/water_audit_data_conv_to_af.xlsx") %>% 
+  filter(REPORTING_YEAR == 2020, WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>% 
+  glimpse()
+
+unique(WLR$WATER_SUPPLIER_NAME)
+
+WLR_fields <- colnames(WLR)
+write_rds(WLR_fields, "data/WLR_fields.rds")
+```
+
+```{r}
+report_1 <- "Urban Water Managment Plan"
+report_2 <- "Water Loss Report"
+metric <- "Volume Water Supplied in Acre Feet"
+volumne_water_supplied_UWMP <- UWMP_supply$VOLUME_OF_WATER_SUPPLIED_AF
+volume_water_supplied_WLR <-  WLR$WS_WATER_SUPPLIED_VOL_AF
+
+delta_water_supplied <- volumne_water_supplied_UWMP - volume_water_supplied_WLR
+delta_water_supplied_percent <- volumne_water_supplied_UWMP / (volume_water_supplied_WLR - 1)
+```
+
+The difference in the `r metric` between the `r report_1` and `r report_2` is: `r delta_water_supplied`. The % difference is: `r delta_water_supplied_percent`
+
+## Explore Conservation Report Data 
+```{r}
+conservation_report <- readxl::read_excel("data-raw/conservation-report-uw-supplier-data120721.xlsx") %>% 
+  glimpse
+
+conservation_report_fields <- colnames(conservation_report)
+write_rds(conservation_report_fields, "data/conservation_report_fields.rds")
+```
+## Explore EAR Report Data 
+```{r}
+EAR_report <- read.delim("data-raw/EAR_ResultSet_2020RY.txt") %>% 
+  glimpse
+# Lots of fields here, not sure how to best select metrics of interest 
+EAR_fields <- unique(EAR_report$QuestionName)
+```

@@ -83,13 +83,33 @@ volume_supplied_report_2 <- "WS_WATER_SUPPLIED_VOL_AF"
 
 ``` r
 metric_report_1 <- data_report_1 %>% pull(volume_supplied_report_1)
-metric_report_2 <-  data_report_2 %>% pull(volume_supplied_report_2)
+metric_report_1
+```
 
+    ## [1] 2037.742
+
+``` r
+metric_report_2 <-  data_report_2 %>% pull(volume_supplied_report_2)
+metric_report_2 
+```
+
+    ## [1] 2029.947
+
+``` r
 delta_water_supplied <- metric_report_1 - metric_report_2
+delta_water_supplied
+```
+
+    ## [1] 7.794975
+
+``` r
 delta_water_supplied_percent <- (metric_report_1 / metric_report_2 - 1) * 100
 ```
 
 The *difference* in the Volume Water Supplied in Acre Feet between the
-Urban Water Managment Plan and Water Loss Report is: 7.7949751.
+Urban Water Managment Plan and Water Loss Report is: 7.7949751 Acre
+Feet.
 
 The *percent difference* is: 0.383999 %.
+
+## If % differnce is significant (define what significant is), why is it different?

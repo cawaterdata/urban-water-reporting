@@ -11,7 +11,7 @@ Erin Cain
 \*Many other tables that may be useful to look at
 
 ``` r
-UWMP_demand <- readxl::read_excel("data-raw/uwmp_table_4_3_w_view_conv_to_af.xlsx") %>% 
+UWMP_demand <- readxl::read_excel("../data-raw/uwmp_table_4_3_w_view_conv_to_af.xlsx") %>% 
   filter(WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>%
   glimpse()
 ```
@@ -32,7 +32,7 @@ UWMP_demand <- readxl::read_excel("data-raw/uwmp_table_4_3_w_view_conv_to_af.xls
     ## $ WATER_DEMAND_VOLUME_2045_AF <dbl> 64.44664
 
 ``` r
-UWMP_supply <- readxl::read_excel("data-raw/uwmp_table_2_2_r_conv_to_af.xlsx") %>% 
+UWMP_supply <- readxl::read_excel("../data-raw/uwmp_table_2_2_r_conv_to_af.xlsx") %>% 
   filter(WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>%
   glimpse()
 ```
@@ -61,13 +61,13 @@ cols_UWMP_supply <- colnames(UWMP_supply)
 cols_UWMP_demand <- colnames(UWMP_demand)
 UWMP_fields <- unique(append(cols_UWMP_demand, cols_UWMP_supply))
 
-write_rds(UWMP_fields, "data/UWMP_fields.rds")
+# write_rds(UWMP_fields, "../data/UWMP_fields.rds")
 ```
 
 ## Explore Water Loss Report Data (Converted to Acre-Feet)
 
 ``` r
-WLR <- readxl::read_excel("data-raw/water_audit_data_conv_to_af.xlsx") %>% 
+WLR <- readxl::read_excel("../data-raw/water_audit_data_conv_to_af.xlsx") %>% 
   filter(REPORTING_YEAR == 2020, WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>% 
   glimpse()
 ```
@@ -211,7 +211,7 @@ unique(WLR$WATER_SUPPLIER_NAME)
 
 ``` r
 WLR_fields <- colnames(WLR)
-write_rds(WLR_fields, "data/WLR_fields.rds")
+# write_rds(WLR_fields, "../data/WLR_fields.rds")
 ```
 
 ``` r
@@ -232,7 +232,7 @@ difference is: 1.0043347
 ## Explore Conservation Report Data
 
 ``` r
-conservation_report <- readxl::read_excel("data-raw/conservation-report-uw-supplier-data120721.xlsx") %>% 
+conservation_report <- readxl::read_excel("../data-raw/conservation-report-uw-supplier-data120721.xlsx") %>% 
   glimpse
 ```
 
@@ -269,13 +269,13 @@ conservation_report <- readxl::read_excel("data-raw/conservation-report-uw-suppl
 
 ``` r
 conservation_report_fields <- colnames(conservation_report)
-write_rds(conservation_report_fields, "data/conservation_report_fields.rds")
+# write_rds(conservation_report_fields, "../data/conservation_report_fields.rds")
 ```
 
 ## Explore EAR Report Data
 
 ``` r
-EAR_report <- read.delim("data-raw/EAR_ResultSet_2020RY.txt") %>% 
+EAR_report <- read.delim("../data-raw/EAR_ResultSet_2020RY.txt") %>% 
   glimpse
 ```
 
@@ -292,6 +292,178 @@ EAR_report <- read.delim("data-raw/EAR_ResultSet_2020RY.txt") %>%
     ## $ OldShortName_QuestionText <chr> "Water System No", "Water System Name", "Wat~
 
 ``` r
+filtered_EAR_report <- EAR_report %>% 
+  filter(SurveyName == "2020 EAR", SectionID %in% c("06 Supply-Delivery")) %>% 
+  mutate(QuestionType = substr(QuestionName, start = 1, stop = 2),
+         month = stringr::str_extract(QuestionName, month.abb),
+         # length = length(QuestionName),
+         category = ifelse(is.na(month), 
+                           substr(QuestionName, start = 3, stop = length(QuestionName)), 
+                           substr(QuestionName, start = 6, stop = length(QuestionName)))) %>% glimpse()
+```
+
+    ## Warning in stri_extract_first_regex(string, pattern, opts_regex =
+    ## opts(pattern)): longer object length is not a multiple of shorter object length
+
+    ## Rows: 963,519
+    ## Columns: 12
+    ## $ ï..WSID                   <chr> "CA0103040", "CA0103040", "CA0103040", "CA01~
+    ## $ SurveyName                <chr> "2020 EAR", "2020 EAR", "2020 EAR", "2020 EA~
+    ## $ WSSurveyID                <chr> "429644", "429644", "429644", "429644", "429~
+    ## $ QuestionID                <chr> "28580", "28593", "28594", "28581", "28582",~
+    ## $ SectionID                 <chr> "06 Supply-Delivery", "06 Supply-Delivery", ~
+    ## $ Order                     <chr> "6.001", "6.002", "6.003", "6.004", "6.005",~
+    ## $ QuestionName              <chr> "WPReportedElsewhere", "WPReportNames", "WPR~
+    ## $ QuestionResults           <chr> "No", "", "", "G", "M", "", "2600", "2960", ~
+    ## $ OldShortName_QuestionText <chr> "Are any questions in this section reported ~
+    ## $ QuestionType              <chr> "WP", "WP", "WP", "WP", "WP", "WP", "WP", "W~
+    ## $ month                     <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ~
+    ## $ category                  <chr> "ReportedElsewhere", "ReportNames", "ReportE~
+
+``` r
+unique(filtered_EAR_report$month)
+```
+
+    ##  [1] NA    "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov"
+    ## [13] "Dec"
+
+``` r
 # Lots of fields here, not sure how to best select metrics of interest 
-EAR_fields <- unique(EAR_report$QuestionName)
+
+EAR_fields <- unique(filtered_EAR_report$QuestionName)
+EAR_fields
+```
+
+    ##   [1] "WPReportedElsewhere"               "WPReportNames"                    
+    ##   [3] "WPReportEntity"                    "WPUnitsofMeasure"                 
+    ##   [5] "WPVolumeType"                      "WPNoGW"                           
+    ##   [7] "WPJanGW"                           "WPFebGW"                          
+    ##   [9] "WPMarGW"                           "WPAprGW"                          
+    ##  [11] "WPMayGW"                           "WPJunGW"                          
+    ##  [13] "WPJulGW"                           "WPAugGW"                          
+    ##  [15] "WPSepGW"                           "WPOctGW"                          
+    ##  [17] "WPNovGW"                           "WPDecGW"                          
+    ##  [19] "WPAnnualGW"                        "WPPTGW"                           
+    ##  [21] "WPNoSW"                            "WPJanSW"                          
+    ##  [23] "WPFebSW"                           "WPMarSW"                          
+    ##  [25] "WPAprSW"                           "WPMaySW"                          
+    ##  [27] "WPJunSW"                           "WPJulSW"                          
+    ##  [29] "WPAugSW"                           "WPSepSW"                          
+    ##  [31] "WPOctSW"                           "WPNovSW"                          
+    ##  [33] "WPDecSW"                           "WPAnnualSW"                       
+    ##  [35] "WPNoPurchased"                     "WPJanPurchased"                   
+    ##  [37] "WPFebPurchased"                    "WPMarPurchased"                   
+    ##  [39] "WPAprPurchased"                    "WPMayPurchased"                   
+    ##  [41] "WPJunPurchased"                    "WPJulPurchased"                   
+    ##  [43] "WPAugPurchased"                    "WPSepPurchased"                   
+    ##  [45] "WPOctPurchased"                    "WPNovPurchased"                   
+    ##  [47] "WPDecPurchased"                    "WPAnnualPurchased"                
+    ##  [49] "WPJanTotal"                        "WPFebTotal"                       
+    ##  [51] "WPMarTotal"                        "WPAprTotal"                       
+    ##  [53] "WPMayTotal"                        "WPJunTotal"                       
+    ##  [55] "WPJulTotal"                        "WPAugTotal"                       
+    ##  [57] "WPSepTotal"                        "WPOctTotal"                       
+    ##  [59] "WPNovTotal"                        "WPDecTotal"                       
+    ##  [61] "WPAnnualTotal"                     "WPNoSold"                         
+    ##  [63] "WPJanSold"                         "WPFebSold"                        
+    ##  [65] "WPMarSold"                         "WPAprSold"                        
+    ##  [67] "WPMaySold"                         "WPJunSold"                        
+    ##  [69] "WPJulSold"                         "WPAugSold"                        
+    ##  [71] "WPSepSold"                         "WPOctSold"                        
+    ##  [73] "WPNovSold"                         "WPDecSold"                        
+    ##  [75] "WPAnnualSold"                      "WPNoNonPotable"                   
+    ##  [77] "WPJanNonPotable"                   "WPFebNonPotable"                  
+    ##  [79] "WPMarNonPotable"                   "WPAprNonPotable"                  
+    ##  [81] "WPMayNonPotable"                   "WPJunNonPotable"                  
+    ##  [83] "WPJulNonPotable"                   "WPAugNonPotable"                  
+    ##  [85] "WPSepNonPotable"                   "WPOctNonPotable"                  
+    ##  [87] "WPNovNonPotable"                   "WPDecNonPotable"                  
+    ##  [89] "WPAnnualNonPotable"                "WPNoRecycled"                     
+    ##  [91] "WPJanRecycled"                     "WPFebRecycled"                    
+    ##  [93] "WPMarRecycled"                     "WPAprRecycled"                    
+    ##  [95] "WPMayRecycled"                     "WPJunRecycled"                    
+    ##  [97] "WPJulRecycled"                     "WPAugRecycled"                    
+    ##  [99] "WPSepRecycled"                     "WPOctRecycled"                    
+    ## [101] "WPNovRecycled"                     "WPDecRecycled"                    
+    ## [103] "WPAnnualRecycled"                  "WPMaxDayDate"                     
+    ## [105] "WPMaxDayGW"                        "WPMaxDaySW"                       
+    ## [107] "WPMaxDayPurchased"                 "WPMaxDayTotal"                    
+    ## [109] "WPMaxDaySold"                      "WPRecycledGrid"                   
+    ## [111] "WPComments"                        "WDNoWaterDelivery"                
+    ## [113] "WDUnitofMeasure"                   "WDNoSF"                           
+    ## [115] "WDNoMF"                            "WDNoCI"                           
+    ## [117] "WDNoI"                             "WDNoLI"                           
+    ## [119] "WDNoO"                             "WDNoA"                            
+    ## [121] "WDJanSF"                           "WDFebSF"                          
+    ## [123] "WDMarSF"                           "WDAprSF"                          
+    ## [125] "WDMaySF"                           "WDJunSF"                          
+    ## [127] "WDJulSF"                           "WDAugSF"                          
+    ## [129] "WDSepSF"                           "WDOctSF"                          
+    ## [131] "WDNovSF"                           "WDDecSF"                          
+    ## [133] "WDPercentRecycledSF"               "WDAnnualSF"                       
+    ## [135] "WDJanMF"                           "WDFebMF"                          
+    ## [137] "WDMarMF"                           "WDAprMF"                          
+    ## [139] "WDMayMF"                           "WDJunMF"                          
+    ## [141] "WDJulMF"                           "WDAugMF"                          
+    ## [143] "WDSepMF"                           "WDOctMF"                          
+    ## [145] "WDNovMF"                           "WDDecMF"                          
+    ## [147] "WDPercentRecycledMF"               "WDAnnualMF"                       
+    ## [149] "WDJanCI"                           "WDFebCI"                          
+    ## [151] "WDMarCI"                           "WDAprCI"                          
+    ## [153] "WDMayCI"                           "WDJunCI"                          
+    ## [155] "WDJulCI"                           "WDAugCI"                          
+    ## [157] "WDSepCI"                           "WDOctCI"                          
+    ## [159] "WDNovCI"                           "WDDecCI"                          
+    ## [161] "WDPercentRecycledCI"               "WDAnnualCI"                       
+    ## [163] "WDJanI"                            "WDFebI"                           
+    ## [165] "WDMarI"                            "WDAprI"                           
+    ## [167] "WDMayI"                            "WDJunI"                           
+    ## [169] "WDJulI"                            "WDAugI"                           
+    ## [171] "WDSepI"                            "WDOctI"                           
+    ## [173] "WDNovI"                            "WDDecI"                           
+    ## [175] "WDPercentRecycledI"                "WDAnnualI"                        
+    ## [177] "WDJanLI"                           "WDFebLI"                          
+    ## [179] "WDMarLI"                           "WDAprLI"                          
+    ## [181] "WDMayLI"                           "WDJunLI"                          
+    ## [183] "WDJulLI"                           "WDAugLI"                          
+    ## [185] "WDSepLI"                           "WDOctLI"                          
+    ## [187] "WDNovLI"                           "WDDecLI"                          
+    ## [189] "WDPercentRecycledLI"               "WDAnnualLI"                       
+    ## [191] "WDJanO"                            "WDFebO"                           
+    ## [193] "WDMarO"                            "WDAprO"                           
+    ## [195] "WDMayO"                            "WDJunO"                           
+    ## [197] "WDJulO"                            "WDAugO"                           
+    ## [199] "WDSepO"                            "WDOctO"                           
+    ## [201] "WDNovO"                            "WDDecO"                           
+    ## [203] "WDPercentRecycledO"                "WDAnnualO"                        
+    ## [205] "WDJanTotal"                        "WDFebTotal"                       
+    ## [207] "WDMarTotal"                        "WDAprTotal"                       
+    ## [209] "WDMayTotal"                        "WDJunTotal"                       
+    ## [211] "WDJulTotal"                        "WDAugTotal"                       
+    ## [213] "WDSepTotal"                        "WDOctTotal"                       
+    ## [215] "WDNovTotal"                        "WDDecTotal"                       
+    ## [217] "WDAnnualTotal"                     "WDJanA"                           
+    ## [219] "WDFebA"                            "WDMarA"                           
+    ## [221] "WDAprA"                            "WDMayA"                           
+    ## [223] "WDJunA"                            "WDJulA"                           
+    ## [225] "WDAugA"                            "WDSepA"                           
+    ## [227] "WDOctA"                            "WDNovA"                           
+    ## [229] "WDDecA"                            "WDPercentRecycledA"               
+    ## [231] "WDAnnualA"                         "WDJanOP"                          
+    ## [233] "WDFebOP"                           "WDMarOP"                          
+    ## [235] "WDAprOP"                           "WDMayOP"                          
+    ## [237] "WDJunOP"                           "WDJulOP"                          
+    ## [239] "WDAugOP"                           "WDSepOP"                          
+    ## [241] "WDOctOP"                           "WDNovOP"                          
+    ## [243] "WDDecOP"                           "WDPercentRecycledOP"              
+    ## [245] "WDAnnualOP"                        "WDCommercialIncludesResidential"  
+    ## [247] "WDIndustrialIincludesResidential"  "WDLandscapeIncludesResidential"   
+    ## [249] "WDDedicatedIrrigationMeters"       "WDCIIIrrigationUnit"              
+    ## [251] "WDCIIIrrigationVolume"             "WDCIIIrrigationVolumeNotCollected"
+    ## [253] "WDCIIIrrigationComments"           "WDParklandsOrTrees"               
+    ## [255] "WDPercentParklands"                "WDPercentTrees"                   
+    ## [257] "WDPercentNotCollected"             "WDComments"
+
+``` r
+metrics_of_interest <- c("WPAnnualTotal", "WDAnnualTotal")
 ```

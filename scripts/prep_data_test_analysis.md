@@ -11,6 +11,7 @@ Erin Cain
 \*Many other tables that may be useful to look at
 
 ``` r
+# May want to look at retail total water demands as well 
 UWMP_demand <- readxl::read_excel("../data-raw/uwmp_table_4_3_w_view_conv_to_af.xlsx") %>% 
   filter(WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>%
   glimpse()
@@ -57,11 +58,15 @@ unique(UWMP_supply$WATER_SUPPLIER_NAME)
     ## [1] "Healdsburg  City Of"
 
 ``` r
-cols_UWMP_supply <- colnames(UWMP_supply)
-cols_UWMP_demand <- colnames(UWMP_demand)
-UWMP_fields <- unique(append(cols_UWMP_demand, cols_UWMP_supply))
+UWMP_supply_fields <- colnames(UWMP_supply)
 
-# write_rds(UWMP_fields, "../data/UWMP_fields.rds")
+UWMP_demand_fields <- colnames(UWMP_demand)
+
+# UWMP_fields <- unique(append(cols_UWMP_demand, cols_UWMP_supply))
+
+
+write_rds(UWMP_demand_fields, "../data/UWMP_demand_fields.rds")
+write_rds(UWMP_supply_fields, "../data/UWMP_supply_fields.rds")
 ```
 
 ## Explore Water Loss Report Data (Converted to Acre-Feet)
@@ -211,23 +216,16 @@ unique(WLR$WATER_SUPPLIER_NAME)
 
 ``` r
 WLR_fields <- colnames(WLR)
+
+WLR_supply_fields <- WLR_fields[stringr::str_detect(colnames(WLR), "^WS")]
+WLR_demand_fields <- WLR_fields[stringr::str_detect(colnames(WLR), "^AC")]
+WLR_other_fields <- WLR_fields[!stringr::str_detect(colnames(WLR), "^AC") & !stringr::str_detect(colnames(WLR), "^WS")]
 # write_rds(WLR_fields, "../data/WLR_fields.rds")
+
+write_rds(WLR_supply_fields, "../data/WLR_supply_fields.rds")
+write_rds(WLR_demand_fields, "../data/WLR_demand_fields.rds")
+write_rds(WLR_other_fields, "../data/WLR_other_fields.rds")
 ```
-
-``` r
-report_1 <- "Urban Water Managment Plan"
-report_2 <- "Water Loss Report"
-metric <- "Volume Water Supplied in Acre Feet"
-volumne_water_supplied_UWMP <- UWMP_supply$VOLUME_OF_WATER_SUPPLIED_AF
-volume_water_supplied_WLR <-  WLR$WS_WATER_SUPPLIED_VOL_AF
-
-delta_water_supplied <- volumne_water_supplied_UWMP - volume_water_supplied_WLR
-delta_water_supplied_percent <- volumne_water_supplied_UWMP / (volume_water_supplied_WLR - 1)
-```
-
-The difference in the Volume Water Supplied in Acre Feet between the
-Urban Water Managment Plan and Water Loss Report is: 7.7949751. The %
-difference is: 1.0043347
 
 ## Explore Conservation Report Data
 
@@ -269,7 +267,30 @@ conservation_report <- readxl::read_excel("../data-raw/conservation-report-uw-su
 
 ``` r
 conservation_report_fields <- colnames(conservation_report)
+
+conservation_background_fields <- c("Supplier Name", "Public Water System ID", "Reporting Month", "County", 
+                                    "Hydrologic Region", "Climate Zone", "Total Population Served", 
+                                    "Reference 2014 Population", "County Under Drought Declaration", 
+                                    "Water Shortage Contingency Stage Invoked", "Water Shortage Level Indicator", 
+                                    "Water Production Units")
+
+conservation_supply_fields <- c("REPORTED PRELIMINARY Total Potable Water Production", "REPORTED FINAL Total Potable Water Production")
+
+conservation_demand_fields <- c("PRELIMINARY Percent Residential Use","FINAL Percent Residential Use", 
+                                "REPORTED PRELIMINARY Commercial Agricultural Water", "REPORTED FINAL Commercial Agricultural Water", 
+                                "REPORTED PRELIMINARY Commercial, Industrial, and Institutional Water", 
+                                "REPORTED FINAL Commercial, Industrial, and Institutional Water", "REPORTED Recycled Water", 
+                                "REPORTED Non-Revenue Water")
+
+conservation_calculated_fields <- c("CALCULATED Total Potable Water Production Gallons (Ag Excluded)", 
+                                    "CALCULATED Total Potable Water Production Gallons 2013 (Ag Excluded)", 
+                                    "CALCULATED Commercial Agricultural Water Gallons", 
+                                    "CALCULATED Commercial Agricultural Water Gallons 2013", "CALCULATED R-GPCD", "Qualification")
 # write_rds(conservation_report_fields, "../data/conservation_report_fields.rds")
+write_rds(conservation_supply_fields, "../data/conservation_supply_fields.rds")
+write_rds(conservation_demand_fields, "../data/conservation_demand_fields.rds")
+write_rds(conservation_calculated_fields, "../data/conservation_calculated_fields.rds")
+write_rds(conservation_background_fields, "../data/conservation_background_fields.rds")
 ```
 
 ## Explore EAR Report Data
@@ -465,5 +486,12 @@ EAR_fields
     ## [257] "WDPercentNotCollected"             "WDComments"
 
 ``` r
+EAR_supply_fields <- EAR_fields[stringr::str_detect(EAR_fields, "^WP")]
+EAR_demand_fields <- EAR_fields[stringr::str_detect(EAR_fields, "^WD")]
+
+write_rds(EAR_supply_fields, "../data/EAR_supply_fields.rds")
+write_rds(EAR_demand_fields, "../data/EAR_demand_fields.rds")
+
+
 metrics_of_interest <- c("WPAnnualTotal", "WDAnnualTotal")
 ```

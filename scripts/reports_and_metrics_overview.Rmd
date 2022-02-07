@@ -32,7 +32,7 @@ There are 5 different reports that must be compared with each other. There are 1
 # Conservation Report Metrics
 readr::read_rds("../data/conservation_supply_fields.rds")
 
-# Some of UWMP Metrics (many more tables we could pull from)
+# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.* 
 readr::read_rds("../data/UWMP_supply_fields.rds")
 
 # Water Loss Report Metrics
@@ -47,10 +47,10 @@ readr::read_rds("../data/EAR_supply_fields.rds")
 
 Total Water Supplied appears to be reported under different names across the 4 reports: 
 
-* **Conservation Report:** `"REPORTED FINAL Total Potable Water Production"`(units: see `"Water Production Units"`)
-* **UWMP:** `"VOLUME_OF_WATER_SUPPLIED_AF"` (units: Acre Feet)
-* **WLR:** `"WS_WATER_SUPPLIED_VOL_AF"` (units: Acre Feet)
-* **EAR** `"WPAnnualTotal"` (units: see `"WPUnitsofMeasure"`)
+* **Conservation Report:** `"REPORTED FINAL Total Potable Water Production"`(units: see `"Water Production Units"`) Monthly data sum to find annual value. 
+* **UWMP:** `"VOLUME_OF_WATER_SUPPLIED_AF"` (units: Acre Feet) Annually but looks like some agencies also provided monthly in report  
+* **WLR:** `"WS_WATER_SUPPLIED_VOL_AF"` (units: Acre Feet) Annually only 
+* **EAR** `"WPAnnualTotal"` (units: see `"WPUnitsofMeasure"`) Monthly and annually 
 
 
 ### Water Demand Metrics Reported 
@@ -59,7 +59,7 @@ Total Water Supplied appears to be reported under different names across the 4 r
 # Conservation Report Metrics
 readr::read_rds("../data/conservation_demand_fields.rds")
 
-# Some of UWMP Metrics (many more tables we could pull from)
+# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.* 
 readr::read_rds("../data/UWMP_demand_fields.rds")
 
 # Water Loss Report Metrics
@@ -76,7 +76,7 @@ Total Water Demand is reported in 3? of the 4 reports and can be calculated from
 * **Conservation Report:** Need to sum up to get total 
 * **UWMP:** `"WATER_DEMAND_VOLUME_2020_AF"` (units: Acre Feet)
 * **WLR:** `"AC_AUTH_CONSUMPTION_VOL_AF"?` (units: Acre Feet)
-* **EAR:** `"WDAnnualTotal"`
+* **EAR:** `"WDAnnualTotal"` 
 
 ### Other Fields 
 ```{r}

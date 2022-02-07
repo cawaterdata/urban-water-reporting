@@ -33,7 +33,7 @@ readr::read_rds("../data/conservation_supply_fields.rds")
     ## [2] "REPORTED FINAL Total Potable Water Production"
 
 ``` r
-# Some of UWMP Metrics (many more tables we could pull from)
+# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.* 
 readr::read_rds("../data/UWMP_supply_fields.rds")
 ```
 
@@ -113,10 +113,14 @@ the 4 reports:
 
 -   **Conservation Report:**
     `"REPORTED FINAL Total Potable Water Production"`(units: see
-    `"Water Production Units"`)
+    `"Water Production Units"`) Monthly data sum to find annual value.
 -   **UWMP:** `"VOLUME_OF_WATER_SUPPLIED_AF"` (units: Acre Feet)
--   **WLR:** `"WS_WATER_SUPPLIED_VOL_AF"` (units: Acre Feet)
--   **EAR** `"WPAnnualTotal"` (units: see `"WPUnitsofMeasure"`)
+    Annually but looks like some agencies also provided monthly in
+    report  
+-   **WLR:** `"WS_WATER_SUPPLIED_VOL_AF"` (units: Acre Feet) Annually
+    only
+-   **EAR** `"WPAnnualTotal"` (units: see `"WPUnitsofMeasure"`) Monthly
+    and annually
 
 ### Water Demand Metrics Reported
 
@@ -135,7 +139,7 @@ readr::read_rds("../data/conservation_demand_fields.rds")
     ## [8] "REPORTED Non-Revenue Water"
 
 ``` r
-# Some of UWMP Metrics (many more tables we could pull from)
+# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.* 
 readr::read_rds("../data/UWMP_demand_fields.rds")
 ```
 

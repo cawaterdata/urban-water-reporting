@@ -61,11 +61,13 @@ unique(UWMP_supply$WATER_SUPPLIER_NAME)
 UWMP_supply_fields <- colnames(UWMP_supply)
 
 UWMP_demand_fields <- colnames(UWMP_demand)
+UWMP_demand_types <- unique(pull(readxl::read_excel("../data-raw/uwmp_table_4_3_w_view_conv_to_af.xlsx"), "WATER_DEMAND_TYPE"))
 
 # UWMP_fields <- unique(append(cols_UWMP_demand, cols_UWMP_supply))
 
 
 write_rds(UWMP_demand_fields, "../data/UWMP_demand_fields.rds")
+write_rds(UWMP_demand_types, "../data/UWMP_demand_types.rds")
 write_rds(UWMP_supply_fields, "../data/UWMP_supply_fields.rds")
 ```
 

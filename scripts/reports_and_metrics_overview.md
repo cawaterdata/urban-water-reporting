@@ -25,6 +25,8 @@ Objective.
 
 ### Water Supply Metrics Reported
 
+#### Conservation Report Supply
+
 ``` r
 # Conservation Report Metrics
 readr::read_rds("../data/conservation_supply_fields.rds")
@@ -33,16 +35,22 @@ readr::read_rds("../data/conservation_supply_fields.rds")
     ## [1] "REPORTED PRELIMINARY Total Potable Water Production"
     ## [2] "REPORTED FINAL Total Potable Water Production"
 
+The only supply metric required by the conservation report is
+`Total Potable Water Production`.
+
+#### UWMP Supply
+
 ``` r
-# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.* 
-readr::read_rds("../data/UWMP_supply_fields.rds")
+# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.*
+readr::read_rds("../data/UWMP_supply_fields.rds")[10]
 ```
 
-    ##  [1] "ORG_ID"                       "WATER_SUPPLIER_NAME"         
-    ##  [3] "WORKSHEET_NAME"               "REVIEWED_BY_DWR"             
-    ##  [5] "REQUIREMENTS_ADDRESSED"       "WP_WUEDATA_PLAN_ID"          
-    ##  [7] "PUBLIC_WATER_SYSTEM_NUMBER"   "PUBLIC_WATER_SYSTEM_NAME"    
-    ##  [9] "NUMBER_MUNICIPAL_CONNECTIONS" "VOLUME_OF_WATER_SUPPLIED_AF"
+    ## [1] "VOLUME_OF_WATER_SUPPLIED_AF"
+
+There may be additional supply metrics reported by the UWMP in different
+tables. (TODO investigate this.)
+
+#### WLR Supply
 
 ``` r
 # Water Loss Report Metrics
@@ -63,6 +71,14 @@ readr::read_rds("../data/WLR_supply_fields.rds")
     ## [23] "WS_EXPORTED_ERR_VOL"         "WS_EXPORTED_ERR_VOL_AF"     
     ## [25] "WS_WATER_SUPPLIED_VOL"       "WS_WATER_SUPPLIED_VOL_AF"   
     ## [27] "WS_UNITS_SHORT"
+
+The Water Loss Report Splits Supply into 3 categories:
+
+-   Own Sources
+-   Imported
+-   Exported
+
+#### EAR Supply
 
 ``` r
 # EAR 
@@ -107,6 +123,17 @@ readr::read_rds("../data/EAR_supply_fields.rds")
     ## [106] "WPMaxDaySW"          "WPMaxDayPurchased"   "WPMaxDayTotal"      
     ## [109] "WPMaxDaySold"        "WPRecycledGrid"      "WPComments"
 
+Supply metrics in the EAR report fall into the following categories:
+
+-   Ground Water
+-   Surface Water
+-   Purchased
+-   Sold
+-   Recycled
+-   Potable
+-   Non Potable
+-   Total
+
 #### Shared Supply Metrics
 
 Total Water Supplied appears to be reported under different names across
@@ -114,7 +141,8 @@ the 4 reports:
 
 -   **Conservation Report:**
     `"REPORTED FINAL Total Potable Water Production"`(units: see
-    `"Water Production Units"`) Monthly data sum to find annual value.
+    `"Water Production Units"`) We will need to sum the monthly data to
+    find annual value.
 -   **UWMP:** `"VOLUME_OF_WATER_SUPPLIED_AF"` (units: Acre Feet)
     Annually but looks like some agencies also provided monthly in
     report  
@@ -123,7 +151,14 @@ the 4 reports:
 -   **EAR** `"WPAnnualTotal"` (units: see `"WPUnitsofMeasure"`) Monthly
     and annually
 
+Some reports have additional breakdowns of supply metrics and we may be
+able to compare the supply from imported sources, supply from ground
+water, supply from surface water, supply from recycled water, supply of
+non potable water, and exported water.
+
 ### Water Demand Metrics Reported
+
+#### Conservation Report Demand
 
 ``` r
 # Conservation Report Metrics
@@ -139,17 +174,38 @@ readr::read_rds("../data/conservation_demand_fields.rds")
     ## [7] "REPORTED Recycled Water"                                             
     ## [8] "REPORTED Non-Revenue Water"
 
+Demand in the Conservation Report is split up by type:
+
+-   Commercial Agricultural Water
+-   Commercial, Industrial, and Institutional Water
+-   Recycled Water
+-   Non-Revenue Water
+-   % Residential (Can calculate volume residential by
+    `Total Potable Water Production` \* `Percent Residential Use`)
+
+#### UWMP Demand
+
 ``` r
-# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.* 
-readr::read_rds("../data/UWMP_demand_fields.rds")
+# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.*
+readr::read_rds("../data/UWMP_demand_fields.rds")[6:12]
 ```
 
-    ##  [1] "ORG_ID"                      "WATER_SUPPLIER_NAME"        
-    ##  [3] "WORKSHEET_NAME"              "REVIEWED_BY_DWR"            
-    ##  [5] "REQUIREMENTS_ADDRESSED"      "WATER_DEMAND_TYPE"          
-    ##  [7] "WATER_DEMAND_VOLUME_2020_AF" "WATER_DEMAND_VOLUME_2025_AF"
-    ##  [9] "WATER_DEMAND_VOLUME_2030_AF" "WATER_DEMAND_VOLUME_2035_AF"
-    ## [11] "WATER_DEMAND_VOLUME_2040_AF" "WATER_DEMAND_VOLUME_2045_AF"
+    ## [1] "WATER_DEMAND_TYPE"           "WATER_DEMAND_VOLUME_2020_AF"
+    ## [3] "WATER_DEMAND_VOLUME_2025_AF" "WATER_DEMAND_VOLUME_2030_AF"
+    ## [5] "WATER_DEMAND_VOLUME_2035_AF" "WATER_DEMAND_VOLUME_2040_AF"
+    ## [7] "WATER_DEMAND_VOLUME_2045_AF"
+
+UWMP gives the total water demand and the forcasted demand for the
+following demand types:
+
+``` r
+# Demand types:
+readr::read_rds("../data/UWMP_demand_types.rds")
+```
+
+    ## [1] "Potable and Raw Water" "Recycled Water Demand"
+
+#### Water Loss Report Demand
 
 ``` r
 # Water Loss Report Metrics
@@ -165,6 +221,21 @@ readr::read_rds("../data/WLR_demand_fields.rds")
     ## [13] "AC_UNBILL_UNMETER_ERR_ADJ_TYPE" "AC_UNBILL_UNMETER_ERR_PERCENT" 
     ## [15] "AC_UNBILL_UNMETER_ERR_VOL"      "AC_UNBILL_UNMETER_ERR_VOL_AF"  
     ## [17] "AC_AUTH_CONSUMPTION_VOL"        "AC_AUTH_CONSUMPTION_VOL_AF"
+
+The Water Loss Report Splits Demand into 4 categories:
+
+-   Billed metered
+-   Billed unmetered
+-   Unbilled metered
+-   Unbilled unmetered
+
+The total demand is recorded in `AC_AUTH_CONSUMPTION_VOL_AF` Authorized
+consumption is defined as: the volume of water taken by registered
+customers, the water supplier, and others who are implicitly or
+explicitly authorized to do so. Authorized consumption may be billed or
+unbilled, metered or unmetered.
+
+#### EAR Demand
 
 ``` r
 # EAR 
@@ -246,15 +317,35 @@ readr::read_rds("../data/EAR_demand_fields.rds")
     ## [145] "WDPercentTrees"                    "WDPercentNotCollected"            
     ## [147] "WDComments"
 
+Demand metrics in the EAR report fall into the following categories:
+
+-   Multi-Family
+-   Single Family
+-   Commercial Industrial
+-   Industrial
+-   Landscape Irrigation
+-   Agriculture
+-   Percent Recycled
+-   Other
+-   Total
+
 #### Shared Demand Metrics
 
 Total Water Demand is reported in 3? of the 4 reports and can be
-calculated from other demand measures: \* **Conservation Report:** Need
-to sum up to get total \* **UWMP:** `"WATER_DEMAND_VOLUME_2020_AF"`
-(units: Acre Feet) \* **WLR:** `"AC_AUTH_CONSUMPTION_VOL_AF"?` (units:
-Acre Feet) \* **EAR:** `"WDAnnualTotal"`
+calculated from other demand measures:
+
+-   **Conservation Report:** Need to sum up to get total
+-   **UWMP:** `"WATER_DEMAND_VOLUME_2020_AF"` In some cases may need to
+    sum up the two demand types to get total demand. (units: Acre Feet)
+-   **WLR:** `"AC_AUTH_CONSUMPTION_VOL_AF"?` (units: Acre Feet)
+-   **EAR:** `"WDAnnualTotal"` (Units listed in `WDUnitofMeasure`
+    column)
 
 ### Other Fields
+
+There are other fields reported that are not directly related to supply
+and demand. Some of those fields are listed below. The list below does
+not cover all other additional fields reported.
 
 ``` r
 # Conservation Report Metrics

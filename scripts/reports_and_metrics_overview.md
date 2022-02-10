@@ -9,13 +9,14 @@ There are 5 different reports that must be compared with each other.
 There are 10 total comparisons that must be done for each metric. Each
 comparison is shown below:
 
-| UWMP                      | Conservation | eAR | Water Loss | Supply & Demand\* | Water Use Objective\* |
-|---------------------------|--------------|-----|------------|-------------------|-----------------------|
-| **Conservation**          | \-           | 1   | 2          | 3                 | 4                     |
-| **eAR**                   | \-           | \-  | 5          | 6                 | 7                     |
-| **Water Loss**            | \-           | \-  | \-         | 8                 | 9                     |
-| **Supply & Demand**\*     | \-           | \-  | \-         | \-                | 10                    |
-| **Water Use Objective**\* | \-           | \-  | \-         | \-                | \-                    |
+|                           | UWMP | Conservation | eAR | Water Loss | Supply & Demand\* | Water Use Objective\* |
+|---------------------------|------|--------------|-----|------------|-------------------|-----------------------|
+| **UWMP**                  | \-   | 1            | 2   | 3          | 4                 | 5                     |
+| **Conservation**          | \-   | \-           | 6   | 7          | 8                 | 9                     |
+| **eAR**                   | \-   | \-           | \-  | 10         | 11                | 12                    |
+| **Water Loss**            | \-   | \-           | \-  | \-         | 13                | 14                    |
+| **Supply & Demand**\*     | \-   | \-           | \-  | \-         | \-                | 15                    |
+| **Water Use Objective**\* | \-   | \-           | \-  | \-         | \-                | \-                    |
 
 \*No data reported yet for Supply & Demand assessment or Water Use
 Objective.

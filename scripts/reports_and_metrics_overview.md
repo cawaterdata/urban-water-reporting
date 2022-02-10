@@ -6,8 +6,7 @@ Erin Cain
 ## Reports
 
 There are 5 different reports that must be compared with each other.
-There are 10 total comparisons that must be done for each metric. Each
-comparison is shown below:
+Each comparison is shown below:
 
 |                           | UWMP | Conservation | eAR | Water Loss | Supply & Demand\* | Water Use Objective\* |
 |---------------------------|------|--------------|-----|------------|-------------------|-----------------------|

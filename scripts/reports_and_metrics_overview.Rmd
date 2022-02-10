@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Reports 
 
-There are 5 different reports that must be compared with each other. There are 10 total comparisons that must be done for each metric. Each comparison is shown below: 
+There are 5 different reports that must be compared with each other. Each comparison is shown below: 
 
 
 |  | UWMP| Conservation| eAR| Water Loss| Supply & Demand* | Water Use Objective* | 

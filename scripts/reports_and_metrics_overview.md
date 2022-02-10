@@ -11,11 +11,11 @@ comparison is shown below:
 
 |                           | UWMP | Conservation | eAR | Water Loss | Supply & Demand\* | Water Use Objective\* |
 |---------------------------|------|--------------|-----|------------|-------------------|-----------------------|
-| **UWMP**                  | \-   | 1            | 2   | 3          | 4                 | 5                     |
-| **Conservation**          | \-   | \-           | 6   | 7          | 8                 | 9                     |
-| **eAR**                   | \-   | \-           | \-  | 10         | 11                | 12                    |
-| **Water Loss**            | \-   | \-           | \-  | \-         | 13                | 14                    |
-| **Supply & Demand**\*     | \-   | \-           | \-  | \-         | \-                | 15                    |
+| **UWMP**                  | \-   | 1            | 2   | 3          | \*                | \*                    |
+| **Conservation**          | \-   | \-           | 4   | 5          | \*                | \*                    |
+| **eAR**                   | \-   | \-           | \-  | 6          | \*                | \*                    |
+| **Water Loss**            | \-   | \-           | \-  | \-         | \*                | \*                    |
+| **Supply & Demand**\*     | \-   | \-           | \-  | \-         | \-                | \*                    |
 | **Water Use Objective**\* | \-   | \-           | \-  | \-         | \-                | \-                    |
 
 \*No data reported yet for Supply & Demand assessment or Water Use

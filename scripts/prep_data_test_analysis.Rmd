@@ -19,15 +19,13 @@ library(tidyverse)
 
 # May want to look at retail total water demands as well 
 UWMP_demand <- readxl::read_excel("../data-raw/uwmp_table_4_3_w_view_conv_to_af.xlsx") %>% 
-  filter(WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>%
   glimpse()
 
 UWMP_supply <- readxl::read_excel("../data-raw/uwmp_table_2_2_r_conv_to_af.xlsx") %>% 
-  filter(WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>%
   glimpse()
 
 
-unique(UWMP_supply$WATER_SUPPLIER_NAME)
+sort(unique(UWMP_supply$WATER_SUPPLIER_NAME))
 
 UWMP_supply_fields <- colnames(UWMP_supply)
 
@@ -45,10 +43,10 @@ write_rds(UWMP_supply_fields, "../data/UWMP_supply_fields.rds")
 ## Explore Water Loss Report Data (Converted to Acre-Feet)
 ```{r message=FALSE, warning=FALSE}
 WLR <- readxl::read_excel("../data-raw/water_audit_data_conv_to_af.xlsx") %>% 
-  filter(REPORTING_YEAR == 2020, WATER_SUPPLIER_NAME == "Healdsburg  City Of") %>% 
+  filter(REPORTING_YEAR == 2020) %>% 
   glimpse()
 
-unique(WLR$WATER_SUPPLIER_NAME)
+sort(unique(WLR$WATER_SUPPLIER_NAME))
 
 WLR_fields <- colnames(WLR)
 
@@ -67,6 +65,8 @@ write_rds(WLR_other_fields, "../data/WLR_other_fields.rds")
 ```{r}
 conservation_report <- readxl::read_excel("../data-raw/conservation-report-uw-supplier-data120721.xlsx") %>% 
   glimpse
+
+sort(unique(conservation_report$`Supplier Name`))
 
 conservation_report_fields <- colnames(conservation_report)
 
@@ -100,6 +100,8 @@ write_rds(conservation_background_fields, "../data/conservation_background_field
 EAR_report <- read.delim("../data-raw/EAR_ResultSet_2020RY.txt") %>% 
   glimpse
 
+EAR_report %>% glimpse()
+
 filtered_EAR_report <- EAR_report %>% 
   filter(SurveyName == "2020 EAR", SectionID %in% c("06 Supply-Delivery")) %>% 
   mutate(QuestionType = substr(QuestionName, start = 1, stop = 2),
@@ -108,6 +110,23 @@ filtered_EAR_report <- EAR_report %>%
          category = ifelse(is.na(month), 
                            substr(QuestionName, start = 3, stop = length(QuestionName)), 
                            substr(QuestionName, start = 6, stop = length(QuestionName)))) %>% glimpse()
+
+all_agencies <- sort(unique(EAR_report %>% filter(QuestionName == "PWSName") %>% pull(QuestionResults)))
+
+stringr::str_subset(all_agencies, "VALLEY WATER")
+stringr::str_subset(all_agencies, "MUD")
+stringr::str_subset(all_agencies, "ALAMEDA")
+stringr::str_subset(all_agencies, "SAN FRANCISCO")
+stringr::str_subset(all_agencies, "INLAND")
+stringr::str_subset(all_agencies, "LADWP")
+stringr::str_subset(all_agencies, "NAPA")
+stringr::str_subset(all_agencies, "MERCED")
+stringr::str_subset(all_agencies, "SANTA FE")
+stringr::str_subset(all_agencies, "SUNNY")
+
+pmatch(interview_agencies, all_agencies)
+
+all_agencies[3571]
 
 unique(filtered_EAR_report$month)
 # Lots of fields here, not sure how to best select metrics of interest 

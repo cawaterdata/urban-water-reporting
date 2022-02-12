@@ -37,35 +37,35 @@ What agency are we focused on? To pick this we looked across both
 reports and looked for an agency that participates in both.
 
 ``` r
-agency_of_interest <- "Healdsburg  City Of"
+agency_of_interest <- "Sante Fe Irrigarion District"
 ```
 
 Load in data:
 
 ``` r
 data_report_1 <- readxl::read_excel("../data-raw/uwmp_table_2_2_r_conv_to_af.xlsx") %>% 
-  filter(WATER_SUPPLIER_NAME == "Healdsburg  City Of")
+  filter(WATER_SUPPLIER_NAME == "Santa Fe Irrigation District")
 data_report_1
 ```
 
     ## # A tibble: 1 x 10
-    ##   ORG_ID WATER_SUPPLIER_NAME WORKSHEET_NAME     REVIEWED_BY_DWR REQUIREMENTS_AD~
-    ##    <dbl> <chr>               <chr>              <chr>           <chr>           
-    ## 1   1144 Healdsburg  City Of Table 2-1 Retail ~ No              N/A             
+    ##   ORG_ID WATER_SUPPLIER_NA~ WORKSHEET_NAME      REVIEWED_BY_DWR REQUIREMENTS_AD~
+    ##    <dbl> <chr>              <chr>               <chr>           <chr>           
+    ## 1   2214 Santa Fe Irrigati~ Table 2-1 Retail O~ No              N/A             
     ## # ... with 5 more variables: WP_WUEDATA_PLAN_ID <dbl>,
     ## #   PUBLIC_WATER_SYSTEM_NUMBER <chr>, PUBLIC_WATER_SYSTEM_NAME <chr>,
     ## #   NUMBER_MUNICIPAL_CONNECTIONS <dbl>, VOLUME_OF_WATER_SUPPLIED_AF <dbl>
 
 ``` r
 data_report_2 <- readxl::read_excel("../data-raw/water_audit_data_conv_to_af.xlsx") %>% 
-  filter(REPORTING_YEAR == 2020, WATER_SUPPLIER_NAME == "Healdsburg  City Of")
+  filter(REPORTING_YEAR == 2020, WATER_SUPPLIER_NAME == "Santa Fe Irrigation District")
 data_report_2
 ```
 
     ## # A tibble: 1 x 128
     ##   DWR_ORGANIZATION_ID WATER_SUPPLIER_NAME SUBMITTED_DATE      WUEDATA_PLAN_REPO~
     ##                 <dbl> <chr>               <dttm>                           <dbl>
-    ## 1                1144 Healdsburg  City Of 2021-08-11 14:19:54               2020
+    ## 1                2214 Santa Fe Irrigatio~ 2020-12-07 15:55:57               2019
     ## # ... with 124 more variables: CONTACT_NAME <chr>, CONTACT_EMAIL_ADDRESS <chr>,
     ## #   CONTACT_PHONE <chr>, CONTACT_PHONE_EXT <chr>, SUPPLIER_NAME <chr>,
     ## #   CITY_TOWN_MUNICIPALITY <chr>, STATE_PROVINCE <chr>, COUNTRY <chr>,
@@ -86,30 +86,29 @@ metric_report_1 <- data_report_1 %>% pull(volume_supplied_report_1)
 metric_report_1
 ```
 
-    ## [1] 2037.742
+    ## [1] 9343
 
 ``` r
 metric_report_2 <-  data_report_2 %>% pull(volume_supplied_report_2)
 metric_report_2 
 ```
 
-    ## [1] 2029.947
+    ## [1] 8850.85
 
 ``` r
 delta_water_supplied <- metric_report_1 - metric_report_2
 delta_water_supplied
 ```
 
-    ## [1] 7.794975
+    ## [1] 492.15
 
 ``` r
 delta_water_supplied_percent <- (metric_report_1 / metric_report_2 - 1) * 100
 ```
 
 The *difference* in the Volume Water Supplied in Acre Feet between the
-Urban Water Managment Plan and Water Loss Report is: 7.7949751 Acre
-Feet.
+Urban Water Managment Plan and Water Loss Report is: 492.15 Acre Feet.
 
-The *percent difference* is: 0.383999 %.
+The *percent difference* is: 5.5604829 %.
 
 ## If % differnce is significant (define what significant is), why is it different?

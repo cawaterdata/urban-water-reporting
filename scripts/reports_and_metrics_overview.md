@@ -46,8 +46,14 @@ readr::read_rds("../data/UWMP_supply_fields.rds")[10]
 
     ## [1] "VOLUME_OF_WATER_SUPPLIED_AF"
 
-There may be additional supply metrics reported by the UWMP in different
-tables. (TODO investigate this.)
+\*This is only one of the supply tables listed on the WUEdata portal.
+There are many more tables we can pull from. The UWMP collects supply
+data broken down into the following categories:
+
+-   Groundwater
+-   Recycled Water
+-   Wastewater
+-   Desalination
 
 #### WLR Supply
 
@@ -184,8 +190,11 @@ Demand in the Conservation Report is split up by type:
 
 #### UWMP Demand
 
+\*This is only one of the demand tables listed on the WUEdata portal.
+There are many more tables we can pull from. The UWMP collects
+additional categories of demand data.
+
 ``` r
-# Some of UWMP Metrics (many more tables we could pull from) - some reports give metrics for each month but others just have annual values.*
 readr::read_rds("../data/UWMP_demand_fields.rds")[6:12]
 ```
 

@@ -5,7 +5,7 @@ Erin Cain
 
 ## Reports
 
-There are 5 different reports that must be compared with each other.
+There are 6 different reports that must be compared with each other.
 Each comparison is shown below:
 
 |                           | UWMP | Conservation | eAR | Water Loss | Supply & Demand\* | Water Use Objective\* |
@@ -128,7 +128,8 @@ readr::read_rds("../data/EAR_supply_fields.rds")
     ## [106] "WPMaxDaySW"          "WPMaxDayPurchased"   "WPMaxDayTotal"      
     ## [109] "WPMaxDaySold"        "WPRecycledGrid"      "WPComments"
 
-Supply metrics in the EAR report fall into the following categories:
+EAR collects montly and annual data. Supply metrics in the EAR report
+fall into the following categories:
 
 -   Ground Water
 -   Surface Water
@@ -325,7 +326,8 @@ readr::read_rds("../data/EAR_demand_fields.rds")
     ## [145] "WDPercentTrees"                    "WDPercentNotCollected"            
     ## [147] "WDComments"
 
-Demand metrics in the EAR report fall into the following categories:
+EAR collects montly and annual data. Demand metrics in the EAR report
+fall into the following categories:
 
 -   Multi-Family
 -   Single Family
@@ -339,10 +341,11 @@ Demand metrics in the EAR report fall into the following categories:
 
 #### Shared Demand Metrics
 
-Total Water Demand is reported in 3? of the 4 reports and can be
-calculated from other demand measures:
+Total Water Demand is explicitly reported in 2 of the 4 reports and in
+the other 2 reports it can be calculated from other demand measures.
 
--   **Conservation Report:** Need to sum up to get total
+-   **Conservation Report:** Need to sum up reported metrics to get
+    total demand
 -   **UWMP:** `"WATER_DEMAND_VOLUME_2020_AF"` In some cases may need to
     sum up the two demand types to get total demand. (units: Acre Feet)
 -   **WLR:** `"AC_AUTH_CONSUMPTION_VOL_AF"?` (units: Acre Feet)

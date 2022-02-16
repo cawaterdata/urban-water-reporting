@@ -5,13 +5,11 @@ Erin Cain
 
 ## Template Analysis for Urban Water Reporting
 
-Currently we can use this template to streamline analysis BUT there is
-still a lot of manual work. It would be ideal if we could map through
-all the reports/metrics/agencies efficiently BUT before we can do that
-we need to have all metric pairs and report pairs generated.
-
-TODO discuss which approach makes most sense given quantity of analyzes
-we hope to get through.
+Template for streamlining analysis of urban water data reported. Fill
+out each section of the template below to define the reports, metric,
+and agency to compare across. The purpose of this analysis is to find
+the difference and percent difference of metrics reported to multiple
+reports.
 
 ## What Reports are we looking at?
 

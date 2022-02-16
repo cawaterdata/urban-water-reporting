@@ -25,7 +25,7 @@ UWMP_supply <- readxl::read_excel("../data-raw/uwmp_table_2_2_r_conv_to_af.xlsx"
   glimpse()
 
 
-sort(unique(UWMP_supply$WATER_SUPPLIER_NAME))
+length(unique(UWMP_supply$WATER_SUPPLIER_NAME))
 
 UWMP_supply_fields <- colnames(UWMP_supply)
 
@@ -46,7 +46,7 @@ WLR <- readxl::read_excel("../data-raw/water_audit_data_conv_to_af.xlsx") %>%
   filter(REPORTING_YEAR == 2020) %>% 
   glimpse()
 
-sort(unique(WLR$WATER_SUPPLIER_NAME))
+length(unique(WLR$WATER_SUPPLIER_NAME))
 
 WLR_fields <- colnames(WLR)
 
@@ -66,7 +66,7 @@ write_rds(WLR_other_fields, "../data/WLR_other_fields.rds")
 conservation_report <- readxl::read_excel("../data-raw/conservation-report-uw-supplier-data120721.xlsx") %>% 
   glimpse
 
-sort(unique(conservation_report$`Supplier Name`))
+length(unique(conservation_report$`Supplier Name`))
 
 conservation_report_fields <- colnames(conservation_report)
 
@@ -112,7 +112,7 @@ filtered_EAR_report <- EAR_report %>%
                            substr(QuestionName, start = 6, stop = length(QuestionName)))) %>% glimpse()
 
 all_agencies <- sort(unique(EAR_report %>% filter(QuestionName == "PWSName") %>% pull(QuestionResults)))
-
+length(all_agencies)
 stringr::str_subset(all_agencies, "VALLEY WATER")
 stringr::str_subset(all_agencies, "MUD")
 stringr::str_subset(all_agencies, "ALAMEDA")

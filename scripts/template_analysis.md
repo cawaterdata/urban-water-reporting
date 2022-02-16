@@ -1,9 +1,17 @@
-Template Analysis Urban Water Managment
+Template Analysis Urban Water Reporting
 ================
 Erin Cain
 2/1/2022
 
-## Template Analysis for Urban Water Managment
+## Template Analysis for Urban Water Reporting
+
+Currently we can use this template to streamline analysis BUT there is
+still a lot of manual work. It would be ideal if we could map through
+all the reports/metrics/agencies efficiently BUT before we can do that
+we need to have all metric pairs and report pairs generated.
+
+TODO discuss which approach makes most sense given quantity of analyzes
+we hope to get through.
 
 ## What Reports are we looking at?
 

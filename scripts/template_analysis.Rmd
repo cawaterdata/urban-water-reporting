@@ -1,5 +1,5 @@
 ---
-title: "Template Analysis Urban Water Managment"
+title: "Template Analysis Urban Water Reporting"
 author: "Erin Cain"
 date: "2/1/2022"
 output: rmarkdown::github_document
@@ -12,7 +12,7 @@ library(dplyr)
 
 ```
 
-## Template Analysis for Urban Water Managment 
+## Template Analysis for Urban Water Reporting 
 
 Currently we can use this template to streamline analysis BUT there is still a lot of manual work. It would be ideal if we could map through all the reports/metrics/agencies efficiently BUT before we can do that we need to have all metric pairs and report pairs generated. 
 

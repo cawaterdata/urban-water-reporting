@@ -51,7 +51,7 @@ agency_of_interest <- "Sante Fe Irrigarion District"
 
 Load in data: 
 ```{r, warning=FALSE, message=FALSE}
-data_report_1 <- readxl::read_excel("../data-raw/uwmp_table_2_2_r_conv_to_af.xlsx") %>% 
+data_report_1 <- readxl::read_excel("../data-raw/uwmp_table_4_3_w_view_conv_to_af.xlsx") %>% 
   filter(WATER_SUPPLIER_NAME == "Santa Fe Irrigation District")
   
 data_report_2 <- readxl::read_excel("../data-raw/water_audit_data_conv_to_af.xlsx") %>% 
@@ -76,9 +76,9 @@ data_report_4 <- data_report_4 %>%
 ```{r}
 volume_demand_report_1 <- "WATER_DEMAND_VOLUME_2020_AF" # check that there is only one catagory, if not sum up
 volume_demand_report_2 <- "AC_AUTH_CONSUMPTION_VOL_AF"
-volume_demand_report_3 <- c(# "Total Potable Water Production" * "Percent Residential Use", 
-                              "REPORTED FINAL Commercial Agricultural Water", "REPORTED FINAL Commercial, Industrial, and Institutional Water", 
-                              "REPORTED Recycled Water", "REPORTED Non-Revenue Water") # Need to sum up reported metrics to get total demand 
+volume_demand_report_3 <- c("REPORTED FINAL Total Potable Water Production", "FINAL Percent Residential Use", 
+                            "REPORTED FINAL Commercial Agricultural Water", "REPORTED FINAL Commercial, Industrial, and Institutional Water", 
+                            "REPORTED Recycled Water", "REPORTED Non-Revenue Water") # Need to sum up reported metrics to get total demand 
 volume_demand_report_4 <- "WDAnnualTotal"
 ```
 
@@ -106,8 +106,13 @@ metric_report_2
 #Check Units
 data_report_3 %>% pull(`Water Production Units`) 
 
+residential_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[1]) * data_report_3 %>% pull(volume_demand_report_3[2])) 
+commercial_agriculture_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[3]), na.rm = T)
+comercial_industrial_institutional_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[4]))
+recycled_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[5]))
+non_revenue_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[6]))
 # Units are in AF
-metric_report_3 <-  sum(data_report_3 %>% pull(volume_supplied_report_3))
+metric_report_3 <-  sum(residential_demand, commercial_agriculture_demand, comercial_industrial_institutional_demand, recycled_demand, non_revenue_demand)
 metric_report_3 
 ```
 

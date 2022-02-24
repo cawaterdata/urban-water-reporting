@@ -3,9 +3,9 @@ title: "Template Analysis Urban Water Managment"
 author: "Erin Cain"
 date: "2/1/2022"
 output: 
-  # html_document:
-  #   theme: flatly
-  rmarkdown::github_document
+  html_document:
+    theme: flatly
+  # rmarkdown::github_document
 
 ---
 
@@ -121,74 +121,6 @@ metric_report_4 <-  as.numeric(data_report_4 %>% filter(QuestionName == "WPAnnua
 metric_report_4 
 ```
 
-### Delta of Metrics Across Reports {.tabset}
-
-#### UWMP and WLR
-```{r}
-delta_water_supplied <- metric_report_1 - metric_report_2
-delta_water_supplied
-delta_water_supplied_percent <- (metric_report_1 / metric_report_2 - 1) * 100
-```
-
-The *difference* in the `r metric` between the `r report_1` and `r report_2` is: `r delta_water_supplied` Acre Feet. 
-
-The *percent difference* is: `r delta_water_supplied_percent` %.
-
-#### UWMP and Conservation Report
-```{r}
-delta_water_supplied <- metric_report_1 - metric_report_3
-delta_water_supplied
-delta_water_supplied_percent <- (metric_report_1 / metric_report_3 - 1) * 100
-```
-
-The *difference* in the `r metric` between the `r report_1` and `r report_3` is: `r delta_water_supplied` Acre Feet. 
-
-The *percent difference* is: `r delta_water_supplied_percent` %.
-
-#### UWMP and eAR
-```{r}
-delta_water_supplied <- metric_report_1 - metric_report_4
-delta_water_supplied
-delta_water_supplied_percent <- (metric_report_1 / metric_report_4 - 1) * 100
-```
-
-The *difference* in the `r metric` between the `r report_1` and `r report_4` is: `r delta_water_supplied` Acre Feet. 
-
-The *percent difference* is: `r delta_water_supplied_percent` %.
-
-#### WLR and Conservation Report
-```{r}
-delta_water_supplied <- metric_report_2 - metric_report_3
-delta_water_supplied
-delta_water_supplied_percent <- (metric_report_2 / metric_report_3 - 1) * 100
-```
-
-The *difference* in the `r metric` between the `r report_2` and `r report_3` is: `r delta_water_supplied` Acre Feet. 
-
-The *percent difference* is: `r delta_water_supplied_percent` %.
-
-#### WLR and eAR
-```{r}
-delta_water_supplied <- metric_report_2 - metric_report_4
-delta_water_supplied
-delta_water_supplied_percent <- (metric_report_2 / metric_report_4 - 1) * 100
-```
-
-The *difference* in the `r metric` between the `r report_2` and `r report_4` is: `r delta_water_supplied` Acre Feet. 
-
-The *percent difference* is: `r delta_water_supplied_percent` %.
-
-#### Conservation Report and eAR
-```{r}
-delta_water_supplied <- metric_report_3 - metric_report_4
-delta_water_supplied
-delta_water_supplied_percent <- (metric_report_3 / metric_report_4 - 1) * 100
-```
-
-The *difference* in the `r metric` between the `r report_3` and `r report_4` is: `r delta_water_supplied` Acre Feet. 
-
-The *percent difference* is: `r delta_water_supplied_percent` %.
-
 ### Summarizing Metric Across Reports 
 
 ```{r}
@@ -208,6 +140,63 @@ ggplot(supply_by_report, aes(y = Report, x = `Annual AF Supply`, fill = Report))
   scale_fill_manual(values = wesanderson::wes_palette("Royal2"))
 
 ```
+
+### Delta of Metrics Across Reports {.tabset}
+
+```{r}
+total_water_supply_table <- 
+  tibble("agency" = rep(c("Santa Fe Irrigation District"), 6),
+         "reports_compared" = c("UWMP & WLR", "UWMP & CR", "UWMP & EAR", "WLR & CR", "WLR & EAR", "CR & EAR"),
+         "report_a" =  c("UWMP", "UWMP", "UWMP", "WLR", "WLR", "CR"),
+         "report_b" =  c("WLR", "CR", "EAR", "CR", "EAR", "EAR"),
+         "report_a_metric" = c(metric_report_1, metric_report_1, metric_report_1, metric_report_2, metric_report_2, metric_report_3), 
+         "report_b_metric" = c(metric_report_2, metric_report_3, metric_report_4, metric_report_3, metric_report_4, metric_report_4),)
+
+total_water_supply_af_deltas <- total_water_supply_table %>% 
+  mutate(delta = report_a_metric - report_b_metric, percent_delta = (report_a_metric / report_b_metric - 1) * 100)
+
+write_rds(total_water_supply_af_deltas, "../data/total_water_supply_af_deltas.rds")
+knitr::kable(total_water_supply_af_deltas)
+```
+
+
+
+#### UWMP and WLR
+
+The *difference* in the `r metric` between the `r report_1` and `r report_2` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & WLR") %>% pull(delta)` Acre Feet. 
+
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & WLR") %>% pull(percent_delta)` %.
+
+#### UWMP and Conservation Report
+
+The *difference* in the `r metric` between the `r report_1` and `r report_3` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & CR") %>% pull(delta)` Acre Feet. 
+
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & CR") %>% pull(percent_delta)` %.
+
+#### UWMP and eAR
+
+The *difference* in the `r metric` between the `r report_1` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & EAR") %>% pull(delta)` Acre Feet. 
+
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & EAR") %>% pull(percent_delta)` %.
+
+#### WLR and Conservation Report
+
+The *difference* in the `r metric` between the `r report_2` and `r report_3` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & CR") %>% pull(delta)` Acre Feet. 
+
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & CR") %>% pull(percent_delta)` %.
+
+#### WLR and eAR
+
+The *difference* in the `r metric` between the `r report_2` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & EAR") %>% pull(delta)` Acre Feet. 
+
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & EAR") %>% pull(percent_delta)` %.
+
+#### Conservation Report and eAR
+
+The *difference* in the `r metric` between the `r report_3` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "CR & EAR") %>% pull(delta)` Acre Feet. 
+
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "CR & EAR") %>% pull(percent_delta)` %.
+
 
 
 ## Investigating Differences 

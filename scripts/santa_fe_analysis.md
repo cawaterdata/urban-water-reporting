@@ -126,18 +126,32 @@ metric_report_4
 
 ### Delta of Metrics Across Reports
 
+``` r
+total_water_supply_table <- 
+  tibble("agency" = rep(c("Santa Fe Irrigation District"), 6),
+         "reports_compared" = c("UWMP & WLR", "UWMP & CR", "UWMP & EAR", "WLR & CR", "WLR & EAR", "CR & EAR"),
+         "report_a" =  c("UWMP", "UWMP", "UWMP", "WLR", "WLR", "CR"),
+         "report_b" =  c("WLR", "CR", "EAR", "CR", "EAR", "EAR"),
+         "report_a_metric" = c(metric_report_1, metric_report_1, metric_report_1, metric_report_2, metric_report_2, metric_report_3), 
+         "report_b_metric" = c(metric_report_2, metric_report_3, metric_report_4, metric_report_3, metric_report_4, metric_report_4),)
+
+total_water_supply_af_deltas <- total_water_supply_table %>% 
+  mutate(delta = report_a_metric - report_b_metric, percent_delta = (report_a_metric / report_b_metric - 1) * 100)
+
+write_rds(total_water_supply_af_deltas, "../data/total_water_supply_af_deltas.rds")
+knitr::kable(total_water_supply_af_deltas)
+```
+
+| agency                       | reports\_compared | report\_a | report\_b | report\_a\_metric | report\_b\_metric |    delta | percent\_delta |
+|:-----------------------------|:------------------|:----------|:----------|------------------:|------------------:|---------:|---------------:|
+| Santa Fe Irrigation District | UWMP & WLR        | UWMP      | WLR       |           9343.00 |           8850.85 |   492.15 |       5.560483 |
+| Santa Fe Irrigation District | UWMP & CR         | UWMP      | CR        |           9343.00 |           9687.50 |  -344.50 |      -3.556129 |
+| Santa Fe Irrigation District | UWMP & EAR        | UWMP      | EAR       |           9343.00 |          10085.89 |  -742.89 |      -7.365636 |
+| Santa Fe Irrigation District | WLR & CR          | WLR       | CR        |           8850.85 |           9687.50 |  -836.65 |      -8.636387 |
+| Santa Fe Irrigation District | WLR & EAR         | WLR       | EAR       |           8850.85 |          10085.89 | -1235.04 |     -12.245226 |
+| Santa Fe Irrigation District | CR & EAR          | CR        | EAR       |           9687.50 |          10085.89 |  -398.39 |      -3.949974 |
+
 #### UWMP and WLR
-
-``` r
-delta_water_supplied <- metric_report_1 - metric_report_2
-delta_water_supplied
-```
-
-    ## [1] 492.15
-
-``` r
-delta_water_supplied_percent <- (metric_report_1 / metric_report_2 - 1) * 100
-```
 
 The *difference* in the Volume Water Supplied in Acre Feet between the
 Urban Water Managment Plan and Water Loss Report is: 492.15 Acre Feet.
@@ -146,34 +160,12 @@ The *percent difference* is: 5.5604829 %.
 
 #### UWMP and Conservation Report
 
-``` r
-delta_water_supplied <- metric_report_1 - metric_report_3
-delta_water_supplied
-```
-
-    ## [1] -344.5
-
-``` r
-delta_water_supplied_percent <- (metric_report_1 / metric_report_3 - 1) * 100
-```
-
 The *difference* in the Volume Water Supplied in Acre Feet between the
 Urban Water Managment Plan and Conservation Report is: -344.5 Acre Feet.
 
 The *percent difference* is: -3.556129 %.
 
 #### UWMP and eAR
-
-``` r
-delta_water_supplied <- metric_report_1 - metric_report_4
-delta_water_supplied
-```
-
-    ## [1] -742.89
-
-``` r
-delta_water_supplied_percent <- (metric_report_1 / metric_report_4 - 1) * 100
-```
 
 The *difference* in the Volume Water Supplied in Acre Feet between the
 Urban Water Managment Plan and Electronic Annual Report is: -742.89 Acre
@@ -183,17 +175,6 @@ The *percent difference* is: -7.3656365 %.
 
 #### WLR and Conservation Report
 
-``` r
-delta_water_supplied <- metric_report_2 - metric_report_3
-delta_water_supplied
-```
-
-    ## [1] -836.65
-
-``` r
-delta_water_supplied_percent <- (metric_report_2 / metric_report_3 - 1) * 100
-```
-
 The *difference* in the Volume Water Supplied in Acre Feet between the
 Water Loss Report and Conservation Report is: -836.65 Acre Feet.
 
@@ -201,34 +182,12 @@ The *percent difference* is: -8.6363871 %.
 
 #### WLR and eAR
 
-``` r
-delta_water_supplied <- metric_report_2 - metric_report_4
-delta_water_supplied
-```
-
-    ## [1] -1235.04
-
-``` r
-delta_water_supplied_percent <- (metric_report_2 / metric_report_4 - 1) * 100
-```
-
 The *difference* in the Volume Water Supplied in Acre Feet between the
 Water Loss Report and Electronic Annual Report is: -1235.04 Acre Feet.
 
 The *percent difference* is: -12.2452258 %.
 
 #### Conservation Report and eAR
-
-``` r
-delta_water_supplied <- metric_report_3 - metric_report_4
-delta_water_supplied
-```
-
-    ## [1] -398.39
-
-``` r
-delta_water_supplied_percent <- (metric_report_3 / metric_report_4 - 1) * 100
-```
 
 The *difference* in the Volume Water Supplied in Acre Feet between the
 Conservation Report and Electronic Annual Report is: -398.39 Acre Feet.
@@ -254,7 +213,7 @@ ggplot(supply_by_report, aes(y = Report, x = `Annual AF Supply`, fill = Report))
   scale_fill_manual(values = wesanderson::wes_palette("Royal2"))
 ```
 
-![](santa_fe_analysis_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](santa_fe_analysis_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ## Investigating Differences
 

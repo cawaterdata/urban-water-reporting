@@ -270,13 +270,13 @@ metric_report_4 </code></pre>
 </div>
 <div id="summarizing-metric-across-reports" class="section level3">
 <h3>Summarizing Metric Across Reports</h3>
-<pre class="r"><code>supply_by_report &lt;- tibble(&quot;Report&quot; = c(report_1, report_2, report_3, report_4),
+<pre class="r"><code>demand_by_report &lt;- tibble(&quot;Report&quot; = c(report_1, report_2, report_3, report_4),
                            &quot;Annual AF Demand&quot; = as.numeric(c(metric_report_1, 
                                                              metric_report_2, 
                                                              metric_report_3, 
                                                              metric_report_4)))</code></pre>
 <pre class="r"><code>library(ggplot2)
-ggplot(supply_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report)) +
+ggplot(demand_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report)) +
   geom_col() + 
   labs(x = &quot;Reported Annual AF Demand&quot;, y = &quot;&quot;, 
        title = &quot;Reported Annual Water Demand Across Reporting Requirements&quot;) +
@@ -287,7 +287,7 @@ ggplot(supply_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report))
 </div>
 <div id="delta-of-metrics-across-reports" class="section level3 tabset">
 <h3 class="tabset">Delta of Metrics Across Reports</h3>
-<pre class="r"><code>total_water_supply_table &lt;- 
+<pre class="r"><code>total_water_demand_table &lt;- 
   tibble(&quot;agency&quot; = rep(c(&quot;City of Napa&quot;), 6),
          &quot;reports_compared&quot; = c(&quot;UWMP &amp; WLR&quot;, &quot;UWMP &amp; CR&quot;, &quot;UWMP &amp; EAR&quot;, 
                                 &quot;WLR &amp; CR&quot;, &quot;WLR &amp; EAR&quot;, &quot;CR &amp; EAR&quot;),
@@ -298,11 +298,11 @@ ggplot(supply_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report))
          &quot;report_b_metric&quot; = c(metric_report_2, metric_report_3, metric_report_4, 
                                metric_report_3, metric_report_4, metric_report_4),)
 
-total_water_supply_af_deltas &lt;- total_water_supply_table %&gt;% 
+total_water_demand_af_deltas &lt;- total_water_demand_table %&gt;% 
   mutate(delta = abs(report_a_metric - report_b_metric), 
          percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
-write_rds(total_water_supply_af_deltas, &quot;../data/napa_total_water_demand_af_deltas.rds&quot;)</code></pre>
+write_rds(total_water_demand_af_deltas, &quot;../data/napa_total_water_demand_af_deltas.rds&quot;)</code></pre>
 </div>
 <div id="delta-table" class="section level3">
 <h3>Delta Table</h3>
@@ -315,7 +315,7 @@ write_rds(total_water_supply_af_deltas, &quot;../data/napa_total_water_demand_af
     return()
 }
 
-delta_matrix &lt;- total_water_supply_af_deltas %&gt;% 
+delta_matrix &lt;- total_water_demand_af_deltas %&gt;% 
   select(&quot;Reports&quot; = report_a, report_b, delta) %&gt;%
   pivot_wider(names_from = &quot;report_b&quot;, values_from = &quot;delta&quot;)  %&gt;%
   mutate_if(is.numeric, clean_na)
@@ -388,7 +388,7 @@ CR
 <div id="delta-table-1" class="section level3">
 <h3>% Delta Table</h3>
 <p>The table below shows the percent delta between the reports</p>
-<pre class="r"><code>percent_delta_matrix &lt;- total_water_supply_af_deltas %&gt;% 
+<pre class="r"><code>percent_delta_matrix &lt;- total_water_demand_af_deltas %&gt;% 
   select(&quot;Reports&quot; = report_a, report_b, percent_delta) %&gt;%
   pivot_wider(names_from = &quot;report_b&quot;, values_from = &quot;percent_delta&quot;) %&gt;%
   mutate_if(is.numeric, clean_na)

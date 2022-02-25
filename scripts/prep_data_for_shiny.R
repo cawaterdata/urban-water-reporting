@@ -3,14 +3,19 @@ library(readr)
 # read in data objects
 
 # Water demand
-napa <- read_rds(file = "data/napa_total_water_demand_af_deltas.rds") %>% 
-  select(report_a, report_b, delta) %>%
-  pivot_wider(names_from = "report_b", values_from = "delta") %>%
-  glimpse()
+napa_d <- read_rds(file = "data/napa_total_water_demand_af_deltas.rds") %>% 
+  mutate(metric = "Total Water Demand") %>% glimpse()
 
-santa_fe <- read_rds(file = "data/santa_fe_total_water_demand_af_deltas.rds") %>% glimpse()
+santa_fe_d <- read_rds(file = "data/santa_fe_total_water_demand_af_deltas.rds") %>% 
+  mutate(metric = "Total Water Demand") %>% glimpse()
 
 # Water Supply 
-read_rds(file = "data/napa_total_water_supply_af_deltas.rds") %>% glimpse()
+napa_s <- read_rds(file = "data/napa_total_water_supply_af_deltas.rds") %>% 
+  mutate(metric = "Total Water Supply") %>% glimpse()
 
-read_rds(file = "data/santa_fe_total_water_supply_af_deltas.rds") %>% glimpse()
+santa_fe_s <- read_rds(file = "data/santa_fe_total_water_supply_af_deltas.rds") %>% 
+  mutate(metric = "Total Water Supply") %>% glimpse()
+
+urban_water_reporting_data <- bind_rows(napa_d, santa_fe_d, napa_s, santa_fe_s) %>% glimpse()
+
+write_rds(urban_water_reporting_data, "data/urban_water_reporting_data.rds")

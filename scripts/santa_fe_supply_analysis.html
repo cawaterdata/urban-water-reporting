@@ -282,126 +282,163 @@ ggplot(supply_by_report, aes(y = Report, x = `Annual AF Supply`, fill = Report))
          &quot;report_b_metric&quot; = c(metric_report_2, metric_report_3, metric_report_4, metric_report_3, metric_report_4, metric_report_4),)
 
 total_water_supply_af_deltas &lt;- total_water_supply_table %&gt;% 
-  mutate(delta = report_a_metric - report_b_metric, percent_delta = (report_a_metric / report_b_metric - 1) * 100)
+  mutate(delta = abs(report_a_metric - report_b_metric), 
+         percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
-write_rds(total_water_supply_af_deltas, &quot;../data/santa_fe_total_water_supply_af_deltas.rds&quot;)
-knitr::kable(total_water_supply_af_deltas)</code></pre>
-<table style="width:100%;">
-<colgroup>
-<col width="24%" />
-<col width="14%" />
-<col width="7%" />
-<col width="7%" />
-<col width="13%" />
-<col width="13%" />
-<col width="7%" />
-<col width="11%" />
-</colgroup>
+write_rds(total_water_supply_af_deltas, &quot;../data/santa_fe_total_water_supply_af_deltas.rds&quot;)</code></pre>
+</div>
+<div id="delta-table" class="section level3">
+<h3>Delta Table</h3>
+<p>The table below shows the delta between the reports</p>
+<pre class="r"><code>clean_na = function(x){
+  x %&gt;%
+    round(2) %&gt;%
+    as.character() %&gt;%
+    replace_na(&#39;-&#39;) %&gt;%
+    return()
+}
+
+delta_matrix &lt;- total_water_supply_af_deltas %&gt;% 
+  select(&quot;Reports&quot; = report_a, report_b, delta) %&gt;%
+  pivot_wider(names_from = &quot;report_b&quot;, values_from = &quot;delta&quot;)  %&gt;%
+  mutate_if(is.numeric, clean_na)
+
+
+formattable(delta_matrix, list(area(col = 2:4) ~ color_tile(&quot;transparent&quot;, &quot;pink&quot;)))</code></pre>
+<table class="table table-condensed">
 <thead>
-<tr class="header">
-<th align="left">agency</th>
-<th align="left">reports_compared</th>
-<th align="left">report_a</th>
-<th align="left">report_b</th>
-<th align="right">report_a_metric</th>
-<th align="right">report_b_metric</th>
-<th align="right">delta</th>
-<th align="right">percent_delta</th>
+<tr>
+<th style="text-align:right;">
+Reports
+</th>
+<th style="text-align:right;">
+WLR
+</th>
+<th style="text-align:right;">
+CR
+</th>
+<th style="text-align:right;">
+EAR
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">UWMP &amp; WLR</td>
-<td align="left">UWMP</td>
-<td align="left">WLR</td>
-<td align="right">9343.00</td>
-<td align="right">8850.85</td>
-<td align="right">492.15</td>
-<td align="right">5.560483</td>
+<tr>
+<td style="text-align:right;">
+UWMP
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fff4f6">492.15</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">344.5 </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffe2e7">742.89 </span>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">UWMP &amp; CR</td>
-<td align="left">UWMP</td>
-<td align="left">CR</td>
-<td align="right">9343.00</td>
-<td align="right">9687.50</td>
-<td align="right">-344.50</td>
-<td align="right">-3.556129</td>
+<tr>
+<td style="text-align:right;">
+WLR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffdce2">836.65</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffc0cb">1235.04</span>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">UWMP &amp; EAR</td>
-<td align="left">UWMP</td>
-<td align="left">EAR</td>
-<td align="right">9343.00</td>
-<td align="right">10085.89</td>
-<td align="right">-742.89</td>
-<td align="right">-7.365636</td>
-</tr>
-<tr class="even">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">WLR &amp; CR</td>
-<td align="left">WLR</td>
-<td align="left">CR</td>
-<td align="right">8850.85</td>
-<td align="right">9687.50</td>
-<td align="right">-836.65</td>
-<td align="right">-8.636387</td>
-</tr>
-<tr class="odd">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">WLR &amp; EAR</td>
-<td align="left">WLR</td>
-<td align="left">EAR</td>
-<td align="right">8850.85</td>
-<td align="right">10085.89</td>
-<td align="right">-1235.04</td>
-<td align="right">-12.245226</td>
-</tr>
-<tr class="even">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">CR &amp; EAR</td>
-<td align="left">CR</td>
-<td align="left">EAR</td>
-<td align="right">9687.50</td>
-<td align="right">10085.89</td>
-<td align="right">-398.39</td>
-<td align="right">-3.949974</td>
+<tr>
+<td style="text-align:right;">
+CR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fffbfb">398.39 </span>
+</td>
 </tr>
 </tbody>
 </table>
-<div id="uwmp-and-wlr" class="section level4">
-<h4>UWMP and WLR</h4>
-<p>The <em>difference</em> in the Volume Water Supplied in Acre Feet between the Urban Water Managment Plan and Water Loss Report is: 492.15 Acre Feet.</p>
-<p>The <em>percent difference</em> is: 5.5604829 %.</p>
 </div>
-<div id="uwmp-and-conservation-report" class="section level4">
-<h4>UWMP and Conservation Report</h4>
-<p>The <em>difference</em> in the Volume Water Supplied in Acre Feet between the Urban Water Managment Plan and Conservation Report is: -344.5 Acre Feet.</p>
-<p>The <em>percent difference</em> is: -3.556129 %.</p>
-</div>
-<div id="uwmp-and-ear" class="section level4">
-<h4>UWMP and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Supplied in Acre Feet between the Urban Water Managment Plan and Electronic Annual Report is: -742.89 Acre Feet.</p>
-<p>The <em>percent difference</em> is: -7.3656365 %.</p>
-</div>
-<div id="wlr-and-conservation-report" class="section level4">
-<h4>WLR and Conservation Report</h4>
-<p>The <em>difference</em> in the Volume Water Supplied in Acre Feet between the Water Loss Report and Conservation Report is: -836.65 Acre Feet.</p>
-<p>The <em>percent difference</em> is: -8.6363871 %.</p>
-</div>
-<div id="wlr-and-ear" class="section level4">
-<h4>WLR and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Supplied in Acre Feet between the Water Loss Report and Electronic Annual Report is: -1235.04 Acre Feet.</p>
-<p>The <em>percent difference</em> is: -12.2452258 %.</p>
-</div>
-<div id="conservation-report-and-ear" class="section level4">
-<h4>Conservation Report and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Supplied in Acre Feet between the Conservation Report and Electronic Annual Report is: -398.39 Acre Feet.</p>
-<p>The <em>percent difference</em> is: -3.9499737 %.</p>
-</div>
+<div id="delta-table-1" class="section level3">
+<h3>% Delta Table</h3>
+<p>The table below shows the percent delta between the reports</p>
+<pre class="r"><code>percent_delta_matrix &lt;- total_water_supply_af_deltas %&gt;% 
+  select(&quot;Reports&quot; = report_a, report_b, percent_delta) %&gt;%
+  pivot_wider(names_from = &quot;report_b&quot;, values_from = &quot;percent_delta&quot;) %&gt;%
+  mutate_if(is.numeric, clean_na)
+
+formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile(&quot;transparent&quot;, &quot;pink&quot;)))</code></pre>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+Reports
+</th>
+<th style="text-align:right;">
+WLR
+</th>
+<th style="text-align:right;">
+CR
+</th>
+<th style="text-align:right;">
+EAR
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+UWMP
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fff0f3">5.56</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">3.56</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffe3e8">7.37 </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+WLR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffdae0">8.64</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffc0cb">12.25</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+CR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fffcfc">3.95 </span>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="investigating-differences" class="section level2">

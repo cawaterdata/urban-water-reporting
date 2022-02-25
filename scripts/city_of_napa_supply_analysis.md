@@ -169,17 +169,7 @@ total_water_supply_af_deltas <- total_water_supply_table %>%
          percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
 write_rds(total_water_supply_af_deltas, "../data/napa_total_water_supply_af_deltas.rds")
-knitr::kable(total_water_supply_af_deltas)
 ```
-
-| agency       | reports\_compared | report\_a | report\_b | report\_a\_metric | report\_b\_metric |     delta | percent\_delta |
-|:-------------|:------------------|:----------|:----------|------------------:|------------------:|----------:|---------------:|
-| City of Napa | UWMP & WLR        | UWMP      | WLR       |          14092.00 |          13727.87 |  364.1327 |       2.652507 |
-| City of Napa | UWMP & CR         | UWMP      | CR        |          14092.00 |          13508.00 |  584.0000 |       4.323364 |
-| City of Napa | UWMP & EAR        | UWMP      | EAR       |          14092.00 |          14683.03 |  591.0257 |       4.025231 |
-| City of Napa | WLR & CR          | WLR       | CR        |          13727.87 |          13508.00 |  219.8673 |       1.627682 |
-| City of Napa | WLR & EAR         | WLR       | EAR       |          13727.87 |          14683.03 |  955.1584 |       6.505188 |
-| City of Napa | CR & EAR          | CR        | EAR       |          13508.00 |          14683.03 | 1175.0257 |       8.002613 |
 
 ### Delta Table
 

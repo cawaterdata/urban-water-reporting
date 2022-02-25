@@ -4,8 +4,8 @@ author: "Erin Cain"
 date: "2/1/2022"
 output: 
   html_document:
-    # theme: flatly
-    rmarkdown::github_document
+  theme: flatly
+    # rmarkdown::github_document
 
 ---
 
@@ -165,7 +165,6 @@ total_water_supply_af_deltas <- total_water_supply_table %>%
          percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
 write_rds(total_water_supply_af_deltas, "../data/napa_total_water_supply_af_deltas.rds")
-knitr::kable(total_water_supply_af_deltas)
 ```
 
 ### Delta Table 

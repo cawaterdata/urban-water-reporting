@@ -16,7 +16,7 @@ library(dplyr)
 
 ```
 
-## Sante Fe Irrigation District
+## City of Napa
  
 ## What Reports are we looking at? 
 
@@ -45,30 +45,31 @@ Tables Names:
 What agency are we focused on? 
 
 ```{r}
-agency_of_interest <- "Sante Fe Irrigarion District"
+agency_of_interest <- "Napa City Of"
 ```
 
 
 Load in data: 
 ```{r, warning=FALSE, message=FALSE}
 data_report_1 <- readr::read_csv("../data-raw/uwmp_retail_total_demand.csv") %>% 
-  filter(WATER_SUPPLIER_NAME == "Santa Fe Irrigation District")
+  filter(WATER_SUPPLIER_NAME == "Napa  City Of")
   
 data_report_2 <- readxl::read_excel("../data-raw/water_audit_data_conv_to_af.xlsx") %>% 
-  filter(REPORTING_YEAR == 2020, WATER_SUPPLIER_NAME == "Santa Fe Irrigation District") 
+  filter(REPORTING_YEAR == 2020, WATER_SUPPLIER_NAME == "Napa  City Of") 
 
 
 data_report_3 <- readxl::read_excel("../data-raw/conservation-report-uw-supplier-data120721.xlsx") %>% 
   mutate(year = lubridate::year(`Reporting Month`)) %>%
-  filter(year == 2020, `Supplier Name` == "Santa Fe Irrigation District")
+  filter(year == 2020, `Supplier Name` == "Napa  City of")
 
 
 data_report_4 <-  read.delim("../data-raw/EAR_ResultSet_2020RY.txt")
 
+# data_report_4 %>%
+#   filter(QuestionName == "PWSName", SectionID %in% c("06 Supply-Delivery", "01 Intro"), QuestionResults == "NAPA, CITY OF") 
 data_report_4 <- data_report_4 %>%
-  filter(WSSurveyID == 428915) %>%
+  filter(WSSurveyID == 428709) %>%
   filter(SurveyName == "2020 EAR", SectionID %in% c("06 Supply-Delivery", "01 Intro")) 
-
 ```
 
 ### How is our chosen metric described in the report data?
@@ -106,13 +107,14 @@ metric_report_2
 #Check Units
 data_report_3 %>% pull(`Water Production Units`) 
 
-residential_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[1]) * ((data_report_3 %>% pull(volume_demand_report_3[2]))/100)) 
+
+residential_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[1]) * ((data_report_3 %>% pull(volume_demand_report_3[2]))/100), na.rm = T) 
 commercial_agriculture_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[3]), na.rm = T)
-comercial_industrial_institutional_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[4]))
-recycled_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[5]))
-non_revenue_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[6]))
+comercial_industrial_institutional_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[4]), na.rm = T)
+recycled_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[5]), na.rm = T)
+non_revenue_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[6]), na.rm = T)
 # Units are in AF
-metric_report_3 <-  sum(residential_demand, commercial_agriculture_demand, comercial_industrial_institutional_demand, recycled_demand, non_revenue_demand)
+metric_report_3 <-  sum(residential_demand, commercial_agriculture_demand, comercial_industrial_institutional_demand, recycled_demand, non_revenue_demand, na.rm = T)
 metric_report_3 
 ```
 
@@ -120,25 +122,25 @@ metric_report_3
 
 ```{r}
 # Check Units 
-data_report_4 %>% filter(QuestionName == "WDUnitsofMeasure") %>% pull(QuestionResults)
+data_report_4 %>% filter(QuestionName == "WDUnitofMeasure") %>% pull(QuestionResults)
 
-
-# Units are in AF
-metric_report_4 <-  as.numeric(data_report_4 %>% filter(QuestionName == "WDAnnualTotal") %>% pull(QuestionResults))
+scale_to_AF <- 3.06888
+# Units are in MG, multply by scaling factor to convert to AF
+metric_report_4 <-  as.numeric(data_report_4 %>% filter(QuestionName == "WDAnnualTotal") %>% pull(QuestionResults)) * scale_to_AF
 metric_report_4 
 ```
 
 ### Summarizing Metric Across Reports 
 
 ```{r}
-demand_by_report <- tibble("Report" = c(report_1, report_2, report_3, report_4),
+supply_by_report <- tibble("Report" = c(report_1, report_2, report_3, report_4),
                            "Annual AF Demand" = as.numeric(c(metric_report_1, metric_report_2, 
                                                metric_report_3, metric_report_4)))
 ```
 
 ```{r}
 library(ggplot2)
-ggplot(demand_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report)) +
+ggplot(supply_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report)) +
   geom_col() + 
   labs(x = "Reported Annual AF Demand", y = "", 
        title = "Reported Annual Water Demand Across Reporting Requirements") +
@@ -151,58 +153,58 @@ ggplot(demand_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report))
 ### Delta of Metrics Across Reports {.tabset}
 
 ```{r}
-total_water_demand_table <- 
-  tibble("agency" = rep(c("Santa Fe Irrigation District"), 6),
+total_water_supply_table <- 
+  tibble("agency" = rep(c("City of Napa"), 6),
          "reports_compared" = c("UWMP & WLR", "UWMP & CR", "UWMP & EAR", "WLR & CR", "WLR & EAR", "CR & EAR"),
          "report_a" =  c("UWMP", "UWMP", "UWMP", "WLR", "WLR", "CR"),
          "report_b" =  c("WLR", "CR", "EAR", "CR", "EAR", "EAR"),
          "report_a_metric" = c(metric_report_1, metric_report_1, metric_report_1, metric_report_2, metric_report_2, metric_report_3), 
          "report_b_metric" = c(metric_report_2, metric_report_3, metric_report_4, metric_report_3, metric_report_4, metric_report_4),)
 
-total_water_demand_af_deltas <- total_water_demand_table %>% 
+total_water_supply_af_deltas <- total_water_supply_table %>% 
   mutate(delta = report_a_metric - report_b_metric, percent_delta = (report_a_metric / report_b_metric - 1) * 100)
 
-write_rds(total_water_demand_af_deltas, "../data/santa_fe_total_water_demand_af_deltas.rds")
-knitr::kable(total_water_demand_af_deltas)
+write_rds(total_water_supply_af_deltas, "../data/napa_total_water_demand_af_deltas.rds")
+knitr::kable(total_water_supply_af_deltas)
 ```
 
 
 
 #### UWMP and WLR
 
-The *difference* in the `r metric` between the `r report_1` and `r report_2` is: `r total_water_demand_af_deltas %>% filter(reports_compared == "UWMP & WLR") %>% pull(delta)` Acre Feet. 
+The *difference* in the `r metric` between the `r report_1` and `r report_2` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & WLR") %>% pull(delta)` Acre Feet. 
 
-The *percent difference* is: `r total_water_demand_af_deltas %>% filter(reports_compared == "UWMP & WLR") %>% pull(percent_delta)` %.
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & WLR") %>% pull(percent_delta)` %.
 
 #### UWMP and Conservation Report
 
-The *difference* in the `r metric` between the `r report_1` and `r report_3` is: `r total_water_demand_af_deltas %>% filter(reports_compared == "UWMP & CR") %>% pull(delta)` Acre Feet. 
+The *difference* in the `r metric` between the `r report_1` and `r report_3` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & CR") %>% pull(delta)` Acre Feet. 
 
-The *percent difference* is: `r total_water_demand_af_deltas %>% filter(reports_compared == "UWMP & CR") %>% pull(percent_delta)` %.
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & CR") %>% pull(percent_delta)` %.
 
 #### UWMP and eAR
 
-The *difference* in the `r metric` between the `r report_1` and `r report_4` is: `r total_water_demand_af_deltas %>% filter(reports_compared == "UWMP & EAR") %>% pull(delta)` Acre Feet. 
+The *difference* in the `r metric` between the `r report_1` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & EAR") %>% pull(delta)` Acre Feet. 
 
-The *percent difference* is: `r total_water_demand_af_deltas %>% filter(reports_compared == "UWMP & EAR") %>% pull(percent_delta)` %.
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & EAR") %>% pull(percent_delta)` %.
 
 #### WLR and Conservation Report
 
-The *difference* in the `r metric` between the `r report_2` and `r report_3` is: `r total_water_demand_af_deltas %>% filter(reports_compared == "WLR & CR") %>% pull(delta)` Acre Feet. 
+The *difference* in the `r metric` between the `r report_2` and `r report_3` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & CR") %>% pull(delta)` Acre Feet. 
 
-The *percent difference* is: `r total_water_demand_af_deltas %>% filter(reports_compared == "WLR & CR") %>% pull(percent_delta)` %.
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & CR") %>% pull(percent_delta)` %.
 
 #### WLR and eAR
 
-The *difference* in the `r metric` between the `r report_2` and `r report_4` is: `r total_water_demand_af_deltas %>% filter(reports_compared == "WLR & EAR") %>% pull(delta)` Acre Feet. 
+The *difference* in the `r metric` between the `r report_2` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & EAR") %>% pull(delta)` Acre Feet. 
 
-The *percent difference* is: `r total_water_demand_af_deltas %>% filter(reports_compared == "WLR & EAR") %>% pull(percent_delta)` %.
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & EAR") %>% pull(percent_delta)` %.
 
 #### Conservation Report and eAR
 
-The *difference* in the `r metric` between the `r report_3` and `r report_4` is: `r total_water_demand_af_deltas %>% filter(reports_compared == "CR & EAR") %>% pull(delta)` Acre Feet. 
+The *difference* in the `r metric` between the `r report_3` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "CR & EAR") %>% pull(delta)` Acre Feet. 
 
-The *percent difference* is: `r total_water_demand_af_deltas %>% filter(reports_compared == "CR & EAR") %>% pull(percent_delta)` %.
+The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "CR & EAR") %>% pull(percent_delta)` %.
 
 
 

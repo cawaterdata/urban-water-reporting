@@ -1,0 +1,1126 @@
+﻿ORG_ID,WATER_SUPPLIER_NAME,WORKSHEET_NAME,REVIEWED_BY_DWR,REQUIREMENTS_ADDRESSED,WATER_DEMAND_TYPE,WATER_DEMAND_VOLUME_2020,WATER_DEMAND_VOLUME_2025,WATER_DEMAND_VOLUME_2030,WATER_DEMAND_VOLUME_2035,WATER_DEMAND_VOLUME_2040,WATER_DEMAND_VOLUME_2045
+13,Adelanto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4647,4996,5260,5426,5584,5766
+13,Adelanto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,20,23,25,25,27
+13,Adelanto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+23,Alameda County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,53545,60900,60400,60100,60200,67500
+23,Alameda County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+23,Alameda County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+30,Alhambra  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+30,Alhambra  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+30,Alhambra  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9382,10433,10526,10621,10717,10812
+55,Amador Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,940,983,1222,1230,1237,1245
+55,Amador Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+55,Amador Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7743,7954,8113,8195,8251,8322
+64,Anaheim  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+64,Anaheim  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,101,120,120,120,120,120
+64,Anaheim  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,56811,58758,62580,64058,65651,66217
+82,Antioch  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+82,Antioch  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,74,78,82,86,90,95
+82,Antioch  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,5091,4600,4682,4763,4844,4926
+87,Apple Valley Ranchos Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+87,Apple Valley Ranchos Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+87,Apple Valley Ranchos Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14979,15846,16466,17120,17810,18538
+93,Arcadia  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+93,Arcadia  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,13935,14601,14808,15019,15234,15451
+93,Arcadia  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+94,Arcata  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,583,651,685,722,761,800
+94,Arcata  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+94,Arcata  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+102,Arvin Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,837,1057,1101,1147,1193,0
+102,Arvin Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+102,Arvin Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+107,Atascadero Mutual Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+107,Atascadero Mutual Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+107,Atascadero Mutual Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,1726,1801,1908,1980,2058,2140
+117,Azusa Light and Water,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+117,Azusa Light and Water,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+117,Azusa Light and Water,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,18150.45,18551.8,18853.46,19160.04,19471.59,19788.21
+123,Bakersfield  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+123,Bakersfield  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,664,2240,8961,8961,8961,
+123,Bakersfield  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,45649,50190,54873,59991,65589,0
+124,Bakman Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+124,Bakman Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+124,Bakman Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1056,1213,1172,1242,1313,0
+129,Banning  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,2185,2852,3745,4700,5702,6734
+129,Banning  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8369,9506,10701,11752,12670,13467
+129,Banning  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+159,Beaumont - Cherry Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+159,Beaumont - Cherry Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,13818,14972,15698,16391,17285,18082
+159,Beaumont - Cherry Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,1957,2175,2478,2561,2578
+167,Bella Vista Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,11268,9969,10181,10397,10616,10843
+167,Bella Vista Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+167,Bella Vista Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+170,Bellflower - Somerset Mutual Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,109,125,125,125,125,125
+170,Bellflower - Somerset Mutual Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5875,5878,5882,5886,5890,5893
+170,Bellflower - Somerset Mutual Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+178,Benicia  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+178,Benicia  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9383,10036,10086,10202,10312,10556
+178,Benicia  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+193,Beverly Hills  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+193,Beverly Hills  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9565,11933,12131,12340,12582,12768
+193,Beverly Hills  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+197,Big Bear Community Services District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+197,Big Bear Community Services District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,1067,1185,1206,1227,1249,1271
+197,Big Bear Community Services District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+198,Big Bear Lake  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2332,2146.715665,2164,2190,2231,2283
+198,Big Bear Lake  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+198,Big Bear Lake  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+241,Blythe  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3121,3461,3697,3915,4124,4318
+241,Blythe  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+241,Blythe  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+262,Brawley  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+262,Brawley  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+262,Brawley  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2170,2250,2335,2421,2513,2606
+263,Brea  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+263,Brea  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+263,Brea  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9131,9543,9695,9691,9725,9745
+264,Brentwood  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,0,0,0,0,0,0
+264,Brentwood  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,4015,3816,4030,4255,4492,4745
+264,Brentwood  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,316,364,412,460,508,508
+283,Buena Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+283,Buena Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,13247,14303,13541,13665,13769,13848
+283,Buena Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+285,Burbank  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,15885,24862,26776,28186,28512,28810
+285,Burbank  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3146,3540,3540,3540,3540,3540
+285,Burbank  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+286,Burlingame  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+286,Burlingame  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+286,Burlingame  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1271,1533,1571,1617,1668,1721
+351,Calaveras County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,441,566,692,815,940,1046
+351,Calaveras County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+351,Calaveras County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6596,12388,21655,28337,35549,43860
+368,California American Water Company - Los Angeles Division,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+368,California American Water Company - Los Angeles Division,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19455,21596,21894,22194,22405,22618
+368,California American Water Company - Los Angeles Division,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+369,California American Water Company - Monterey District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9139,10442,11882,12475,13065,13657
+369,California American Water Company - Monterey District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1943,5206,6952,6973,6993,7014
+369,California American Water Company - Monterey District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,788,4028,5750,5750,5750,5750
+372,California American Water Company - Sacramento District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+372,California American Water Company - Sacramento District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10746,10280,11263,12040,12998,0
+372,California American Water Company - Sacramento District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+373,California American Water Company - San Diego District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3293,3281,3359,3439,3521,0
+373,California American Water Company - San Diego District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,365,365,365,
+373,California American Water Company - San Diego District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+376,California American Water Company - Ventura District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+376,California American Water Company - Ventura District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,15124,16660,16772,16878,16976,17078
+376,California American Water Company - Ventura District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+384,California Water Service Company Antelope Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+384,California Water Service Company Antelope Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,700,672.74757,654.2209372,659.238174,663.6968523,669.7721618
+384,California Water Service Company Antelope Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+386,California Water Service Company Bakersfield,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+386,California Water Service Company Bakersfield,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+386,California Water Service Company Bakersfield,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,59418.234,60439,62680.94,65408.12,67871.28,70314.47
+387,California Water Service Company Bear Gulch,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+387,California Water Service Company Bear Gulch,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+387,California Water Service Company Bear Gulch,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,12972.41,12796.285,12699.056,12730.383,12675.34,12694.276
+388,California Water Service Company Chico District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+388,California Water Service Company Chico District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+388,California Water Service Company Chico District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,22666.861,23376.126,24511.425,25571.149,26097.78,26473.796
+390,"California Water Service Company Dixon, City of",Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+390,"California Water Service Company Dixon, City of",Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+390,"California Water Service Company Dixon, City of",Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1391.206913,1335.143,1295.344,1301.881,1307.324,1320.534
+391,California Water Service Company Dominguez,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,4587,4737,4737,4737,4737,4737
+391,California Water Service Company Dominguez,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+391,California Water Service Company Dominguez,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,28381.384,28371.401,28109.886,28148.7,28199.646,28349.263
+392,California Water Service Company East Los Angeles,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,35,35,35,35,35,35
+392,California Water Service Company East Los Angeles,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+392,California Water Service Company East Los Angeles,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14229.98649,13833.16,13513.75,13516.99,13532.01,13625.75
+396,California Water Service Company Hermosa/Redondo,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+396,California Water Service Company Hermosa/Redondo,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10944.983,10660.384,10493.474,10485.22,10479.588,10564.196
+396,California Water Service Company Hermosa/Redondo,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,208,193,193,193,193,193
+397,California Water Service Company Kern River Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+397,California Water Service Company Kern River Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+397,California Water Service Company Kern River Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,779.375,766.427,763.683,760.362,757.046,754.955
+398,California Water Service Company King City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+398,California Water Service Company King City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+398,California Water Service Company King City,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1675,1661.76,1671.21,1710.63,1749.94,1797.22
+401,California Water Service Company Livermore,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9571,9333.41,9360.56,9515.35,9555.26,9632.42
+401,California Water Service Company Livermore,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+401,California Water Service Company Livermore,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+402,California Water Service Company Los Altos/Suburban,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,13023,13006.893,13003.293,13323.877,13666.093,14097.357
+402,California Water Service Company Los Altos/Suburban,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,64,100,100,100,100,100
+402,California Water Service Company Los Altos/Suburban,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+405,California Water Service Company Marysville,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+405,California Water Service Company Marysville,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2012.337,1966.791,1941.522,1921.502,1905.419,1897.276
+405,California Water Service Company Marysville,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+420,California Water Service Company Mid Peninsula,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14562.606,14417.705,14529.729,14786.092,14977.365,15278.55
+420,California Water Service Company Mid Peninsula,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+420,California Water Service Company Mid Peninsula,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+412,California Water Service Company Oroville,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+412,California Water Service Company Oroville,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+412,California Water Service Company Oroville,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2752.542,2654.008,2599.391,2593.655,2586.921,2585.767
+413,California Water Service Company Palos Verdes,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,18067,17873.07,17781.55,17949.73,18069.75,18300.21
+413,California Water Service Company Palos Verdes,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,194,194,194,194
+413,California Water Service Company Palos Verdes,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+416,California Water Service Company Redwood Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+416,California Water Service Company Redwood Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+416,California Water Service Company Redwood Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,380.774,359.592,343.588,339.424,334.997,333.743
+417,California Water Service Company Salinas District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,16467.08,16608.582,16988.045,17575.182,18174.584,18852.75
+417,California Water Service Company Salinas District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+417,California Water Service Company Salinas District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+421,California Water Service Company Selma,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+421,California Water Service Company Selma,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4591.713,4433.693,4396.823,4539.704,4659.251,4799.774
+421,California Water Service Company Selma,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+422,California Water Service Company South San Francisco,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+422,California Water Service Company South San Francisco,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6936.177,7543.153,7482.586,7634.724,8000.042,8422.925
+422,California Water Service Company South San Francisco,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+424,California Water Service Company Stockton,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+424,California Water Service Company Stockton,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+424,California Water Service Company Stockton,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,24106,23733,23588,23548,23480,23517.28
+427,California Water Service Company Visalia,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+427,California Water Service Company Visalia,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+427,California Water Service Company Visalia,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,30152.071,32519.69,35275.529,38310.167,41258.209,44529.499
+428,California Water Service Company Westlake,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+428,California Water Service Company Westlake,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,450,436,436,436,436,436
+428,California Water Service Company Westlake,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7065.835,6942.561,6818.273,6821.207,6815.768,6836.413
+429,California Water Service Company Willows,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+429,California Water Service Company Willows,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+429,California Water Service Company Willows,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1316.453,1526.737,1616.736,1615.138,1875.689,1880.814
+443,Camarillo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,187,206,206,206,206,206
+443,Camarillo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+443,Camarillo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7840,6464,6330,6458,6518,6580
+445,Cambria Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+445,Cambria Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,540.62,580,590,610,630,630
+445,Cambria Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,475,475,493,513,533,543
+467,Camrosa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+467,Camrosa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7580,7565,7641,7965,8042,0
+467,Camrosa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,11649,10200,10200,10200,10200,
+478,Carlsbad Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+478,Carlsbad Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,13929,16302,16655,17086,17519,18045
+478,Carlsbad Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,3764,4218,4218,4218,4218,4218
+481,Carmichael Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+481,Carmichael Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+481,Carmichael Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9190,8860,8950,9070,9160,9280
+485,Carpinteria Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4105,4111,4170,4381,4452,4530
+485,Carpinteria Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+485,Carpinteria Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,1000,1000,1000,1000
+495,Casitas Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+495,Casitas Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+495,Casitas Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7817,10169,10169,10169,10169,0
+1050,Casitas Municipal Water District - Ojai,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1050,Casitas Municipal Water District - Ojai,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1050,Casitas Municipal Water District - Ojai,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1751,1850,1850,1850,1850,0
+522,Ceres  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+522,Ceres  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2151,2996,3528,4152,4152,0
+522,Ceres  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+524,Cerritos  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8455,9857,10539,10851,11064,11276
+524,Cerritos  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+524,Cerritos  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,2159,2500,2500,2500,2500,2500
+545,Chino  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,4828,4500,4500,4000,3800,3800
+545,Chino  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+545,Chino  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,15273,16343,17810,19087,20164,21308
+547,Chino Hills  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,12262.7,15510.5,15725,16068.7,16116.7,16159.8
+547,Chino Hills  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+547,Chino Hills  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1414,1609,1609,1609,1609,1609
+2979,"Chowchilla, City of Water Department",Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,833,1078,1396,1805,2338,3027
+2979,"Chowchilla, City of Water Department",Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2979,"Chowchilla, City of Water Department",Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+561,Citrus Heights Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+561,Citrus Heights Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,12484,11849,12173,12437,12906,13355.4
+561,Citrus Heights Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+572,Cloverdale  City of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,393,532,565,570,583,0
+572,Cloverdale  City of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+572,Cloverdale  City of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+574,Clovis  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,24828,36637,37323,40122,43198,0
+574,Clovis  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+574,Clovis  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,710,3100,5500,6300,9400,
+575,Coachella  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7216,10869,12819,14731,16819,18746
+575,Coachella  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+575,Coachella  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+577,Coachella Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,8696,13600,14400,15100,15900,16800
+577,Coachella Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,99842,123461,130582,137629,143082,148166
+577,Coachella Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+583,Coastside County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+583,Coastside County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+583,Coastside County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,667,705,695,690,668,664
+596,Colton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+596,Colton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+596,Colton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9244,9759,10283,10805,11097,11387
+613,Contra Costa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,8700,10700,15100,16000,16700,17000
+613,Contra Costa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,63610,80900,83500,86400,89400,90700
+613,Contra Costa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+624,Corona  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,34241,32760,32623,32522,32371,32156
+624,Corona  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+624,Corona  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3781,4795,5145,5495,5845,6195
+644,Covina  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5387,5607,5636,5665,5695,5724
+644,Covina  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+644,Covina  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+649,Crescent City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+649,Crescent City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+649,Crescent City,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,832,809,801,795,790,786
+651,Crescenta Valley Community Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4215.81,3978.74,4041.48,4105.21,4169.94,4235.69
+651,Crescenta Valley Community Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+651,Crescenta Valley Community Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+654,Crestline Village Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+654,Crestline Village Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+654,Crestline Village Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,309927,324768,340368,356762,373993,0
+664,Cucamonga Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,4458,4000,4000,4000,4000,4000
+664,Cucamonga Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,46021,51569,56092,57650,58949,58949
+664,Cucamonga Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,5496,5800,6000,6000,6000,6000
+673,Daly City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,10,550,550,550,550,550
+673,Daly City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+673,Daly City,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2174,2134,2101,2095,2106,2120
+678,Davis  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,10488,10912,11470,12056,12672,13318
+678,Davis  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+678,Davis  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+699,Del Oro Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+699,Del Oro Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,353271,438125,516613,563718,577464,591557
+699,Del Oro Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+711,Delano  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8239,9194,9904,10670,11495,12383
+711,Delano  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+711,Delano  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,4424,4461,4499,4537,4575,4614
+727,Desert Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3649,3413,3413,3413,3413,3413
+727,Desert Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+727,Desert Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,33207,36228,37762,39264,40494,41565
+731,Diablo Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2105,2580,3261,3920,4580,0
+731,Diablo Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+731,Diablo Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+737,Dinuba  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1553,1845,2021,2215,2427,0
+737,Dinuba  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+737,Dinuba  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+739,Discovery Bay Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+739,Discovery Bay Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+739,Discovery Bay Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1050,1423,1645,1873,2160,2491
+759,Dublin San Ramon Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+759,Dublin San Ramon Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3043,3043,3043,3043,3043,3043
+759,Dublin San Ramon Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10330,11993,13362,13806,13821,14035
+775,East Bay Municipal Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,61811,67890,69350,70810,73365,76285
+775,East Bay Municipal Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+775,East Bay Municipal Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,2248,3462,4609,5802,7204,7204
+784,East Niles Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+784,East Niles Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+784,East Niles Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8148,8402,9186,10044,10980,12005
+785,East Orange County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,800,850,900,950,999.8,1050
+785,East Orange County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+785,East Orange County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+787,East Palo Alto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+787,East Palo Alto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,572,692.0821,721.0818,778.5294,926.6863,1077.5497
+787,East Palo Alto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+793,East Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+793,East Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,18374,19700,20370,21039,21661,22283
+793,East Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+794,Eastern Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,31243,43330,49020,54500,59800,64100
+794,Eastern Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,84673,102600,108300,114400,118900,123000
+794,Eastern Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+814,El Centro  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7580,7905,8143,8334,8755,9176
+814,El Centro  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+814,El Centro  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+816,El Dorado Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+816,El Dorado Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,36159,34740,35530,36680,37890,39080
+816,El Dorado Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,4231,4240,4240,4240,4240,4240
+827,El Segundo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,8974,8112,7320,6616,5979,
+827,El Segundo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+827,El Segundo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5489,5458,5423,5393,5361,0
+830,El Toro Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,7167,7252,7650.74,7666,7686.8,7670.53
+830,El Toro Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,1270,1485,1485,1485,1485,1485
+830,El Toro Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+835,Elk Grove Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+835,Elk Grove Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+835,Elk Grove Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6994,7300,7910,8020,8130,8180
+842,Elsinore Valley Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+842,Elsinore Valley Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,23653,29825,32130,34613,37288,40170
+842,Elsinore Valley Municipal Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,7803,9107,9864,10700,10797,10797
+851,Escondido  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,464,3935,4105,7585,7665,7745
+851,Escondido  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+851,Escondido  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,20625,25840,26085,26338,26602,27518
+856,Estero Municipal Improvement District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+856,Estero Municipal Improvement District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+856,Estero Municipal Improvement District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1596.436204,1614.738,1645.744091,1680.597137,1722.516781,1805.273075
+859,Eureka  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+859,Eureka  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,934,1018,1047,1079,1111,1140
+859,Eureka  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+866,Fair Oaks Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+866,Fair Oaks Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10452,10530,10614,10701,10792,0
+866,Fair Oaks Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+867,Fairfield  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+867,Fairfield  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6808,7106,7648,7777,8089,8275
+867,Fairfield  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,0,0,64,64
+873,Fallbrook Public Utility District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,8403,8645,8969,9551,9760,9860
+873,Fallbrook Public Utility District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+873,Fallbrook Public Utility District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,517,830,830,830,830,830
+904,Folsom  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19898,20518,22745,24214,25145,25520
+904,Folsom  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+904,Folsom  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+920,Fortuna  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+920,Fortuna  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,463,461.83,501,541,585,634
+920,Fortuna  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+924,Fountain Valley  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1184,1400,1400,1400,1400,1400
+924,Fountain Valley  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8686,8589,8510,8624,8717,8718
+924,Fountain Valley  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+934,Fresno  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,14220,14220,14220,14220,14220
+934,Fresno  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,164679,199204,212756,222310,231876,241447
+934,Fresno  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,4757,14220,14220,14220,14220,14220
+967,Fullerton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+967,Fullerton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,23799,25655,27445,27561,27672,27849
+967,Fullerton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+972,Galt  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4780.759622,4897.238656,5013.445953,5303.25567,5614.801115,5949.712468
+972,Galt  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+972,Galt  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,655,655,665,665,665,665
+977,Garden Grove  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+977,Garden Grove  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+977,Garden Grove  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,21980,22588.1,22958,22880,22744,22792
+990,Georgetown Divide Public Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,11366,9174.9,9255.1,9338.3,9424,9515.8
+990,Georgetown Divide Public Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+990,Georgetown Divide Public Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+995,Gilroy  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8272,8645,9314,10035,10810,11645
+995,Gilroy  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+995,Gilroy  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1278,1673,2068,2464,2464,2464
+1004,Glendale  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1811,1911,4630,4630,4630,4630
+1004,Glendale  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1004,Glendale  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,21371,21586,21800,22019,22238,22461
+1005,Glendora  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1005,Glendora  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1005,Glendora  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9898,11090,11211,11333,11456,11581
+1029,Golden State Water Company - Artesia,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,110,110,110,110,110,110
+1029,Golden State Water Company - Artesia,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1029,Golden State Water Company - Artesia,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4846,5109,5152,5196,5240,5284
+1030,Golden State Water Company - Barstow,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1030,Golden State Water Company - Barstow,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5721,5435,5528,5622,5718,5815
+1030,Golden State Water Company - Barstow,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1031,Golden State Water Company - Bay Point,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1031,Golden State Water Company - Bay Point,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1924,1774,1804,1836,1867,1899
+1031,Golden State Water Company - Bay Point,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1032,Golden State Water Company - Bell-Bell Gardens,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1032,Golden State Water Company - Bell-Bell Gardens,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,100,140,140,140,140,140
+1032,Golden State Water Company - Bell-Bell Gardens,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4520,4636,4667,4699,4731,4763
+1034,Golden State Water Company - Claremont,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10175,10451,10623,10798,10977,11158
+1034,Golden State Water Company - Claremont,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1034,Golden State Water Company - Claremont,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1036,Golden State Water Company - Cordova,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14206,13605,13949,14301,14662,15032
+1036,Golden State Water Company - Cordova,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1036,Golden State Water Company - Cordova,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1038,Golden State Water Company - Culver City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1038,Golden State Water Company - Culver City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1038,Golden State Water Company - Culver City,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4707,5002,5086,5175,5269,5370
+1041,Golden State Water Company - Florence Graham,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1041,Golden State Water Company - Florence Graham,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4755,4843,4945,5049,5155,5264
+1041,Golden State Water Company - Florence Graham,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1049,Golden State Water Company - Norwalk,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1049,Golden State Water Company - Norwalk,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,159,200,200,200,200,200
+1049,Golden State Water Company - Norwalk,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4261,4365,4367,4369,4371,4374
+1052,Golden State Water Company - Orcutt,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6481,6105,6266,6432,6603,6777
+1052,Golden State Water Company - Orcutt,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1052,Golden State Water Company - Orcutt,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1053,Golden State Water Company - Placentia,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1053,Golden State Water Company - Placentia,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7049,6657,6683,6709,6736,6762
+1053,Golden State Water Company - Placentia,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1054,Golden State Water Company - San Dimas,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1054,Golden State Water Company - San Dimas,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1054,Golden State Water Company - San Dimas,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10830,10753,10796,10840,10883,10927
+1057,Golden State Water Company - Simi Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6464,6062,6189,6318,6450,6585
+1057,Golden State Water Company - Simi Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1057,Golden State Water Company - Simi Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1058,Golden State Water Company - South Arcadia,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3097,2954,2988,3022,3056,3091
+1058,Golden State Water Company - South Arcadia,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1058,Golden State Water Company - South Arcadia,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1059,Golden State Water Company - South San Gabriel,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,16,30,30,30,30,30
+1059,Golden State Water Company - South San Gabriel,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2450,2396,2422,2447,2474,2500
+1059,Golden State Water Company - South San Gabriel,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1060,Golden State Water Company - Southwest,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,26228,26939,27347,27761,28181,28608
+1060,Golden State Water Company - Southwest,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,409,500,500,500,500,500
+1060,Golden State Water Company - Southwest,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1062,Golden State Water Company - West Orange,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14173,14137,14527,14926,15337,15759
+1062,Golden State Water Company - West Orange,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,241,250,250,250,250,250
+1062,Golden State Water Company - West Orange,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1068,Goleta Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10623,10866,11325,11561,11737,0
+1068,Goleta Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,729,768,772,772,772,
+1068,Goleta Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1083,Great Oaks Water Company Incorporated,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1083,Great Oaks Water Company Incorporated,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1083,Great Oaks Water Company Incorporated,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3633,3363,3174,2825,2450,2207
+1094,Greenfield County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1094,Greenfield County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1094,Greenfield County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,835.48,881,927,973,1020,1069
+1109,Groveland Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,38,0,0,0,0,0
+1109,Groveland Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,129.55,142,145,151,159,170
+1109,Groveland Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1110,Grover Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1288,1375,1464,1550,1636,1723
+1110,Grover Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1110,Grover Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1125,Hanford  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1125,Hanford  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,11713,11623,12172,12748,13351,13983
+1125,Hanford  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1142,Hawthorne  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1142,Hawthorne  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,95,95,95,95,95,95
+1142,Hawthorne  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3851.609,3830.142,3811.083,3817.454,3828.338,3862.819
+1143,Hayward  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1143,Hayward  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5082,6488,6789,7173,7561,0
+1143,Hayward  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,177,73,73,73,110,
+1144,Healdsburg  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1144,Healdsburg  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1,1,41,41,41,41
+1144,Healdsburg  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,640,720,810,850,893,941
+1154,Helix Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,8882,8882,8882,8882,8882
+1154,Helix Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,28618,31033,31964,32674,33114,33468
+1154,Helix Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,8882,8882,8882,8882,8882
+1157,Hemet  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3891,4167,4245,4324,4405,4488
+1157,Hemet  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1157,Hemet  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1166,Hesperia Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,500,1000,1500,2000,2500
+1166,Hesperia Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1166,Hesperia Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14043,15250,16290,16990,17740,18420
+1167,Hi Desert Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1167,Hi Desert Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1167,Hi Desert Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2947,3056,3149,3222,3292,3354
+1181,Hillsborough  Town Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1181,Hillsborough  Town Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2982,3564,3738,3715,3689,3669
+1181,Hillsborough  Town Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1188,Hollister  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3404,3686,4123,4862,5526,0
+1188,Hollister  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1188,Hollister  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,100,100,100,100,100,
+1210,Humboldt Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,662,729,750,773,796,817
+1210,Humboldt Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1210,Humboldt Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1215,Huntington Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1215,Huntington Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1215,Huntington Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,25967,26399.1,26524,26337,26093,26054
+1217,Huntington Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1217,Huntington Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,44,52,52,52,52,52
+1217,Huntington Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4357,4391,4187,4142,4092,4042
+1234,Indian Wells Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6311,6930,7130,7690,7830,8050
+1234,Indian Wells Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1234,Indian Wells Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,2464,2957,3137,3327,3529,3753
+1236,Indio  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1236,Indio  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,5000,5000,5000,5000
+1236,Indio  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19879,24792,26592,28384,29738,30997
+1238,Inglewood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9132,10162,10241,10345,10468,10605
+1238,Inglewood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,800,800,800,800,800,800
+1238,Inglewood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1245,Irvine Ranch Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,56374,67078,74060,81040,88023,0
+1245,Irvine Ranch Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1245,Irvine Ranch Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,29146,29479,29934,30389,30461,
+1273,Jurupa Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1273,Jurupa Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,660,660,660,660,660
+1273,Jurupa Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,29272,30865,33375,35165,37135,37135
+1324,La Habra  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1324,La Habra  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8590,8851,8810,8824.7,8840,8865
+1324,La Habra  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1327,La Palma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1327,La Palma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1958,1872,1893,1867,1839.1,1832.4
+1327,La Palma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1333,La Verne  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1333,La Verne  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6557,6825,7050,7282,7475,0
+1333,La Verne  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1335,Laguna Beach County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,70,70,70,70,70
+1335,Laguna Beach County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1335,Laguna Beach County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3487,3677,3730,3703,3687,3664
+1343,Lake Arrowhead Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1506.58,1335.56,1360.39,1387,1406,1427.78
+1343,Lake Arrowhead Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,269,245,240,240,241,241
+1343,Lake Arrowhead Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1352,Lake Hemet Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,800,800,800,800,
+1352,Lake Hemet Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,13260,16169,16686,17235,17816,0
+1352,Lake Hemet Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1368,Lakeside Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3472,4136,4276,4264,4317,0
+1368,Lakeside Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1368,Lakeside Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1370,Lakewood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,446,450,450,450,450,
+1370,Lakewood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6756,6688,6621,6555,6489,0
+1370,Lakewood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1371,Lamont Public Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1371,Lamont Public Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1371,Lamont Public Utility District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1191,1241,1293,1348,1404,0
+1384,Las Virgenes Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,5891,4677,4677,4677,4677,4677
+1384,Las Virgenes Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,332,682,682,681,681,683
+1384,Las Virgenes Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19011,19190,20246,21362,22543,23793
+1388,Lathrop  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,527.09,996.56,1543.16,2009.56,2471.7,2610.21
+1388,Lathrop  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5484.59,7682.1,9147.54,10253,11715.9,14073.8
+1388,Lathrop  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1869,Liberty Utilities (Park Water) Corp,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10972,11208,11266,11325,11386,11446
+1869,Liberty Utilities (Park Water) Corp,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1869,Liberty Utilities (Park Water) Corp,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,252,260,260,260,260,260
+1424,Lincoln  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,2522,3050,3090,3140,3180,3510
+1424,Lincoln  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+1424,Lincoln  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,10567,11820,12890,14790,16680,18300
+1425,Lincoln Avenue Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+1425,Lincoln Avenue Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1425,Lincoln Avenue Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2308,2094.6,2127.6,2161.2,2195.2,2229.8
+1427,Linda County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,3843,4046,4462,4878,5294,5709
+1427,Linda County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+1427,Linda County Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+1443,Livermore  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,710,616,634,652,670,670
+1443,Livermore  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2135,2099,2154,2209,2262,2262
+1443,Livermore  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1450,Lodi  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1450,Lodi  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,13979,14663,15512,16410,17360,18365
+1450,Lodi  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,4746,4746,4746,4746,4746,4746
+1452,Loma Linda  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1452,Loma Linda  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1452,Loma Linda  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5192,5628,5798,5967,6130,6292
+1456,Lomita  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1456,Lomita  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2071,2216,2215,2214,2212,2209
+1456,Lomita  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1459,Lompoc  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0.06,0.06,0.06,0.06,0.06,0.06
+1459,Lompoc  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1459,Lompoc  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4104,5588,5638,5690,5740,5792
+1464,Long Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1464,Long Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,51040,45791,43212,43298,42720,43397
+1464,Long Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,4176,8174,8649,8392,8322,8257
+1473,Los Angeles City Department Of Water And Power,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+1473,Los Angeles City Department Of Water And Power,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,36401,43969,55866,56281,56406,56636
+1473,Los Angeles City Department Of Water And Power,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,477950,625286,630917,649175,668051,680486
+1481,Los Angeles County Waterworks District 29 - Malibu & Marina Del Rey,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,212,529,593,593,593,
+1481,Los Angeles County Waterworks District 29 - Malibu & Marina Del Rey,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8322,8490,8661,8836,9014,0
+1481,Los Angeles County Waterworks District 29 - Malibu & Marina Del Rey,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1484,Los Angeles County Waterworks District 40 - Antelope Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,362,764,902,1102,1302,1302
+1484,Los Angeles County Waterworks District 40 - Antelope Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1484,Los Angeles County Waterworks District 40 - Antelope Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,45818,54401,57101,60000,63100,66299
+1487,Los Banos  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8308,8340,8985,9680,10428,11234
+1487,Los Banos  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1487,Los Banos  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1506,Lynwood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,34,35,36,37,38,39
+1506,Lynwood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5284,6168,6230,6293,6356,6420
+1506,Lynwood  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1533,Mammoth Community Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2023,2384,2666,3038,3409,0
+1533,Mammoth Community Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1533,Mammoth Community Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,193,160,219,219,219,
+1536,Manhattan Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,250,275,275,275,275,275
+1536,Manhattan Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4857,5175,5250,5326,5402,5465
+1536,Manhattan Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1546,Marin Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,40149,37269,37296,37224.57,37301.21,37457.56
+1546,Marin Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1546,Marin Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,747.64,750,750,750,750,750
+1547,Marina Coast Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1547,Marina Coast Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3291,5852,7298,8188,8762,0
+1547,Marina Coast Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,600,953,1140,1270,
+1554,Martinez  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1554,Martinez  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5152,4460,4266,4070,3918,3984
+1554,Martinez  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1570,McKinleyville Community Services District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+1570,McKinleyville Community Services District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,450,469,492,518,543,0
+1570,McKinleyville Community Services District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,107,200,206,212,219,
+1587,Menlo Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1587,Menlo Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1069,1248,1225,1290,1363.28,0
+1587,Menlo Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,20,48,120,120,120,
+1589,Merced  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1589,Merced  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1589,Merced  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,20076,24418,26751,28995,31825,0
+1596,Mesa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,959,1100,1100,1100,1100,1100
+1596,Mesa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1596,Mesa Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,16117,16353.8,18009,19000.7,19376,19751
+1605,Mid-Peninsula Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1605,Mid-Peninsula Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1605,Mid-Peninsula Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,975,1043,1037,1052,1054,1070
+1613,Millbrae  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1613,Millbrae  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1613,Millbrae  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,685.4,835.2700189,913.079897,896.4837623,1028.87806,1169.571867
+1619,Milpitas  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,357,400,400,400,400,400
+1619,Milpitas  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3073,3925,4075,4226,4376,4517
+1619,Milpitas  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1626,Mission Springs Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,0,1120,2200,3600,5000
+1626,Mission Springs Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8269,8996,9754,10513,11504,12494
+1626,Mission Springs Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1631,Modesto  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+1631,Modesto  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+1631,Modesto  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,53104,63667,68289,72911,77532,82156
+1639,Monrovia  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6976,7469,7855,7995,8137,8282
+1639,Monrovia  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1639,Monrovia  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1642,Monte Vista Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,298,1100,1100,1100,1100,1100
+1642,Monte Vista Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10068,13132,13464,14075,14337,14606
+1642,Monte Vista Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1644,Montebello Land And Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2940,2968.5,2998.5,3028.5,3057.5,3087.5
+1644,Montebello Land And Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,20,29,29,29,29,29
+1644,Montebello Land And Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1645,Montecito Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4495,4634.51,4764.19,4869.27,4998.95,0
+1645,Montecito Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,500,500,500,
+1645,Montecito Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1650,Monterey Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1650,Monterey Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7448,8421,8514,8611,8706,8804
+1650,Monterey Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1656,Morgan Hill  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,700,1500,2200,2900
+1656,Morgan Hill  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1656,Morgan Hill  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7807,8671,9482,10123,10808,11473
+1660,Morro Bay  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,317,317,317,317,317
+1660,Morro Bay  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,317,317,317,317,317
+1660,Morro Bay  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1089.5,1332,1367,1400,1445,1445
+1663,Moulton Niguel Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+1663,Moulton Niguel Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,5013,6398,6346,6326,6312,6288
+1663,Moulton Niguel Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,23083,25695,25436,25286,25161,24992
+1671,Mountain View  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1671,Mountain View  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9489.49,11610,12100,12616,13159,13715
+1671,Mountain View  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,420,448,448,448,448,448
+1697,Myoma Dunes Mutual Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1697,Myoma Dunes Mutual Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1697,Myoma Dunes Mutual Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3987,4376,4540,4703,4736,4771
+1701,Napa  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,568,835,1095,1095,1095,1095
+1701,Napa  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1701,Napa  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14092,14230,14655,15005,15330,15555
+1718,Nevada Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,161678.22,0,0,0,0,0
+1718,Nevada Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1718,Nevada Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1408,1408,1408,1408,1408,
+1729,Newman  City of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1729,Newman  City of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,770.178,838.58,913.76,996.4,1087.23,1187.05
+1729,Newman  City of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,201,201,201,201,201,201
+1730,Newport Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1730,Newport Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,513,542,542,542,542,542
+1730,Newport Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14491,14324,14829,14974.78,15140,15103
+1731,Nipomo Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1731,Nipomo Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,52,,,,,
+1731,Nipomo Community Service District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2048,3128,3369,3438,3506,3573
+1732,Norco  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1732,Norco  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7008,7425,7707,7889,8166,8246
+1732,Norco  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1739,North Coast County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,914.277383,846.4416369,829.5700588,818.0068828,817.3497433,819.019491
+1739,North Coast County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1739,North Coast County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,5,8.57,8.57,8.57,8.57,8.57
+1748,North Marin Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1748,North Marin Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,658,595,608,622,636,650
+1748,North Marin Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8194.2,10083.93,10249.33,10463.23,10472.18,10501.72
+1752,North Tahoe Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1752,North Tahoe Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,381,379,386,393,400,410
+1752,North Tahoe Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1756,Norwalk  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2064,2068.15,2073.82,2079.5,2085.21,2090.91
+1756,Norwalk  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+1756,Norwalk  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,67,90,90,90,90,90
+1765,Oakdale  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1765,Oakdale  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1765,Oakdale  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5216,4910.98,5164.53,5431.18,5711.58,0
+1777,Oceanside  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,249,6360,11760,11760,11760,11760
+1777,Oceanside  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1777,Oceanside  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,23963,21041,19098,19271,19327,19500
+1792,Olivehurst Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1792,Olivehurst Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1381,1754,2130,2318,2505,2693
+1792,Olivehurst Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1793,Olivenhain Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,17100,17410,16960,16640,16310,0
+1793,Olivenhain Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,2482,2693,2819,2834,2855,
+1793,Olivenhain Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,,0,0,0,
+1795,Ontario  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,32109,40382,45048,49076,57609,57609
+1795,Ontario  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1795,Ontario  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,7812,12168,13465,14762,16059,16059
+1797,Orange  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1797,Orange  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,26993,27233,28132.8,28151,28129.8,28077
+1797,Orange  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1803,Orangevale Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4234,3723,3778,3771,3852,0
+1803,Orangevale Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1803,Orangevale Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1804,Orchard Dale Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1804,Orchard Dale Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1804,Orchard Dale Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1960,1993,2017,2042,2067,0
+1821,Otay Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3333,4500,5000,5100,5200,5300
+1821,Otay Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1821,Otay Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,27448,33465,35736,38536,41767,45265
+1827,Oxnard  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,25885,28819,30181,31524,32874,33349
+1827,Oxnard  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,154,6000,11904,11904,11904,11904
+1827,Oxnard  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1838,Padre Dam Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1838,Padre Dam Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9588.189624,12442,13586.01423,14623,15472.68518,15944.08117
+1838,Padre Dam Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1750,1232,1232,1232,1232,1232
+1849,Palmdale Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,70,500,1000,1500,2000,2000
+1849,Palmdale Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,20511,19720,20310,21480,22780,24250
+1849,Palmdale Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1851,Palo Alto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,316,316,316,316,316,316
+1851,Palo Alto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1851,Palo Alto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10921,11470,11661,11875,12148,12432
+1859,Paradise Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1859,Paradise Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1859,Paradise Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4370,3958,4356,4913,5109,5084
+1866,Paramount  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5837,5955,6074,6194,6320,6446
+1866,Paramount  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1866,Paramount  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,312,338,338,338,338,
+1873,Pasadena  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+1873,Pasadena  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,29290,26750,25000,25320,25630,0
+1873,Pasadena  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+1875,Paso Robles  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,180,250,310,380
+1875,Paso Robles  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5745,6515,6922,7439,7967,8483
+1875,Paso Robles  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1877,Patterson  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4454,4888,5473,6127,6860,7681
+1877,Patterson  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1877,Patterson  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,214,214,428,642
+1894,Petaluma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7731,8705,8870,8974,9255,9577
+1894,Petaluma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1894,Petaluma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,651,2000,2540,2540,2540,2540
+1896,Phelan Pinon Hills Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1896,Phelan Pinon Hills Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2948,2965,2986,2995,3005,3035
+1896,Phelan Pinon Hills Community Services District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1899,Pico Rivera  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6020,5528,5540,5551,5561,0
+1899,Pico Rivera  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,74,80,85,90,95,
+1899,Pico Rivera  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1900,Pico Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,59,61,61,61,61,61
+1900,Pico Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1900,Pico Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2816,2870,2900,2929,2960,2990
+1923,Pismo Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,339,339,339,339,339
+1923,Pismo Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1612,1648,1696,1744,1795,1845
+1923,Pismo Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1925,Pittsburg  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1925,Pittsburg  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9233,11031,12030,12960,13824,14745
+1925,Pittsburg  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,111,311,311,311,311,311
+1927,Placer County Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1927,Placer County Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,2500,5000,7000,
+1927,Placer County Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,101613,104388,107071,111460,118950,0
+1940,Pleasanton  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,14780,16741,17239,17737,18236,18236
+1940,Pleasanton  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,0,0,0,0,0,0
+1940,Pleasanton  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,1228,1500,1650,1650,1800,1800
+1945,Pomona  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19472,22358,23185,24043,24876,25738
+1945,Pomona  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1945,Pomona  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1702,2350,2350,2350,2350,2350
+1953,Port Hueneme  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1953,Port Hueneme  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1865,1958,2017,2077,2142,2149
+1953,Port Hueneme  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1964,Poway  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,411,450,450,450,450,450
+1964,Poway  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8774,10087,10344,10589,10717,11046
+1964,Poway  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1983,Quartz Hill Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1983,Quartz Hill Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4724.9,4242.1,4374,4508,4647,4790
+1983,Quartz Hill Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1990,Rainbow Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1990,Rainbow Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+1990,Rainbow Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14297,13750,13200,12672,12165,11679
+1996,Ramona Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,611,520,520,520,520,
+1996,Ramona Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+1996,Ramona Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4747,4839,4977,5120,5267,0
+2000,Rancho California Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,57667,75042,78192,79874,81984,84157
+2000,Rancho California Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2000,Rancho California Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3681,4175,4354,4528,4702,4874
+2033,Redding  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8476,8797,8986,9182,9381,9587
+2033,Redding  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2033,Redding  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,19,19,19,19,19,19
+2035,Redlands  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,994,1173,1173,1173,1173,1173
+2035,Redlands  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,25893,25819,26860,27903,28819,29736
+2035,Redlands  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2037,Redwood City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2037,Redwood City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,856,1286.03,1426.13,1686.2,1700.62,1715.98
+2037,Redwood City,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9852,9519.87,9623.04,9879.86,9995.46,10206.63
+2049,Rialto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2049,Rialto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8930,9592,10205,10818,11209,11604
+2049,Rialto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,10,10,10,10,10
+2057,Rincon Del Diablo Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1778,2200,2200,2200,2200,2200
+2057,Rincon Del Diablo Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2057,Rincon Del Diablo Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4630,6672,7153,7300,7379,7527
+2063,Rio Vista  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,62,142,236,330,424
+2063,Rio Vista  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2025,2388,2627,2890,3179,3223
+2063,Rio Vista  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2074,Riverbank  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2074,Riverbank  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4424.51,4645.8,4867,5088.2,5309.4,0
+2074,Riverbank  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2083,Riverside  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,141,5700,13420,13420,13420,13420
+2083,Riverside  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,77557,82012,84383,86839,89387,92028
+2083,Riverside  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2087,Riverside Highland Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2087,Riverside Highland Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2087,Riverside Highland Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4246,4545,4738,4932,5032,5131
+2103,Rohnert Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1429,1350,1350,1350,1350,1350
+2103,Rohnert Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4574,5760,5987,6105,6305,6515
+2103,Rohnert Park  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2111,Roseville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3768,4022,4434,4932,4932,4932
+2111,Roseville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,32301,47567,52555,57613,57613,57613
+2111,Roseville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2115,Rowland Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1132,1300,1400,1500,1600,1700
+2115,Rowland Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9627,11639,11655,11672,11681,11689
+2115,Rowland Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2118,Rubidoux Community Service District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2118,Rubidoux Community Service District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+2118,Rubidoux Community Service District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,5187,7960,10686,11416,12149,12886
+2119,Rubio Canyon Land And Water Association,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2175,1887.19,1916.95,1947.18,1977.88,2009.07
+2119,Rubio Canyon Land And Water Association,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2119,Rubio Canyon Land And Water Association,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+2130,Sacramento  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2130,Sacramento  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,100481,107432,113809,120186,126564,132941
+2130,Sacramento  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,29,1000,1000,1000,1000,1000
+2132,Sacramento County Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,46426,49788,51384,52886,54294,55652
+2132,Sacramento County Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,962,1420,1890,2360,2830,3300
+2132,Sacramento County Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2140,Sacramento Suburban Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2140,Sacramento Suburban Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,39913,38185,38615,38610,38574,38537
+2140,Sacramento Suburban Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+2150,San Bernardino  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,42183,41115,42323,43534,44506,45478
+2150,San Bernardino  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,1133,1133,1133,1133,1133
+2150,San Bernardino  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2154,San Bernardino County Service Area 64 Spring Valley Lake,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2154,San Bernardino County Service Area 64 Spring Valley Lake,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2701.2,2770.01,2810.01,2840,2850.01,2900
+2154,San Bernardino County Service Area 64 Spring Valley Lake,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2891,San Bernardino County Service Area 70 J Oak Hills,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2891,San Bernardino County Service Area 70 J Oak Hills,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1617.27,1630,1640,1650,1650,1679.9
+2891,San Bernardino County Service Area 70 J Oak Hills,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2157,San Bruno  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1523986,1724348,1929187,2134027,2333476,2333476
+2157,San Bruno  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2157,San Bruno  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2158,San Buenaventura  City Of (Ventura),Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,564,576,576,576,576,576
+2158,San Buenaventura  City Of (Ventura),Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,13556,14228,14618,15015,15425,15846
+2158,San Buenaventura  City Of (Ventura),Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2159,San Clemente  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2159,San Clemente  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7098,7652,7588,7523,7454,7448
+2159,San Clemente  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1155,1200,1320,1320,1320,1320
+2160,San Diego  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,10393,13773,13773,13773,13773,13773
+2160,San Diego  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2160,San Diego  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,161573,176384,184017,190583,196985,201423
+2162,San Dieguito Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2162,San Dieguito Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,5463,5796,6156,6243,6404,6611
+2162,San Dieguito Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,642,700,700,700,700,700
+2163,San Fernando  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+2163,San Fernando  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,0,0,0,0,0,0
+2163,San Fernando  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,2862,2910.3,2960,3010.6,3062,3114.3
+2164,San Francisco Public Utilities Commission,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,110,2350,2800,2800,2800,2800
+2164,San Francisco Public Utilities Commission,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,76950,76510,77970,80320,83570,87150
+2164,San Francisco Public Utilities Commission,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2165,San Gabriel County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2165,San Gabriel County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2165,San Gabriel County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5131,6072,6197,6323,6453,6586
+2167,San Gabriel Valley Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,32130,35135,35321,35511,35604,35700
+2167,San Gabriel Valley Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,1502,1800,2100,2400,2700,3000
+2167,San Gabriel Valley Water Company,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2166,San Gabriel Valley Water Company   Fontana Division,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,387,1000,1500,2000,2500,3000
+2166,San Gabriel Valley Water Company   Fontana Division,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,39395,44594,45409,46665,47942,48943
+2166,San Gabriel Valley Water Company   Fontana Division,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2169,San Jacinto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2169,San Jacinto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2650,3047,3290,3551,3836,4140
+2169,San Jacinto  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2174,San Jose  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,17546,21080,24156,27343,32815,33552
+2174,San Jose  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2174,San Jose  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,4097,4776,5456,6279,7368,7413
+2175,San Jose Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,39592,43311,43265,43440,43963,44416
+2175,San Jose Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2175,San Jose Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,798,890,1010,1189,1193,1189
+2179,San Juan Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,11811,11300,11400,11300,11400,11500
+2179,San Juan Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2179,San Juan Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2180,San Lorenzo Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2180,San Lorenzo Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2050,2210,2227,2243,2261,2277
+2180,San Lorenzo Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,48,48,48,48,48,48
+2182,San Luis Obispo  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2182,San Luis Obispo  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,245,445,645,695,745,
+2182,San Luis Obispo  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,4818,6726,7068,7496,7879,0
+2205,Sanger  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2063.37,2229.37,2410.14,2606.98,2821.32,3054.72
+2205,Sanger  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2205,Sanger  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,311,311,311,311,311,311
+2207,Santa Ana  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,249,249,249,249,249,249
+2207,Santa Ana  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2207,Santa Ana  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,33240,33632.72,34146,33881,33589,33577.76
+2209,Santa Barbara  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9891,12669,13376,13356,13498,13689
+2209,Santa Barbara  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2209,Santa Barbara  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,945,1221,1221,1221,1221,1221
+2210,Santa Clara  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3499,4569,5488,6586,7908,9488
+2210,Santa Clara  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,18303,19473,20347,21111,21650,22188
+2210,Santa Clara  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+4993,Santa Clarita Valley Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+4993,Santa Clarita Valley Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,65600,74200,77500,83200,86600,89500
+4993,Santa Clarita Valley Water Agency,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,468,2299,4146,5541,6948,7949
+2213,Santa Cruz  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2607,2633,2658,2669,2730,2749
+2213,Santa Cruz  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2213,Santa Cruz  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,36,35,35,35,35,35
+2214,Santa Fe Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2214,Santa Fe Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,513,600,600,600,600,600
+2214,Santa Fe Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,8830,8906,9494,9673,9802,10176
+2215,Santa Fe Springs  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4977,5446,5592,5740,5892,6047
+2215,Santa Fe Springs  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,846,900,900,900,900,900
+2215,Santa Fe Springs  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2217,Santa Margarita Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2217,Santa Margarita Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,6477,11492,13763,16954,17009,17009
+2217,Santa Margarita Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,23606,22785,23135,23899,23332,23159
+2218,Santa Maria  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2218,Santa Maria  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,13244,15026,17246,17869,18490,18717
+2218,Santa Maria  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2220,Santa Monica  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2220,Santa Monica  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,57,1660,1660,1660,1660,
+2220,Santa Monica  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,10579,12630,13441,13517,13602,0
+2222,Santa Paula  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4290,4511,4813,5115,5418,0
+2222,Santa Paula  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2222,Santa Paula  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2224,Santa Rosa  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2224,Santa Rosa  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19277,21520,22943,23512,24189,24957
+2224,Santa Rosa  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,110,140,140,140,140,140
+2237,Scotts Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,130,136,140,145,149,154
+2237,Scotts Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1136,1111,1115,1119,1124,1143
+2237,Scotts Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2241,Seal Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3273.3,3175,3368,3342.1,3317,3306
+2241,Seal Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2241,Seal Beach  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2251,Serrano Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2251,Serrano Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2251,Serrano Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3931,4263,4314,4367,4394,0
+2260,Shafter  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2260,Shafter  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1624,1745,1856,1961,2059,2151
+2260,Shafter  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2273,Shasta Lake  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+2273,Shasta Lake  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2215,2690,2827,2972,3122,3282
+2273,Shasta Lake  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,95,95,95,95,95,95
+2290,Sierra Madre  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2290,Sierra Madre  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2392,2487,2499,2512,2522,2533
+2290,Sierra Madre  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2298,Signal Hill  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2298,Signal Hill  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,10,10,10,10,10,
+2298,Signal Hill  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1918.3,1947,1974,2001,2034,0
+2323,Soledad  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2266,2358,2405,2709,3013,3623
+2323,Soledad  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2323,Soledad  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,49,55,65,70,80
+2326,Sonoma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,55,55,55,55,55
+2326,Sonoma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2326,Sonoma  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2174.432,2217.61,2244.37,2247.49,2262.82,2282.52
+2330,Soquel Creek Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,1500,1500,1500,1500,
+2330,Soquel Creek Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2330,Soquel Creek Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3347,3866,3822,3741,3655,0
+2334,South Coast Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2334,South Coast Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,5376,5480,5642,5683,5716,5720
+2334,South Coast Water District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,845,1100,1250,1350,1350,1350
+2337,South Feather Water and Power,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2337,South Feather Water and Power,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2337,South Feather Water and Power,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1761,2075,2169,2264,2366,2471
+2341,South Gate  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,8311.34,7655.4,7671.62,7687.86,7704.11,7720.42
+2341,South Gate  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,247,200,200,200,200,200
+2341,South Gate  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,0,0,0,0,0,0
+2343,South Mesa Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2343,South Mesa Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2270,2379.84,2498.832,2623.7736,2754.96228,2892.710394
+2343,South Mesa Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2345,South Pasadena  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2345,South Pasadena  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3546,4167,4200,4233,4266,4299
+2345,South Pasadena  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2348,South Tahoe Public Utility District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,,,,,,
+2348,South Tahoe Public Utility District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,5778.07,5886,5996,6108,6222,6338
+2348,South Tahoe Public Utility District,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2381,Stockton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2381,Stockton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,34405,34789,37878,43162,48444,48444
+2381,Stockton  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2401,Suburban Water Systems - San Jose Hills,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,710,700,700,700,700,700
+2401,Suburban Water Systems - San Jose Hills,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,24938.6,24088.7,24328.5,24570.3,24815,25062.1
+2401,Suburban Water Systems - San Jose Hills,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+2402,Suburban Water Systems - Whittier/La Mirada,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,20451,19531.01,19684.81,19839.8,19996.02,20153.48
+2402,Suburban Water Systems - Whittier/La Mirada,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+2402,Suburban Water Systems - Whittier/La Mirada,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,930,930,930,930,930
+2419,Sunny Slope Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2419,Sunny Slope Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2419,Sunny Slope Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3625,3788,3903,4021,4142,4266
+2424,Sunnyslope County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2424,Sunnyslope County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2424,Sunnyslope County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2579,3182,3926,4522,5231,0
+2425,Sunnyvale  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,713,896,1010,1120,1232,
+2425,Sunnyvale  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,19193,19287,19639,22901,24386,0
+2425,Sunnyvale  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2437,Sweetwater Authority,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2437,Sweetwater Authority,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2437,Sweetwater Authority,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,16941,21104,21581,22057,23031,23659
+2438,Sweetwater Springs Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2438,Sweetwater Springs Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,718,788,792,796,788,0
+2438,Sweetwater Springs Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,61,63,65,67,69,
+1408,Temescal Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5213,6381,7238,7238,7238,7238
+1408,Temescal Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1302,1517,2203,2203,2203,2203
+1408,Temescal Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+,Test Agency 1,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,55,61895,66453,66910,66892,66988
+,Test Agency 1,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+,Test Agency 1,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,155,155,155,155,32,35
+,Test Agency 2,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+,Test Agency 2,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+,Test Agency 2,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,350000,350100,351100,351100,351100,352100
+440,Test Agency 3,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,5,5,5,5,5,5
+440,Test Agency 3,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,96,101,22,33,44,155
+440,Test Agency 3,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,60,10,20,30,40,50
+2469,Thousand Oaks  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2469,Thousand Oaks  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2469,Thousand Oaks  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10421,10691,10962,11232,11504,11774
+2487,Torrance  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+2487,Torrance  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19203,18233,18638,18925,19216,20080
+2487,Torrance  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,5169,7150,7150,7150,7150,7150
+2490,Trabuco Canyon Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,672,701,701,701,701,701
+2490,Trabuco Canyon Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2490,Trabuco Canyon Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2301,2444,2499,2619,2595,2589
+2496,Tracy  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19526.77,20508.62,23100.38,25737.85,28403.44,33078.79
+2496,Tracy  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2496,Tracy  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,1000,2067,3133,4200,6300
+2510,Triunfo Sanitation District/Oak Park Water Service,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2510,Triunfo Sanitation District/Oak Park Water Service,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2174,2191,2208,2226,2244,0
+2510,Triunfo Sanitation District/Oak Park Water Service,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,509,509,509,509,509,
+2512,Truckee - Donner Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2512,Truckee - Donner Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2512,Truckee - Donner Public Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,1712,1867,2014,2160,2310,0
+2516,Tulare  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,4236,4299,4364,4429,4496,0
+2516,Tulare  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,5520,6255,6422,6911,7435,0
+2516,Tulare  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,4236,4299,4364,4429,4496,
+2523,Tuolumne Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+2523,Tuolumne Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4623,16684,16754,16885,17004,17212
+2523,Tuolumne Utilities District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1592,1640,1690,1743,1796,1852
+2524,Turlock  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,3470,4057,4639,5221,5804,
+2524,Turlock  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2524,Turlock  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,7218,7590,8325,9132,10016,10844
+2528,Tustin  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2528,Tustin  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10447,10081,10122,10025,9929,9898
+2528,Tustin  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2530,Twentynine Palms Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2449,2660,2790,2940,3060,3200
+2530,Twentynine Palms Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2530,Twentynine Palms Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2536,Ukiah  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2536,Ukiah  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3032,2814,2792,2769,2747,2722
+2536,Ukiah  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,742,1400,1400,1400,1400,1400
+2541,Upland  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Potable and Raw Water,18431,21665,22438,23441,23925,24300
+2541,Upland  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Storage Deduction,,,,,,
+2541,Upland  City Of,Table 4-3 Retail: Total Water Demands,Yes,Yes,Recycled Water Demand,703,703,703,703,703,703
+2597,Vacaville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2597,Vacaville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,0,745,745,1140,1825
+2597,Vacaville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,18295,18620,18974,20141,20986,21615
+2602,Vallecitos Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2602,Vallecitos Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,0,471,471,471,771,771
+2602,Vallecitos Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4835,6347,6593,6846,7326,8055
+2603,Vallejo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,16190,28112,29153,30331,31889,31892
+2603,Vallejo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2603,Vallejo  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2604,Valley Center Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,16684,21254,21995,23105,23942,25267
+2604,Valley Center Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2604,Valley Center Municipal Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,57,222,231,231,231,231
+2605,Valley County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6257,6651,6708,6765,6822,0
+2605,Valley County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2605,Valley County Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2610,Valley Of The Moon Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2610,Valley Of The Moon Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2649.23,2996.1,3100.75,3220.39,3352.58,3476.84
+2610,Valley Of The Moon Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2618,Valley Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,0,0,0,0,0,0
+2618,Valley Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3627.4,3288.32,3340.18,3392.83,3446.33,3500.68
+2618,Valley Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2626,Vaughn Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2626,Vaughn Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,3941,4611,5395.3,6312.43,7386.27,8641.11
+2626,Vaughn Water Company,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2629,Ventura County Waterworks District No 01 - Moorpark,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,941,1600,1800,2000,2200,2200
+2629,Ventura County Waterworks District No 01 - Moorpark,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,9257,9502,9728,9982,10210,10462
+2629,Ventura County Waterworks District No 01 - Moorpark,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2631,Ventura County Waterworks District No 08 - Simi Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19135,20874,22530,24319,26261,26261
+2631,Ventura County Waterworks District No 08 - Simi Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2631,Ventura County Waterworks District No 08 - Simi Valley,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,57,76,76,80,80,80
+2633,Vernon  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6547,10060,10060,10060,10060,10060
+2633,Vernon  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,773,800,800,800,800,800
+2633,Vernon  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2635,Victorville Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2635,Victorville Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,22730,25620,27990,29090,30150,31380
+2635,Victorville Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,722,885,979,1075,1149,1319
+2649,Vista Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2649,Vista Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2649,Vista Irrigation District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,16416,18559,19617,20362,21153,21728
+2661,Walnut Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2661,Walnut Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1973,3489,3532,3575,3619,3664
+2661,Walnut Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,16630,17684,17899,18121,18324,18529
+2669,Watsonville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,7102,7707,7903,8104,8254,8385
+2669,Watsonville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,3331,3880,3880,3880,3880,3880
+2669,Watsonville  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,3434,4000,4000,4000,4000,4000
+2679,West Kern Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2679,West Kern Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,16338,17356,17448,17542,17637,17735
+2679,West Kern Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2683,West Sacramento  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,11667,14628,16720,17390,18260,20400
+2683,West Sacramento  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2683,West Sacramento  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2690,West Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2690,West Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2690,West Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,20099,23458,25036,26612,28188,29764
+2691,Westborough Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2691,Westborough Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,329,316.84,313.43,311.39,310.44,310.24
+2691,Westborough Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2697,Western Municipal Water District Of Riverside,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1758,1940,2598,3480,4032,4032
+2697,Western Municipal Water District Of Riverside,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2697,Western Municipal Water District Of Riverside,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,26742.92,30166.75,33879.49,37792.19,42154.85,46939.57
+2704,Westminster  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2704,Westminster  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2704,Westminster  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10654,11079.7,11021.6,10938,10837,10836
+2723,Whittier  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,6848,7147,7305,7468,7632,7802
+2723,Whittier  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,58,70,70,70,70,70
+2723,Whittier  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2751,Windsor  Town Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,4288,4910,5343,5803,6258,0
+2751,Windsor  Town Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2751,Windsor  Town Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1267,1594,1612,1811,2370,
+2766,Woodland  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,151,602,677,677,677,
+2766,Woodland  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2766,Woodland  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,10353,12596,13298,14039,14820,15645
+2782,Yorba Linda Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,19320,19133,19402,19414,19400,19333
+2782,Yorba Linda Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2782,Yorba Linda Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2789,Yreka  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,,,,,,
+2789,Yreka  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,2187,2044,2019,1981,1936,1889
+2789,Yreka  City Of,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2790,Yuba City,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,14099,14935,15480,16150,16995,17830
+2790,Yuba City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,530,650,650,650,650,650
+2790,Yuba City,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,
+2793,Yucaipa Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Demand,1374,3630,3800,4000,4200,4400
+2793,Yucaipa Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Potable and Raw Water,11344,12658,12026,11430,10872,10346
+2793,Yucaipa Valley Water District,Table 4-3 Retail: Total Water Demands,No,N/A,Recycled Water Storage Deduction,,,,,,

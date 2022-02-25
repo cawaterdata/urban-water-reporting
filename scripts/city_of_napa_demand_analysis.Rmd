@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, fig.width=12, fig.height=8)
 library(tidyverse)
 library(dplyr)
-
+library(formattable)
 ```
 
 ## City of Napa
@@ -125,8 +125,10 @@ metric_report_3
 data_report_4 %>% filter(QuestionName == "WDUnitofMeasure") %>% pull(QuestionResults)
 
 scale_to_AF <- 3.06888
-# Units are in MG, multply by scaling factor to convert to AF
-metric_report_4 <-  as.numeric(data_report_4 %>% filter(QuestionName == "WDAnnualTotal") %>% pull(QuestionResults)) * scale_to_AF
+# Units are in MG, multiply by scaling factor to convert to AF
+metric_report_4 <-  as.numeric(data_report_4 %>% 
+                                 filter(QuestionName == "WDAnnualTotal") %>% 
+                                 pull(QuestionResults)) * scale_to_AF
 metric_report_4 
 ```
 
@@ -134,8 +136,10 @@ metric_report_4
 
 ```{r}
 supply_by_report <- tibble("Report" = c(report_1, report_2, report_3, report_4),
-                           "Annual AF Demand" = as.numeric(c(metric_report_1, metric_report_2, 
-                                               metric_report_3, metric_report_4)))
+                           "Annual AF Demand" = as.numeric(c(metric_report_1, 
+                                                             metric_report_2, 
+                                                             metric_report_3, 
+                                                             metric_report_4)))
 ```
 
 ```{r}
@@ -155,56 +159,59 @@ ggplot(supply_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report))
 ```{r}
 total_water_supply_table <- 
   tibble("agency" = rep(c("City of Napa"), 6),
-         "reports_compared" = c("UWMP & WLR", "UWMP & CR", "UWMP & EAR", "WLR & CR", "WLR & EAR", "CR & EAR"),
+         "reports_compared" = c("UWMP & WLR", "UWMP & CR", "UWMP & EAR", 
+                                "WLR & CR", "WLR & EAR", "CR & EAR"),
          "report_a" =  c("UWMP", "UWMP", "UWMP", "WLR", "WLR", "CR"),
          "report_b" =  c("WLR", "CR", "EAR", "CR", "EAR", "EAR"),
-         "report_a_metric" = c(metric_report_1, metric_report_1, metric_report_1, metric_report_2, metric_report_2, metric_report_3), 
-         "report_b_metric" = c(metric_report_2, metric_report_3, metric_report_4, metric_report_3, metric_report_4, metric_report_4),)
+         "report_a_metric" = c(metric_report_1, metric_report_1, metric_report_1,
+                               metric_report_2, metric_report_2, metric_report_3), 
+         "report_b_metric" = c(metric_report_2, metric_report_3, metric_report_4, 
+                               metric_report_3, metric_report_4, metric_report_4),)
 
 total_water_supply_af_deltas <- total_water_supply_table %>% 
-  mutate(delta = report_a_metric - report_b_metric, percent_delta = (report_a_metric / report_b_metric - 1) * 100)
+  mutate(delta = abs(report_a_metric - report_b_metric), 
+         percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
 write_rds(total_water_supply_af_deltas, "../data/napa_total_water_demand_af_deltas.rds")
-knitr::kable(total_water_supply_af_deltas)
 ```
 
 
 
-#### UWMP and WLR
+### Delta Table 
 
-The *difference* in the `r metric` between the `r report_1` and `r report_2` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & WLR") %>% pull(delta)` Acre Feet. 
+The table below shows the delta between the reports
 
-The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & WLR") %>% pull(percent_delta)` %.
+```{r, warning=FALSE}
 
-#### UWMP and Conservation Report
+clean_na = function(x){
+  x %>%
+    round(2) %>%
+    as.character() %>%
+    replace_na('-') %>%
+    return()
+}
 
-The *difference* in the `r metric` between the `r report_1` and `r report_3` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & CR") %>% pull(delta)` Acre Feet. 
+delta_matrix <- total_water_supply_af_deltas %>% 
+  select("Reports" = report_a, report_b, delta) %>%
+  pivot_wider(names_from = "report_b", values_from = "delta")  %>%
+  mutate_if(is.numeric, clean_na)
 
-The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & CR") %>% pull(percent_delta)` %.
 
-#### UWMP and eAR
+formattable(delta_matrix, list(area(col = 2:4) ~ color_tile("transparent", "pink")))
+```
 
-The *difference* in the `r metric` between the `r report_1` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & EAR") %>% pull(delta)` Acre Feet. 
+### % Delta Table 
 
-The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "UWMP & EAR") %>% pull(percent_delta)` %.
+The table below shows the percent delta between the reports
 
-#### WLR and Conservation Report
+```{r, warning=FALSE}
+percent_delta_matrix <- total_water_supply_af_deltas %>% 
+  select("Reports" = report_a, report_b, percent_delta) %>%
+  pivot_wider(names_from = "report_b", values_from = "percent_delta") %>%
+  mutate_if(is.numeric, clean_na)
 
-The *difference* in the `r metric` between the `r report_2` and `r report_3` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & CR") %>% pull(delta)` Acre Feet. 
-
-The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & CR") %>% pull(percent_delta)` %.
-
-#### WLR and eAR
-
-The *difference* in the `r metric` between the `r report_2` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & EAR") %>% pull(delta)` Acre Feet. 
-
-The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "WLR & EAR") %>% pull(percent_delta)` %.
-
-#### Conservation Report and eAR
-
-The *difference* in the `r metric` between the `r report_3` and `r report_4` is: `r total_water_supply_af_deltas %>% filter(reports_compared == "CR & EAR") %>% pull(delta)` Acre Feet. 
-
-The *percent difference* is: `r total_water_supply_af_deltas %>% filter(reports_compared == "CR & EAR") %>% pull(percent_delta)` %.
+formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile("transparent", "pink")))
+```
 
 
 

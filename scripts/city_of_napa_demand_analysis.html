@@ -260,8 +260,10 @@ metric_report_3 </code></pre>
 data_report_4 %&gt;% filter(QuestionName == &quot;WDUnitofMeasure&quot;) %&gt;% pull(QuestionResults)</code></pre>
 <pre><code>## [1] &quot;MG&quot;</code></pre>
 <pre class="r"><code>scale_to_AF &lt;- 3.06888
-# Units are in AF
-metric_report_4 &lt;-  as.numeric(data_report_4 %&gt;% filter(QuestionName == &quot;WDAnnualTotal&quot;) %&gt;% pull(QuestionResults)) * scale_to_AF
+# Units are in MG, multiply by scaling factor to convert to AF
+metric_report_4 &lt;-  as.numeric(data_report_4 %&gt;% 
+                                 filter(QuestionName == &quot;WDAnnualTotal&quot;) %&gt;% 
+                                 pull(QuestionResults)) * scale_to_AF
 metric_report_4 </code></pre>
 <pre><code>## [1] 12492.68</code></pre>
 </div>
@@ -269,8 +271,10 @@ metric_report_4 </code></pre>
 <div id="summarizing-metric-across-reports" class="section level3">
 <h3>Summarizing Metric Across Reports</h3>
 <pre class="r"><code>supply_by_report &lt;- tibble(&quot;Report&quot; = c(report_1, report_2, report_3, report_4),
-                           &quot;Annual AF Demand&quot; = as.numeric(c(metric_report_1, metric_report_2, 
-                                               metric_report_3, metric_report_4)))</code></pre>
+                           &quot;Annual AF Demand&quot; = as.numeric(c(metric_report_1, 
+                                                             metric_report_2, 
+                                                             metric_report_3, 
+                                                             metric_report_4)))</code></pre>
 <pre class="r"><code>library(ggplot2)
 ggplot(supply_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report)) +
   geom_col() + 
@@ -285,133 +289,173 @@ ggplot(supply_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report))
 <h3 class="tabset">Delta of Metrics Across Reports</h3>
 <pre class="r"><code>total_water_supply_table &lt;- 
   tibble(&quot;agency&quot; = rep(c(&quot;City of Napa&quot;), 6),
-         &quot;reports_compared&quot; = c(&quot;UWMP &amp; WLR&quot;, &quot;UWMP &amp; CR&quot;, &quot;UWMP &amp; EAR&quot;, &quot;WLR &amp; CR&quot;, &quot;WLR &amp; EAR&quot;, &quot;CR &amp; EAR&quot;),
+         &quot;reports_compared&quot; = c(&quot;UWMP &amp; WLR&quot;, &quot;UWMP &amp; CR&quot;, &quot;UWMP &amp; EAR&quot;, 
+                                &quot;WLR &amp; CR&quot;, &quot;WLR &amp; EAR&quot;, &quot;CR &amp; EAR&quot;),
          &quot;report_a&quot; =  c(&quot;UWMP&quot;, &quot;UWMP&quot;, &quot;UWMP&quot;, &quot;WLR&quot;, &quot;WLR&quot;, &quot;CR&quot;),
          &quot;report_b&quot; =  c(&quot;WLR&quot;, &quot;CR&quot;, &quot;EAR&quot;, &quot;CR&quot;, &quot;EAR&quot;, &quot;EAR&quot;),
-         &quot;report_a_metric&quot; = c(metric_report_1, metric_report_1, metric_report_1, metric_report_2, metric_report_2, metric_report_3), 
-         &quot;report_b_metric&quot; = c(metric_report_2, metric_report_3, metric_report_4, metric_report_3, metric_report_4, metric_report_4),)
+         &quot;report_a_metric&quot; = c(metric_report_1, metric_report_1, metric_report_1,
+                               metric_report_2, metric_report_2, metric_report_3), 
+         &quot;report_b_metric&quot; = c(metric_report_2, metric_report_3, metric_report_4, 
+                               metric_report_3, metric_report_4, metric_report_4),)
 
 total_water_supply_af_deltas &lt;- total_water_supply_table %&gt;% 
-  mutate(delta = report_a_metric - report_b_metric, percent_delta = (report_a_metric / report_b_metric - 1) * 100)
+  mutate(delta = abs(report_a_metric - report_b_metric), 
+         percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
-write_rds(total_water_supply_af_deltas, &quot;../data/napa_total_water_demand_af_deltas.rds&quot;)
-knitr::kable(total_water_supply_af_deltas)</code></pre>
-<table>
-<colgroup>
-<col width="12%" />
-<col width="16%" />
-<col width="8%" />
-<col width="8%" />
-<col width="15%" />
-<col width="15%" />
-<col width="10%" />
-<col width="13%" />
-</colgroup>
+write_rds(total_water_supply_af_deltas, &quot;../data/napa_total_water_demand_af_deltas.rds&quot;)</code></pre>
+</div>
+<div id="delta-table" class="section level3">
+<h3>Delta Table</h3>
+<p>The table below shows the delta between the reports</p>
+<pre class="r"><code>clean_na = function(x){
+  x %&gt;%
+    round(2) %&gt;%
+    as.character() %&gt;%
+    replace_na(&#39;-&#39;) %&gt;%
+    return()
+}
+
+delta_matrix &lt;- total_water_supply_af_deltas %&gt;% 
+  select(&quot;Reports&quot; = report_a, report_b, delta) %&gt;%
+  pivot_wider(names_from = &quot;report_b&quot;, values_from = &quot;delta&quot;)  %&gt;%
+  mutate_if(is.numeric, clean_na)
+
+
+formattable(delta_matrix, list(area(col = 2:4) ~ color_tile(&quot;transparent&quot;, &quot;pink&quot;)))</code></pre>
+<table class="table table-condensed">
 <thead>
-<tr class="header">
-<th align="left">agency</th>
-<th align="left">reports_compared</th>
-<th align="left">report_a</th>
-<th align="left">report_b</th>
-<th align="right">report_a_metric</th>
-<th align="right">report_b_metric</th>
-<th align="right">delta</th>
-<th align="right">percent_delta</th>
+<tr>
+<th style="text-align:right;">
+Reports
+</th>
+<th style="text-align:right;">
+WLR
+</th>
+<th style="text-align:right;">
+CR
+</th>
+<th style="text-align:right;">
+EAR
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">City of Napa</td>
-<td align="left">UWMP &amp; WLR</td>
-<td align="left">UWMP</td>
-<td align="left">WLR</td>
-<td align="right">14660.00</td>
-<td align="right">12698.98</td>
-<td align="right">1961.0246</td>
-<td align="right">15.442385</td>
+<tr>
+<td style="text-align:right;">
+UWMP
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffdce2">1961.02</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffc0cb">3451.8 </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffd8df">2167.32</span>
+</td>
 </tr>
-<tr class="even">
-<td align="left">City of Napa</td>
-<td align="left">UWMP &amp; CR</td>
-<td align="left">UWMP</td>
-<td align="left">CR</td>
-<td align="right">14660.00</td>
-<td align="right">11208.20</td>
-<td align="right">3451.8000</td>
-<td align="right">30.797095</td>
+<tr>
+<td style="text-align:right;">
+WLR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffe6ea">1490.78</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">206.29 </span>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">City of Napa</td>
-<td align="left">UWMP &amp; EAR</td>
-<td align="left">UWMP</td>
-<td align="left">EAR</td>
-<td align="right">14660.00</td>
-<td align="right">12492.68</td>
-<td align="right">2167.3168</td>
-<td align="right">17.348690</td>
-</tr>
-<tr class="even">
-<td align="left">City of Napa</td>
-<td align="left">WLR &amp; CR</td>
-<td align="left">WLR</td>
-<td align="left">CR</td>
-<td align="right">12698.98</td>
-<td align="right">11208.20</td>
-<td align="right">1490.7754</td>
-<td align="right">13.300756</td>
-</tr>
-<tr class="odd">
-<td align="left">City of Napa</td>
-<td align="left">WLR &amp; EAR</td>
-<td align="left">WLR</td>
-<td align="left">EAR</td>
-<td align="right">12698.98</td>
-<td align="right">12492.68</td>
-<td align="right">206.2922</td>
-<td align="right">1.651304</td>
-</tr>
-<tr class="even">
-<td align="left">City of Napa</td>
-<td align="left">CR &amp; EAR</td>
-<td align="left">CR</td>
-<td align="left">EAR</td>
-<td align="right">11208.20</td>
-<td align="right">12492.68</td>
-<td align="right">-1284.4832</td>
-<td align="right">-10.281884</td>
+<tr>
+<td style="text-align:right;">
+CR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffeaed">1284.48</span>
+</td>
 </tr>
 </tbody>
 </table>
-<div id="uwmp-and-wlr" class="section level4">
-<h4>UWMP and WLR</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Urban Water Managment Plan and Water Loss Report is: 1961.0246413 Acre Feet.</p>
-<p>The <em>percent difference</em> is: 15.4423848 %.</p>
 </div>
-<div id="uwmp-and-conservation-report" class="section level4">
-<h4>UWMP and Conservation Report</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Urban Water Managment Plan and Conservation Report is: 3451.8 Acre Feet.</p>
-<p>The <em>percent difference</em> is: 30.797095 %.</p>
-</div>
-<div id="uwmp-and-ear" class="section level4">
-<h4>UWMP and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Urban Water Managment Plan and Electronic Annual Report is: 2167.3168446 Acre Feet.</p>
-<p>The <em>percent difference</em> is: 17.3486898 %.</p>
-</div>
-<div id="wlr-and-conservation-report" class="section level4">
-<h4>WLR and Conservation Report</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Water Loss Report and Conservation Report is: 1490.7753587 Acre Feet.</p>
-<p>The <em>percent difference</em> is: 13.3007562 %.</p>
-</div>
-<div id="wlr-and-ear" class="section level4">
-<h4>WLR and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Water Loss Report and Electronic Annual Report is: 206.2922033 Acre Feet.</p>
-<p>The <em>percent difference</em> is: 1.6513042 %.</p>
-</div>
-<div id="conservation-report-and-ear" class="section level4">
-<h4>Conservation Report and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Conservation Report and Electronic Annual Report is: -1284.4831554 Acre Feet.</p>
-<p>The <em>percent difference</em> is: -10.2818837 %.</p>
-</div>
+<div id="delta-table-1" class="section level3">
+<h3>% Delta Table</h3>
+<p>The table below shows the percent delta between the reports</p>
+<pre class="r"><code>percent_delta_matrix &lt;- total_water_supply_af_deltas %&gt;% 
+  select(&quot;Reports&quot; = report_a, report_b, percent_delta) %&gt;%
+  pivot_wider(names_from = &quot;report_b&quot;, values_from = &quot;percent_delta&quot;) %&gt;%
+  mutate_if(is.numeric, clean_na)
+
+formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile(&quot;transparent&quot;, &quot;pink&quot;)))</code></pre>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+Reports
+</th>
+<th style="text-align:right;">
+WLR
+</th>
+<th style="text-align:right;">
+CR
+</th>
+<th style="text-align:right;">
+EAR
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+UWMP
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffe1e6">15.44</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffc0cb">30.8</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffdde2">17.35</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+WLR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffe5ea">13.3</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">1.65 </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+CR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffecef">10.28</span>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="investigating-differences" class="section level2">

@@ -216,10 +216,12 @@ data_report_4 &lt;- data_report_4 %&gt;%
   filter(SurveyName == &quot;2020 EAR&quot;, SectionID %in% c(&quot;06 Supply-Delivery&quot;, &quot;01 Intro&quot;)) </code></pre>
 <div id="how-is-our-chosen-metric-described-in-the-report-data" class="section level3">
 <h3>How is our chosen metric described in the report data?</h3>
-<pre class="r"><code>volume_demand_report_1 &lt;- &quot;WATER_DEMAND_VOLUME_2020&quot; # check that there is only one catagory, if not sum up
+<pre class="r"><code>volume_demand_report_1 &lt;- &quot;WATER_DEMAND_VOLUME_2020&quot; # check that there is only one category, if not sum up
 volume_demand_report_2 &lt;- &quot;AC_AUTH_CONSUMPTION_VOL_AF&quot;
-volume_demand_report_3 &lt;- c(&quot;REPORTED FINAL Total Potable Water Production&quot;, &quot;FINAL Percent Residential Use&quot;, 
-                            &quot;REPORTED FINAL Commercial Agricultural Water&quot;, &quot;REPORTED FINAL Commercial, Industrial, and Institutional Water&quot;, 
+volume_demand_report_3 &lt;- c(&quot;REPORTED FINAL Total Potable Water Production&quot;, 
+                            &quot;FINAL Percent Residential Use&quot;, 
+                            &quot;REPORTED FINAL Commercial Agricultural Water&quot;, 
+                            &quot;REPORTED FINAL Commercial, Industrial, and Institutional Water&quot;, 
                             &quot;REPORTED Recycled Water&quot;, &quot;REPORTED Non-Revenue Water&quot;) # Need to sum up reported metrics to get total demand 
 volume_demand_report_4 &lt;- &quot;WDAnnualTotal&quot;</code></pre>
 </div>
@@ -248,7 +250,9 @@ comercial_industrial_institutional_demand &lt;- sum(data_report_3 %&gt;% pull(vo
 recycled_demand &lt;- sum(data_report_3 %&gt;% pull(volume_demand_report_3[5]))
 non_revenue_demand &lt;- sum(data_report_3 %&gt;% pull(volume_demand_report_3[6]))
 # Units are in AF
-metric_report_3 &lt;-  sum(residential_demand, commercial_agriculture_demand, comercial_industrial_institutional_demand, recycled_demand, non_revenue_demand)
+metric_report_3 &lt;-  sum(residential_demand, commercial_agriculture_demand, 
+                        comercial_industrial_institutional_demand, 
+                        recycled_demand, non_revenue_demand)
 metric_report_3 </code></pre>
 <pre><code>## [1] 10464.36</code></pre>
 </div>
@@ -282,138 +286,178 @@ ggplot(demand_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report))
 <h3 class="tabset">Delta of Metrics Across Reports</h3>
 <pre class="r"><code>total_water_demand_table &lt;- 
   tibble(&quot;agency&quot; = rep(c(&quot;Santa Fe Irrigation District&quot;), 6),
-         &quot;reports_compared&quot; = c(&quot;UWMP &amp; WLR&quot;, &quot;UWMP &amp; CR&quot;, &quot;UWMP &amp; EAR&quot;, &quot;WLR &amp; CR&quot;, &quot;WLR &amp; EAR&quot;, &quot;CR &amp; EAR&quot;),
+         &quot;reports_compared&quot; = c(&quot;UWMP &amp; WLR&quot;, &quot;UWMP &amp; CR&quot;, 
+                                &quot;UWMP &amp; EAR&quot;, &quot;WLR &amp; CR&quot;, &quot;WLR &amp; EAR&quot;, &quot;CR &amp; EAR&quot;),
          &quot;report_a&quot; =  c(&quot;UWMP&quot;, &quot;UWMP&quot;, &quot;UWMP&quot;, &quot;WLR&quot;, &quot;WLR&quot;, &quot;CR&quot;),
          &quot;report_b&quot; =  c(&quot;WLR&quot;, &quot;CR&quot;, &quot;EAR&quot;, &quot;CR&quot;, &quot;EAR&quot;, &quot;EAR&quot;),
-         &quot;report_a_metric&quot; = c(metric_report_1, metric_report_1, metric_report_1, metric_report_2, metric_report_2, metric_report_3), 
-         &quot;report_b_metric&quot; = c(metric_report_2, metric_report_3, metric_report_4, metric_report_3, metric_report_4, metric_report_4),)
+         &quot;report_a_metric&quot; = c(metric_report_1, metric_report_1, metric_report_1, 
+                               metric_report_2, metric_report_2, metric_report_3), 
+         &quot;report_b_metric&quot; = c(metric_report_2, metric_report_3, metric_report_4, 
+                               metric_report_3, metric_report_4, metric_report_4),)
 
 total_water_demand_af_deltas &lt;- total_water_demand_table %&gt;% 
-  mutate(delta = report_a_metric - report_b_metric, percent_delta = (report_a_metric / report_b_metric - 1) * 100)
+  mutate(delta = abs(report_a_metric - report_b_metric), 
+         percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
-write_rds(total_water_demand_af_deltas, &quot;../data/santa_fe_total_water_demand_af_deltas.rds&quot;)
-knitr::kable(total_water_demand_af_deltas)</code></pre>
-<table>
-<colgroup>
-<col width="23%" />
-<col width="14%" />
-<col width="7%" />
-<col width="7%" />
-<col width="13%" />
-<col width="13%" />
-<col width="9%" />
-<col width="11%" />
-</colgroup>
+write_rds(total_water_demand_af_deltas, &quot;../data/santa_fe_total_water_demand_af_deltas.rds&quot;)</code></pre>
+</div>
+<div id="delta-table" class="section level3">
+<h3>Delta Table</h3>
+<p>The table below shows the delta between the reports</p>
+<pre class="r"><code>clean_na = function(x){
+  x %&gt;%
+    round(2) %&gt;%
+    as.character() %&gt;%
+    replace_na(&#39;-&#39;) %&gt;%
+    return()
+}
+
+delta_matrix &lt;- total_water_demand_af_deltas %&gt;% 
+  select(&quot;Reports&quot; = report_a, report_b, delta) %&gt;%
+  pivot_wider(names_from = &quot;report_b&quot;, values_from = &quot;delta&quot;)  %&gt;%
+  mutate_if(is.numeric, clean_na)
+
+
+formattable(delta_matrix, list(area(col = 2:4) ~ color_tile(&quot;transparent&quot;, &quot;pink&quot;)))</code></pre>
+<table class="table table-condensed">
 <thead>
-<tr class="header">
-<th align="left">agency</th>
-<th align="left">reports_compared</th>
-<th align="left">report_a</th>
-<th align="left">report_b</th>
-<th align="right">report_a_metric</th>
-<th align="right">report_b_metric</th>
-<th align="right">delta</th>
-<th align="right">percent_delta</th>
+<tr>
+<th style="text-align:right;">
+Reports
+</th>
+<th style="text-align:right;">
+WLR
+</th>
+<th style="text-align:right;">
+CR
+</th>
+<th style="text-align:right;">
+EAR
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">UWMP &amp; WLR</td>
-<td align="left">UWMP</td>
-<td align="left">WLR</td>
-<td align="right">9343.000</td>
-<td align="right">8501.936</td>
-<td align="right">841.0644</td>
-<td align="right">9.892622</td>
+<tr>
+<td style="text-align:right;">
+UWMP
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">841.06</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fffdfd">1121.36</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffc7d1">9343 </span>
+</td>
 </tr>
-<tr class="even">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">UWMP &amp; CR</td>
-<td align="left">UWMP</td>
-<td align="left">CR</td>
-<td align="right">9343.000</td>
-<td align="right">10464.360</td>
-<td align="right">-1121.3600</td>
-<td align="right">-10.715992</td>
+<tr>
+<td style="text-align:right;">
+WLR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #fff7f8">1962.42</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffccd5">8501.94 </span>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">UWMP &amp; EAR</td>
-<td align="left">UWMP</td>
-<td align="left">EAR</td>
-<td align="right">9343.000</td>
-<td align="right">0.000</td>
-<td align="right">9343.0000</td>
-<td align="right">Inf</td>
-</tr>
-<tr class="even">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">WLR &amp; CR</td>
-<td align="left">WLR</td>
-<td align="left">CR</td>
-<td align="right">8501.936</td>
-<td align="right">10464.360</td>
-<td align="right">-1962.4244</td>
-<td align="right">-18.753410</td>
-</tr>
-<tr class="odd">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">WLR &amp; EAR</td>
-<td align="left">WLR</td>
-<td align="left">EAR</td>
-<td align="right">8501.936</td>
-<td align="right">0.000</td>
-<td align="right">8501.9356</td>
-<td align="right">Inf</td>
-</tr>
-<tr class="even">
-<td align="left">Santa Fe Irrigation District</td>
-<td align="left">CR &amp; EAR</td>
-<td align="left">CR</td>
-<td align="left">EAR</td>
-<td align="right">10464.360</td>
-<td align="right">0.000</td>
-<td align="right">10464.3600</td>
-<td align="right">Inf</td>
+<tr>
+<td style="text-align:right;">
+CR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffc0cb">10464.36</span>
+</td>
 </tr>
 </tbody>
 </table>
-<div id="uwmp-and-wlr" class="section level4">
-<h4>UWMP and WLR</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Urban Water Managment Plan and Water Loss Report is: 841.064375 Acre Feet.</p>
-<p>The <em>percent difference</em> is: 9.8926222 %.</p>
 </div>
-<div id="uwmp-and-conservation-report" class="section level4">
-<h4>UWMP and Conservation Report</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Urban Water Managment Plan and Conservation Report is: -1121.36 Acre Feet.</p>
-<p>The <em>percent difference</em> is: -10.7159922 %.</p>
-</div>
-<div id="uwmp-and-ear" class="section level4">
-<h4>UWMP and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Urban Water Managment Plan and Electronic Annual Report is: 9343 Acre Feet.</p>
-<p>The <em>percent difference</em> is:  %.</p>
-</div>
-<div id="wlr-and-conservation-report" class="section level4">
-<h4>WLR and Conservation Report</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Water Loss Report and Conservation Report is: -1962.424375 Acre Feet.</p>
-<p>The <em>percent difference</em> is: -18.7534104 %.</p>
-</div>
-<div id="wlr-and-ear" class="section level4">
-<h4>WLR and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Water Loss Report and Electronic Annual Report is: 8501.935625 Acre Feet.</p>
-<p>The <em>percent difference</em> is:  %.</p>
-</div>
-<div id="conservation-report-and-ear" class="section level4">
-<h4>Conservation Report and eAR</h4>
-<p>The <em>difference</em> in the Volume Water Demand in Acre Feet between the Conservation Report and Electronic Annual Report is: 1.046436^{4} Acre Feet.</p>
-<p>The <em>percent difference</em> is:  %.</p>
-</div>
+<div id="delta-table-1" class="section level3">
+<h3>% Delta Table</h3>
+<p>The table below shows the percent delta between the reports</p>
+<pre class="r"><code>percent_delta_matrix &lt;- total_water_demand_af_deltas %&gt;% 
+  select(&quot;Reports&quot; = report_a, report_b, percent_delta) %&gt;%
+  pivot_wider(names_from = &quot;report_b&quot;, values_from = &quot;percent_delta&quot;) %&gt;%
+  mutate_if(is.numeric, clean_na)
+
+formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile(&quot;transparent&quot;, &quot;pink&quot;)))</code></pre>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+Reports
+</th>
+<th style="text-align:right;">
+WLR
+</th>
+<th style="text-align:right;">
+CR
+</th>
+<th style="text-align:right;">
+EAR
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+UWMP
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">9.89</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">10.72</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">Inf</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+WLR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #ffffff">18.75</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">Inf</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+CR
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">- </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px">Inf</span>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="investigating-differences" class="section level2">
 <h2>Investigating Differences</h2>
-<p>The largest difference is between the eAR and the Water Loss Report.</p>
+<p>The largest difference is between the eAR and the Conservation Report.</p>
 <p>TODO Why…?</p>
 </div>
 

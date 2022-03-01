@@ -78,14 +78,19 @@ volume_demand_report_4 <- "WDAnnualTotal"
 
 #### Urban Water Managment Plan
 
+UWMP splits data into 2 categories: We summed together Recycled Water
+Demand + Potable and Raw Water to get total demand
+
 ``` r
-metric_report_1 <- sum(data_report_1 %>% pull(volume_demand_report_1), na.rm = T)
+metric_report_1 <- sum(data_report_1 %>% pull(volume_demand_report_1), na.rm = T) # Summing together Recycled Water Demand + Potable and Raw Water to get total demand 
 metric_report_1
 ```
 
     ## [1] 14660
 
 #### Water Loss Report
+
+The Water Loss Report only has one demand category
 
 ``` r
 metric_report_2 <-  data_report_2 %>% pull(volume_demand_report_2)
@@ -95,6 +100,10 @@ metric_report_2
     ## [1] 12698.98
 
 #### Conservation Report
+
+The Conservation Report splits data into 5 categories: We summed
+together Residential Demand + Commercial Agriculture Demand + Commercial
+Industrial Institutional Demand, Recycled Demand, and Non Revenue Demand
 
 ``` r
 #Check Units
@@ -106,17 +115,29 @@ data_report_3 %>% pull(`Water Production Units`)
 ``` r
 residential_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[1]) * ((data_report_3 %>% pull(volume_demand_report_3[2]))/100), na.rm = T) 
 commercial_agriculture_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[3]), na.rm = T)
-comercial_industrial_institutional_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[4]), na.rm = T)
+commercial_industrial_institutional_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[4]), na.rm = T)
 recycled_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[5]), na.rm = T)
 non_revenue_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[6]), na.rm = T)
 # Units are in AF
-metric_report_3 <-  sum(residential_demand, commercial_agriculture_demand, comercial_industrial_institutional_demand, recycled_demand, non_revenue_demand, na.rm = T)
+metric_report_3 <-  sum(residential_demand, commercial_agriculture_demand, commercial_industrial_institutional_demand, recycled_demand, non_revenue_demand, na.rm = T)
 metric_report_3 
 ```
 
     ## [1] 11208.2
 
 #### eAR
+
+The EAR reports total Water Demand but also has it broken down by the
+following categories:
+
+-   Multi-Family
+-   Single Family
+-   Commercial Industrial
+-   Industrial
+-   Landscape Irrigation
+-   Agriculture
+-   Percent Recycled
+-   Other
 
 ``` r
 # Check Units 

@@ -78,6 +78,9 @@ volume_demand_report_4 <- "WDAnnualTotal"
 
 #### Urban Water Managment Plan
 
+UWMP splits data into 2 categories: We summed together Recycled Water
+Demand + Potable and Raw Water to get total demand
+
 ``` r
 metric_report_1 <- sum(data_report_1 %>% pull(volume_demand_report_1), na.rm = T)
 metric_report_1
@@ -87,6 +90,8 @@ metric_report_1
 
 #### Water Loss Report
 
+The Water Loss Report only has one demand category
+
 ``` r
 metric_report_2 <-  data_report_2 %>% pull(volume_demand_report_2)
 metric_report_2 
@@ -95,6 +100,10 @@ metric_report_2
     ## [1] 8501.936
 
 #### Conservation Report
+
+The Conservation Report splits data into 5 categories: We summed
+together Residential Demand + Commercial Agriculture Demand + Commercial
+Industrial Institutional Demand, Recycled Demand, and Non Revenue Demand
 
 ``` r
 #Check Units
@@ -119,6 +128,18 @@ metric_report_3
     ## [1] 10464.36
 
 #### eAR
+
+The EAR reports total Water Demand but also has it broken down by the
+following categories:
+
+-   Multi-Family
+-   Single Family
+-   Commercial Industrial
+-   Industrial
+-   Landscape Irrigation
+-   Agriculture
+-   Percent Recycled
+-   Other
 
 ``` r
 # Check Units 

@@ -229,33 +229,47 @@ volume_demand_report_4 &lt;- &quot;WDAnnualTotal&quot;</code></pre>
 <h3 class="tabset">Metrics</h3>
 <div id="urban-water-managment-plan" class="section level4">
 <h4>Urban Water Managment Plan</h4>
-<pre class="r"><code>metric_report_1 &lt;- sum(data_report_1 %&gt;% pull(volume_demand_report_1), na.rm = T)
+<p>UWMP splits data into 2 categories: We summed together Recycled Water Demand + Potable and Raw Water to get total demand</p>
+<pre class="r"><code>metric_report_1 &lt;- sum(data_report_1 %&gt;% pull(volume_demand_report_1), na.rm = T) # Summing together Recycled Water Demand + Potable and Raw Water to get total demand 
 metric_report_1</code></pre>
 <pre><code>## [1] 14660</code></pre>
 </div>
 <div id="water-loss-report" class="section level4">
 <h4>Water Loss Report</h4>
+<p>The Water Loss Report only has one demand category</p>
 <pre class="r"><code>metric_report_2 &lt;-  data_report_2 %&gt;% pull(volume_demand_report_2)
 metric_report_2 </code></pre>
 <pre><code>## [1] 12698.98</code></pre>
 </div>
 <div id="conservation-report" class="section level4">
 <h4>Conservation Report</h4>
+<p>The Conservation Report splits data into 5 categories: We summed together Residential Demand + Commercial Agriculture Demand + Commercial Industrial Institutional Demand, Recycled Demand, and Non Revenue Demand</p>
 <pre class="r"><code>#Check Units
 data_report_3 %&gt;% pull(`Water Production Units`) </code></pre>
 <pre><code>##  [1] &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot; &quot;AF&quot;</code></pre>
 <pre class="r"><code>residential_demand &lt;- sum(data_report_3 %&gt;% pull(volume_demand_report_3[1]) * ((data_report_3 %&gt;% pull(volume_demand_report_3[2]))/100), na.rm = T) 
 commercial_agriculture_demand &lt;- sum(data_report_3 %&gt;% pull(volume_demand_report_3[3]), na.rm = T)
-comercial_industrial_institutional_demand &lt;- sum(data_report_3 %&gt;% pull(volume_demand_report_3[4]), na.rm = T)
+commercial_industrial_institutional_demand &lt;- sum(data_report_3 %&gt;% pull(volume_demand_report_3[4]), na.rm = T)
 recycled_demand &lt;- sum(data_report_3 %&gt;% pull(volume_demand_report_3[5]), na.rm = T)
 non_revenue_demand &lt;- sum(data_report_3 %&gt;% pull(volume_demand_report_3[6]), na.rm = T)
 # Units are in AF
-metric_report_3 &lt;-  sum(residential_demand, commercial_agriculture_demand, comercial_industrial_institutional_demand, recycled_demand, non_revenue_demand, na.rm = T)
+metric_report_3 &lt;-  sum(residential_demand, commercial_agriculture_demand, commercial_industrial_institutional_demand, recycled_demand, non_revenue_demand, na.rm = T)
 metric_report_3 </code></pre>
 <pre><code>## [1] 11208.2</code></pre>
 </div>
 <div id="ear" class="section level4">
 <h4>eAR</h4>
+<p>The EAR reports total Water Demand but also has it broken down by the following categories:</p>
+<ul>
+<li>Multi-Family</li>
+<li>Single Family</li>
+<li>Commercial Industrial</li>
+<li>Industrial</li>
+<li>Landscape Irrigation</li>
+<li>Agriculture</li>
+<li>Percent Recycled</li>
+<li>Other</li>
+</ul>
 <pre class="r"><code># Check Units 
 data_report_4 %&gt;% filter(QuestionName == &quot;WDUnitofMeasure&quot;) %&gt;% pull(QuestionResults)</code></pre>
 <pre><code>## [1] &quot;MG&quot;</code></pre>

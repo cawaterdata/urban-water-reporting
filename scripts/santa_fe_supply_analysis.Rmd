@@ -39,7 +39,7 @@ metric <- "Volume Water Supplied in Acre Feet"
 Tables Names: 
 
 * Report 1: [Urban Water Managment Plan](https://wuedata.water.ca.gov/uwmp_export_2020.asp)
-* Report 2: [Urban Water Managment Plan](https://wuedata.water.ca.gov/awwa_export)
+* Report 2: [Water Loss Report](https://wuedata.water.ca.gov/awwa_export)
 * Report 3: [Conservation Report](https://www.waterboards.ca.gov/water_issues/programs/conservation_portal/conservation_reporting.html)
 * Report 4: [Electronic Annual Report](https://www.waterboards.ca.gov/drinking_water/certlic/drinkingwater/eardata.html)
 

@@ -4,9 +4,7 @@ author: "Erin Cain"
 date: "2/1/2022"
 output: 
   html_document:
-    theme: flatly
   # rmarkdown::github_document
-
 ---
 
 ```{r setup, include=FALSE}
@@ -20,56 +18,33 @@ library(formattable)
  
 ## What Reports are we looking at? 
 
-```{r}
-report_1 <- "Urban Water Managment Plan"
-report_2 <- "Water Loss Report"
-report_3 <- "Conservation Report"
-report_4 <- "Electronic Annual Report"
-```
+* "Urban Water Management Plan"
+* "Water Loss Report"
+* "Conservation Report"
+* "Electronic Annual Report"
 
 ## What Metric are we comparing between the reports?
 
-```{r}
-metric <- "Volume Water Demand in Acre Feet"
-```
+"Volume Water Demand in Acre Feet"
 
 ## What data are we using?
 
 Tables Names: 
 
-* Report 1: [Urban Water Managment Plan](https://wuedata.water.ca.gov/uwmp_export_2020.asp)
-* Report 2: [Urban Water Managment Plan](https://wuedata.water.ca.gov/awwa_export)
+* Report 1: [Urban Water Managment Plan](https://wuedata.water.ca.gov/uwmp_export_2020.asp) (Table 4.1)
+* Report 2: [Water Loss Report](https://wuedata.water.ca.gov/awwa_export)
 * Report 3: [Conservation Report](https://www.waterboards.ca.gov/water_issues/programs/conservation_portal/conservation_reporting.html)
 * Report 4: [Electronic Annual Report](https://www.waterboards.ca.gov/drinking_water/certlic/drinkingwater/eardata.html)
 
 What agency are we focused on? 
 
-```{r}
-agency_of_interest <- "Napa City Of"
-```
-
+"Napa City Of"
 
 Load in data: 
 ```{r, warning=FALSE, message=FALSE}
-data_report_1 <- readr::read_csv("../data-raw/uwmp_retail_total_demand.csv") %>% 
-  filter(WATER_SUPPLIER_NAME == "Napa  City Of")
+supply_and_demand_data <- read_rds("../data/supply_and_demand_data.rds") %>% 
+  filter(supplier_name %in% c("Napa  City Of", "Napa  City of", "NAPA, CITY OF"))
   
-data_report_2 <- readxl::read_excel("../data-raw/water_audit_data_conv_to_af.xlsx") %>% 
-  filter(REPORTING_YEAR == 2020, WATER_SUPPLIER_NAME == "Napa  City Of") 
-
-
-data_report_3 <- readxl::read_excel("../data-raw/conservation-report-uw-supplier-data120721.xlsx") %>% 
-  mutate(year = lubridate::year(`Reporting Month`)) %>%
-  filter(year == 2020, `Supplier Name` == "Napa  City of")
-
-
-data_report_4 <-  read.delim("../data-raw/EAR_ResultSet_2020RY.txt")
-
-# data_report_4 %>%
-#   filter(QuestionName == "PWSName", SectionID %in% c("06 Supply-Delivery", "01 Intro"), QuestionResults == "NAPA, CITY OF") 
-data_report_4 <- data_report_4 %>%
-  filter(WSSurveyID == 428709) %>%
-  filter(SurveyName == "2020 EAR", SectionID %in% c("06 Supply-Delivery", "01 Intro")) 
 ```
 
 ### How is our chosen metric described in the report data?
@@ -88,37 +63,98 @@ volume_demand_report_4 <- "WDAnnualTotal"
 
 #### Urban Water Managment Plan
 
-UWMP splits data into 2 categories: We summed together Recycled Water Demand + Potable and Raw Water to get total demand 
+UWMP Table 4.1 splits data into 9 categories:
+
+* Multi-Family
+* Commercial
+* Institutional/Governmental
+* Landscape
+* Single Family
+* Sales/Transfers/Exchanges to other agencies
+* Other 
+* Losses
+* Agricultural Irrigation
 
 ```{r}
-metric_report_1 <- sum(data_report_1 %>% pull(volume_demand_report_1), na.rm = T) # Summing together Recycled Water Demand + Potable and Raw Water to get total demand 
-metric_report_1
+uwmp_total_demand <- sum(supply_and_demand_data %>% filter(report_name == "UWMP", category == "demand") %>% pull(volume_af), na.rm = T) # Summing together categories describes above
+uwmp_total_demand
 ```
+
+It DOES NOT include recycled water
+```{r}
+uwmp_recycled_water <- sum(supply_and_demand_data %>% filter(report_name == "UWMP", 
+                                                        category == "demand total", 
+                                                        use_type == "Recycled Water Demand") %>% 
+                        pull(volume_af), na.rm = T)
+uwmp_recycled_water
+```
+
+```{r}
+uwmp_metric <- uwmp_total_demand + uwmp_recycled_water
+uwmp_metric
+```
+
 
 #### Water Loss Report 
 
-The Water Loss Report only has one demand category 
-```{r}
-metric_report_2 <-  data_report_2 %>% pull(volume_demand_report_2)
-metric_report_2 
+The Water Loss Report only has one demand category: report 2 authorized consumption
 
+```{r}
+wlr_authorized_consumption <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, category == "demand total") %>% pull(volume_af)
+wlr_authorized_consumption
 ```
+
+Water losses are not included in demand for the Water Loss Report. Losses are reported Seperatly and the value is below: 
+```{r}
+wlr_losses <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, 
+                                                category == "losses", use_type == "WL_WATER_LOSSES_VOL_AF") %>% pull(volume_af)
+wlr_losses
+```
+
+Water exported in AF are not included in demand for the Water Loss Report. Exports are reported seperatly and the value is below: 
+```{r}
+wlr_exports <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, 
+                                                category == "supply", use_type == "WS_EXPORTED_VOL_AF") %>% pull(volume_af)
+wlr_exports
+```
+```{r}
+wlr_metric <- wlr_authorized_consumption + wlr_losses + wlr_exports
+wlr_metric
+```
+
 
 #### Conservation Report 
 The Conservation Report splits data into 5 categories: We summed together Residential Demand + Commercial Agriculture Demand + Commercial Industrial Institutional Demand, Recycled Demand, and Non Revenue Demand
 ```{r}
-#Check Units
-data_report_3 %>% pull(`Water Production Units`) 
+supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
+                                 category == "demand") 
+residential_demand <- sum(supply_and_demand_data %>% 
+                            filter(report_name == "CR", year == 2020, 
+                                 category == "supply total") %>% 
+                            pull(volume_af) * 
+                            (supply_and_demand_data %>% 
+                            filter(report_name == "CR", year == 2020, 
+                                 category == "demand", use_type == "FINAL Percent Residential Use") %>% 
+                            pull(volume_af))/100, na.rm = T) 
 
+commercial_agriculture_demand <- sum(supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
+                                                                   category == "demand", 
+                                                                   use_type == "REPORTED FINAL Commercial Agricultural Water") %>% pull(volume_af), na.rm = T)
 
-residential_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[1]) * ((data_report_3 %>% pull(volume_demand_report_3[2]))/100), na.rm = T) 
-commercial_agriculture_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[3]), na.rm = T)
-commercial_industrial_institutional_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[4]), na.rm = T)
-recycled_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[5]), na.rm = T)
-non_revenue_demand <- sum(data_report_3 %>% pull(volume_demand_report_3[6]), na.rm = T)
+commercial_industrial_institutional_demand <- sum(supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
+                                                                   category == "demand", 
+                                                                   use_type == "REPORTED FINAL Commercial, Industrial, and Institutional Water") %>% pull(volume_af), na.rm = T)
+
+recycled_demand <- sum(supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
+                                                                   category == "demand", 
+                                                                   use_type == "	REPORTED Recycled Water") %>% pull(volume_af), na.rm = T)
+
+non_revenue_demand <- sum(supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
+                                                                   category == "demand", 
+                                                                   use_type == "REPORTED Non-Revenue Water") %>% pull(volume_af), na.rm = T)
 # Units are in AF
-metric_report_3 <-  sum(residential_demand, commercial_agriculture_demand, commercial_industrial_institutional_demand, recycled_demand, non_revenue_demand, na.rm = T)
-metric_report_3 
+cr_metric <-  sum(residential_demand, commercial_agriculture_demand, commercial_industrial_institutional_demand, recycled_demand, non_revenue_demand, na.rm = T)
+cr_metric 
 ```
 
 #### eAR
@@ -133,31 +169,30 @@ The EAR reports total Water Demand but also has it broken down by the following 
 * Percent Recycled 
 * Other
 
-```{r}
-# Check Units 
-data_report_4 %>% filter(QuestionName == "WDUnitofMeasure") %>% pull(QuestionResults)
 
-scale_to_AF <- 3.06888
-# Units are in MG, multiply by scaling factor to convert to AF
-metric_report_4 <-  as.numeric(data_report_4 %>% 
-                                 filter(QuestionName == "WDAnnualTotal") %>% 
-                                 pull(QuestionResults)) * scale_to_AF
-metric_report_4 
+```{r}
+ear_metric <-  supply_and_demand_data %>% filter(report_name == "EAR", year == 2020, 
+                                                 category == "demand total", 
+                                                 use_type == "AnnualTotal") %>% pull(volume_af)
+
+ear_metric
 ```
 
 ### Summarizing Metric Across Reports 
 
 ```{r}
-demand_by_report <- tibble("Report" = c(report_1, report_2, report_3, report_4),
-                           "Annual AF Demand" = as.numeric(c(metric_report_1, 
-                                                             metric_report_2, 
-                                                             metric_report_3, 
-                                                             metric_report_4)))
+demand_by_report <- tibble(
+  "Agency" = rep("City of Napa", 4),
+  "Report" = c("Urban Water Management Plan", "Water Loss Report", "Conservation Report", "Electronic Annual Report"),
+  "Volume AF" = as.numeric(c(uwmp_metric,wlr_metric,cr_metric,ear_metric)),
+  "Metric" = rep("Annual Total Demand", 4))
+demand_by_report
+write_rds(demand_by_report, "../data/napa_demand_af_volumes.rds")
 ```
 
 ```{r}
 library(ggplot2)
-ggplot(demand_by_report, aes(y = Report, x = `Annual AF Demand`, fill = Report)) +
+ggplot(demand_by_report, aes(y = Report, x = `Volume AF`, fill = Report)) +
   geom_col() + 
   labs(x = "Reported Annual AF Demand", y = "", 
        title = "Reported Annual Water Demand Across Reporting Requirements") +
@@ -176,10 +211,10 @@ total_water_demand_table <-
                                 "WLR & CR", "WLR & EAR", "CR & EAR"),
          "report_a" =  c("UWMP", "UWMP", "UWMP", "WLR", "WLR", "CR"),
          "report_b" =  c("WLR", "CR", "EAR", "CR", "EAR", "EAR"),
-         "report_a_metric" = c(metric_report_1, metric_report_1, metric_report_1,
-                               metric_report_2, metric_report_2, metric_report_3), 
-         "report_b_metric" = c(metric_report_2, metric_report_3, metric_report_4, 
-                               metric_report_3, metric_report_4, metric_report_4),)
+         "report_a_metric" = c(uwmp_metric, uwmp_metric, uwmp_metric,
+                               wlr_metric, wlr_metric, cr_metric), 
+         "report_b_metric" = c(wlr_metric, cr_metric, ear_metric, 
+                               cr_metric, ear_metric, ear_metric),)
 
 total_water_demand_af_deltas <- total_water_demand_table %>% 
   mutate(delta = abs(report_a_metric - report_b_metric), 
@@ -230,6 +265,6 @@ formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile("transparent
 
 ## Investigating Differences 
 
-The largest difference is between the eAR and the Water Loss Report. 
+The largest difference is between the CR and the Water Loss Report. 
 
 TODO Why...?

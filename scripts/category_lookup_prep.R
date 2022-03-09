@@ -50,13 +50,18 @@ ear_use_total <- use %>%
 # use this table for initial reference and comparison
 combined_use <- uwmp_use %>%
   mutate(UWMP = use_type) %>%
+  bind_rows(tibble(use_type = "recycled",
+                   UWMP = "recycled water demand")) %>%
   bind_rows(wlr_use %>%
               mutate(UWMP = NA,
                      WLR = use_type)) %>%
-  mutate(CR = case_when(use_type %in% c("multi-family", "single family") ~ "final percent residential use",
+  mutate(WLR = case_when(use_type == "sales/transfers/exchanges to other agencies" ~ "ws_exported_vol_af",
+                         use_type == "losses" ~ "wl_water_losses_vol_af",
+                         T ~ WLR),
+         CR = case_when(use_type %in% c("multi-family", "single family") ~ "final residential use",
                         use_type == "agricultural irrigation" ~ "reported final commercial agricultural water",
                         use_type %in% c("commercial", "industrial", "institutional/governmental") ~ "reported final commercial, industrial, and institutional water",
-                        use_type == "other non-potable" ~ "reported recycled water",
+                        use_type == "recycled" ~ "reported recycled water",
                         use_type == "losses" ~ "reported non-revenue water"),
          EAR = case_when(use_type == "single family" ~ "sf",
                          use_type == "multi-family" ~ "mf",
@@ -73,13 +78,14 @@ billed <- c("ac_bill_meter_vol_af", "ac_bill_unmeter_vol_af")
 cii <- c("commercial", "industrial", "institutional/governmental", "reported final commercial, industrial, and institutional water", "annualci", "annuali", "ci", "i")
 groundwater_recharge <- c("groundwater recharge")
 landscape <- c("landscape", "annualli", "li")
-losses <- c("losses")
-residential <- c("multi-family", "single family", "final percent residential use", "annualsf", "annualmf", "sf","mf")
-sales_transfers_exchanges <- c("sales/transfers/exchanges to other agencies", "annualop", "op")
+losses <- c("losses", "wl_water_losses_vol_af")
+residential <- c("multi-family", "single family", "final percent residential use", "annualsf", "annualmf", "sf","mf", "final residential use")
+sales_transfers_exchanges <- c("sales/transfers/exchanges to other agencies", "annualop", "op", "ws_exported_vol_af")
 saline_water_intrusion_barrier <- c("saline water intrusion barrier")
 # surface_water_augmentation <- c() # I thought the UWMP reports this but don't see it in the data
 unbilled <- c("ac_unbill_meter_vol_af", "ac_unbill_unmeter_vol_af")
 wetlands_wildlife_habitat <- c("wetlands or wildlife habitat")
+recycled <- c("recycled water demand", "reported recycled water'")
 other <- c("other", "other potable", "other non-potable", "annualo", "o")
 
 # use_type, use_term, report table #####
@@ -95,8 +101,10 @@ use_type_table <- combined_use %>%
                               UWMP %in% saline_water_intrusion_barrier ~ "saline water intrusion barrier",
                               WLR %in% unbilled ~ "unbilled",
                               UWMP %in% wetlands_wildlife_habitat ~ "wetlands or wildlife habitat",
+                              UWMP %in% recycled ~ "recycled",
                               UWMP %in% other ~ "other")) %>%
-  pivot_longer(cols = UWMP:EAR, names_to = "report", values_to = "use_term") %>%
+  rename(use_group = use_type) %>%
+  pivot_longer(cols = UWMP:EAR, names_to = "report_name", values_to = "use_type") %>%
   distinct()
 
 saveRDS(use_type_table, "data/use_type_lookup.rds")

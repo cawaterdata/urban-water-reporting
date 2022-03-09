@@ -77,7 +77,7 @@ UWMP Table 4.1 splits data into 9 categories:
 
 ```{r}
 uwmp_demand_table <- supply_and_demand_data %>% filter(report_name == "UWMP", category == "demand" | category == "demand total" & 
-                                                        use_type == "Recycled Water Demand")
+                                                        use_type == "recycled water demand")
 uwmp_total_demand <- sum(supply_and_demand_data %>% filter(report_name == "UWMP", category == "demand") %>% pull(volume_af), na.rm = T) # Summing together categories describes above
 uwmp_total_demand
 ```
@@ -86,7 +86,7 @@ It DOES NOT include recycled water
 ```{r}
 uwmp_recycled_water <- sum(supply_and_demand_data %>% filter(report_name == "UWMP", 
                                                         category == "demand total", 
-                                                        use_type == "Recycled Water Demand") %>% 
+                                                        use_type == "recycled water demand") %>% 
                         pull(volume_af), na.rm = T)
 uwmp_recycled_water
 ```
@@ -103,8 +103,8 @@ The Water Loss Report only has one demand category: report 2 authorized consumpt
 
 ```{r}
 wlr_demand_table <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, category == "demand" | 
-                                                        category == "losses" & use_type == "WL_WATER_LOSSES_VOL_AF" |
-                                                        category == "supply"& use_type == "WS_EXPORTED_VOL_AF")
+                                                        category == "losses" & use_type == "wl_water_losses_vol_af" |
+                                                        category == "supply"& use_type == "ws_exported_vol_af")
 wlr_authorized_consumption <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, category == "demand total") %>% pull(volume_af)
 wlr_authorized_consumption
 ```
@@ -112,14 +112,14 @@ wlr_authorized_consumption
 Water losses are not included in demand for the Water Loss Report. Losses are reported Separately and the value is below: 
 ```{r}
 wlr_losses <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, 
-                                                category == "losses", use_type == "WL_WATER_LOSSES_VOL_AF") %>% pull(volume_af)
+                                                category == "losses", use_type == "wl_water_losses_vol_af") %>% pull(volume_af)
 wlr_losses
 ```
 
 Water exported in AF are not included in demand for the Water Loss Report. Exports are reported separately and the value is below: 
 ```{r}
 wlr_exports <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, 
-                                                 category == "supply", use_type == "WS_EXPORTED_VOL_AF") %>% pull(volume_af)
+                                                 category == "supply", use_type == "ws_exported_vol_af") %>% pull(volume_af)
 wlr_exports
 ```
 ```{r}
@@ -139,8 +139,8 @@ cr_supply_2020 <- supply_and_demand_data %>%
 cr_demand_table <- supply_and_demand_data %>% 
   filter(report_name == "CR", year == 2020, category == "demand") %>% 
   left_join(cr_supply_2020) %>%
-  mutate(volume_af = ifelse(use_type == "FINAL Percent Residential Use", (volume_af / 100) * supply_total, volume_af),
-         use_type = ifelse(use_type == "FINAL Percent Residential Use", "FINAL Residential Use", use_type)) %>%
+  mutate(volume_af = ifelse(use_type == "final percent residential use", (volume_af / 100) * supply_total, volume_af),
+         use_type = ifelse(use_type == "final percent residential use", "final residential use", use_type)) %>%
   select(-supply_total) %>% 
   group_by(use_type) %>%
   summarise(volume_af = sum(volume_af, na.rm = T)) %>%
@@ -157,24 +157,24 @@ residential_demand <- sum(supply_and_demand_data %>%
                             pull(volume_af) * 
                             (supply_and_demand_data %>% 
                             filter(report_name == "CR", year == 2020, 
-                                 category == "demand", use_type == "FINAL Percent Residential Use") %>% 
+                                 category == "demand", use_type == "final percent residential use") %>% 
                             pull(volume_af))/100, na.rm = T) 
 
 commercial_agriculture_demand <- sum(supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
                                                                    category == "demand", 
-                                                                   use_type == "REPORTED FINAL Commercial Agricultural Water") %>% pull(volume_af), na.rm = T)
+                                                                   use_type == "reported final commercial agricultural water") %>% pull(volume_af), na.rm = T)
 
 commercial_industrial_institutional_demand <- sum(supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
                                                                    category == "demand", 
-                                                                   use_type == "REPORTED FINAL Commercial, Industrial, and Institutional Water") %>% pull(volume_af), na.rm = T)
+                                                                   use_type == "reported final commercial, industrial, and institutional water") %>% pull(volume_af), na.rm = T)
 
 recycled_demand <- sum(supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
                                                                    category == "demand", 
-                                                                   use_type == "	REPORTED Recycled Water") %>% pull(volume_af), na.rm = T)
+                                                                   use_type == "reported recycled water") %>% pull(volume_af), na.rm = T)
 
 non_revenue_demand <- sum(supply_and_demand_data %>% filter(report_name == "CR", year == 2020, 
                                                                    category == "demand", 
-                                                                   use_type == "REPORTED Non-Revenue Water") %>% pull(volume_af), na.rm = T)
+                                                                   use_type == "reported non-revenue water") %>% pull(volume_af), na.rm = T)
 # Units are in AF
 cr_metric <-  sum(residential_demand, commercial_agriculture_demand, commercial_industrial_institutional_demand, recycled_demand, non_revenue_demand, na.rm = T)
 cr_metric 
@@ -206,7 +206,7 @@ ear_demand_table <- supply_and_demand_data %>%
 
 ear_metric <-  supply_and_demand_data %>% filter(report_name == "EAR", year == 2020, 
                                                  category == "demand total", 
-                                                 use_type == "AnnualTotal") %>% pull(volume_af)
+                                                 use_type == "annualtotal") %>% pull(volume_af)
 
 ear_metric
 ```
@@ -297,16 +297,27 @@ formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile("transparent
 
 ## Investigating Differences 
 
+```{r}
+# read in lookup tables for use type categories
+use_type_lookup <- read_rds("data/use_type_lookup.rds")
+```
+
 The largest difference is between the CR and the Water Loss Report. 
 
 ```{r}
-all_reports_demand <- bind_rows(uwmp_demand_table, wlr_demand_table, cr_demand_table, ear_demand_table) %>% glimpse
-View(all_reports_demand)
+all_reports_demand <- bind_rows(uwmp_demand_table, wlr_demand_table, cr_demand_table, ear_demand_table) %>% 
+  left_join(use_type_lookup) %>%
+  glimpse
+
+
+
 ```
 
 #### Stacked Bar Plot: 
 ```{r}
-ggplot(all_reports_demand, aes(y = report_name, x = volume_af, fill = use_type)) +
+# removed NA use groups from plot because the only one that is missing is "total"
+filter(all_reports_demand, is.na(use_group))
+ggplot(filter(all_reports_demand, !is.na(use_group)), aes(y = report_name, x = volume_af, fill = use_group)) +
   geom_col() + 
   labs(x = "Reported Annual AF Demand", y = "", 
        title = "Reported Annual Water Demand Across Reporting Requirements") +
@@ -316,3 +327,30 @@ ggplot(all_reports_demand, aes(y = report_name, x = volume_af, fill = use_type))
 
 Discussion of Observations: 
 - Refer to definitions 
+
+*Sales transfer exchanges* 
+- Appear to be similar for WLR and EAR; UWMP is smaller, why? None for CR
+
+*Residential*
+- Very similar for UWMP, EAR, and CR
+
+*Recycled*
+- UWMP has the highest; little to none for others
+
+*Losses*
+- UWMP and WLR are similar though WLR is larger
+
+*Landscape*
+- UWMP and EAR are very similar
+
+*Commercial industrial institutional*
+- UWMP and EAR are very similar; CR is a little smaller, why?
+
+*Agricultural irrigation*
+- UWMP and EAR are very similar
+
+**Insights**
+- One reason why EAR may be lower than WLR and UWMP is that losses are not reported
+in the EAR
+- CR may be lower due to data quality issues - reported 0 for non-revenue water
+(aka losses), 0 for recycled water, and 0 for agriculture irrigation.

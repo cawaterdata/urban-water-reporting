@@ -58,29 +58,29 @@ combined_use <- uwmp_use %>%
                         use_type %in% c("commercial", "industrial", "institutional/governmental") ~ "reported final commercial, industrial, and institutional water",
                         use_type == "other non-potable" ~ "reported recycled water",
                         use_type == "losses" ~ "reported non-revenue water"),
-         EAR = case_when(use_type == "single family" ~ "annualsf",
-                         use_type == "multi-family" ~ "annualmf",
-                         use_type == "commercial" ~ "annualci",
-                         use_type == "industrial" ~ "annuali",
-                         use_type == "landscape" ~ "annualli",
-                         use_type == "other" ~ "annualo",
-                         use_type == "agricultural irrigation" ~ "annuala",
-                         use_type == "sales/transfers/exchanges to other agencies" ~ "annualop"))
+         EAR = case_when(use_type == "single family" ~ "sf",
+                         use_type == "multi-family" ~ "mf",
+                         use_type == "commercial" ~ "ci",
+                         use_type == "industrial" ~ "i",
+                         use_type == "landscape" ~ "li",
+                         use_type == "other" ~ "o",
+                         use_type == "agricultural irrigation" ~ "a",
+                         use_type == "sales/transfers/exchanges to other agencies" ~ "op"))
 # type lists ####
 # used the categories i created on the combined data dictionary to condense the use type categories
-agricultural_irrigation <- c("agricultural irrigation", "reported final commercial agricultural water", "annuala")
+agricultural_irrigation <- c("agricultural irrigation", "reported final commercial agricultural water", "annuala", "a")
 billed <- c("ac_bill_meter_vol_af", "ac_bill_unmeter_vol_af")
-cii <- c("commercial", "industrial", "institutional/governmental", "reported final commercial, industrial, and institutional water", "annualci", "annuali")
+cii <- c("commercial", "industrial", "institutional/governmental", "reported final commercial, industrial, and institutional water", "annualci", "annuali", "ci", "i")
 groundwater_recharge <- c("groundwater recharge")
-landscape <- c("landscape", "annualli")
+landscape <- c("landscape", "annualli", "li")
 losses <- c("losses")
-residential <- c("multi-family", "single family", "final percent residential use")
-sales_transfers_exchanges <- c("sales/transfers/exchanges to other agencies", "annualop")
+residential <- c("multi-family", "single family", "final percent residential use", "annualsf", "annualmf", "sf","mf")
+sales_transfers_exchanges <- c("sales/transfers/exchanges to other agencies", "annualop", "op")
 saline_water_intrusion_barrier <- c("saline water intrusion barrier")
 # surface_water_augmentation <- c() # I thought the UWMP reports this but don't see it in the data
 unbilled <- c("ac_unbill_meter_vol_af", "ac_unbill_unmeter_vol_af")
 wetlands_wildlife_habitat <- c("wetlands or wildlife habitat")
-other <- c("other", "other potable", "other non-potable", "annualo")
+other <- c("other", "other potable", "other non-potable", "annualo", "o")
 
 # use_type, use_term, report table #####
 use_type_table <- combined_use %>%
@@ -96,7 +96,8 @@ use_type_table <- combined_use %>%
                               WLR %in% unbilled ~ "unbilled",
                               UWMP %in% wetlands_wildlife_habitat ~ "wetlands or wildlife habitat",
                               UWMP %in% other ~ "other")) %>%
-  pivot_longer(cols = UWMP:EAR, names_to = "report", values_to = "use_term")
+  pivot_longer(cols = UWMP:EAR, names_to = "report", values_to = "use_term") %>%
+  distinct()
 
 saveRDS(use_type_table, "data/use_type_lookup.rds")
 

@@ -5,7 +5,7 @@ uwmp_demand <- readr::read_csv("data-raw/uwmp_retail_actual_demand_with_categori
             "year" = 2020, 
             "month" = NA,
             "category" = "demand",
-            "use_type" = USE_TYPE,
+            "use_type" = tolower(USE_TYPE),
             "volume_af" = VOLUME_AF) %>%
   glimpse()
 
@@ -16,7 +16,7 @@ uwmp_demand_2 <- readr::read_csv("data-raw/uwmp_retail_total_demand.csv") %>%
             "year" = 2020, 
             "month" = NA,
             "category" = "demand total",
-            "use_type" = WATER_DEMAND_TYPE,
+            "use_type" = tolower(WATER_DEMAND_TYPE),
             "volume_af" = WATER_DEMAND_VOLUME_2020) %>%
   glimpse()
 
@@ -50,7 +50,7 @@ wlr_supply <- readxl::read_excel("data-raw/water_audit_data_conv_to_af.xlsx") %>
             "year" = REPORTING_YEAR, 
             "month" = NA,
             "category" = ifelse(use_type == "WS_WATER_SUPPLIED_VOL_AF", "supply total", "supply"),
-            "use_type" = use_type,
+            "use_type" = tolower(use_type),
             "volume_af" = volume) %>%
   glimpse()
 
@@ -68,7 +68,7 @@ wlr_demand <- readxl::read_excel("data-raw/water_audit_data_conv_to_af.xlsx") %>
             "year" = REPORTING_YEAR, 
             "month" = NA,
             "category" = ifelse(use_type == "AC_AUTH_CONSUMPTION_VOL_AF", "demand total", "demand"),
-            "use_type" = use_type,
+            "use_type" = tolower(use_type),
             "volume_af" = volume) %>%
   glimpse()
   
@@ -87,7 +87,7 @@ wlr_losses <- readxl::read_excel("data-raw/water_audit_data_conv_to_af.xlsx") %>
             "year" = REPORTING_YEAR, 
             "month" = NA,
             "category" = "losses",
-            "use_type" = use_type,
+            "use_type" = tolower(use_type),
             "volume_af" = volume) %>%
   glimpse()
   
@@ -126,7 +126,7 @@ conservation_report_data <- readxl::read_excel("data-raw/conservation-report-uw-
             "month" = lubridate::month(reporting_date),
             "category" = ifelse(use_type == "REPORTED PRELIMINARY Total Potable Water Production" |
                                 use_type ==  "REPORTED FINAL Total Potable Water Production", "supply total", "demand"),
-            "use_type" = use_type,
+            "use_type" = tolower(use_type),
             "volume_af" = case_when(
               units == "MG" ~ volume * scale_from_MG_to_AF,
               units == "G" ~ volume * scale_from_G_to_AF,
@@ -172,7 +172,7 @@ ear_supply_data <- data_report_4 %>%
             "year" = 2020, 
             "month" = month,
             "category" = ifelse(is.na(month), "supply total", "supply"),
-            "use_type" = QuestionName,
+            "use_type" = tolower(QuestionName),
             "volume_af" = case_when(
               units == "MG" ~ volume * scale_from_MG_to_AF,
               units == "G" ~ volume * scale_from_G_to_AF,
@@ -199,7 +199,7 @@ ear_demand_data <- data_report_4 %>%
             "year" = 2020, 
             "month" = month,
             "category" = ifelse(is.na(month), "demand total", "demand"),
-            "use_type" = QuestionName,
+            "use_type" = tolower(QuestionName),
             "volume_af" = case_when(
               units == "MG" ~ volume * scale_from_MG_to_AF,
               units == "G" ~ volume * scale_from_G_to_AF,

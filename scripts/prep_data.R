@@ -182,7 +182,7 @@ ear_supply_data <- data_report_4 %>%
   glimpse()
 
 
-# Supply 
+# Demand 
 ear_demand_data <- data_report_4 %>% 
   filter(SurveyName == "2020 EAR", SectionID %in% c("06 Supply-Delivery", "01 Intro")) %>%
   left_join(agency_lookup) %>%

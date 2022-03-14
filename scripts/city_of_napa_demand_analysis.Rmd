@@ -299,7 +299,7 @@ formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile("transparent
 
 ```{r}
 # read in lookup tables for use type categories
-use_type_lookup <- read_rds("data/use_type_lookup.rds")
+use_type_lookup <- read_rds("../data/use_type_lookup.rds")
 ```
 
 The largest difference is between the CR and the Water Loss Report. 

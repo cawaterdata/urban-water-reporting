@@ -146,24 +146,42 @@ ear_supply_total <- supply %>%
 
 # types ####
 # use this table for initial reference and comparison
-combined_supply <- uwmp_use %>%
-  mutate(UWMP = use_type) %>%
-  bind_rows(wlr_use %>%
-              mutate(UWMP = NA,
-                     WLR = use_type)) %>%
-  mutate(CR = case_when(use_type %in% c("multi-family", "single family") ~ "final percent residential use",
-                        use_type == "agricultural irrigation" ~ "reported final commercial agricultural water",
-                        use_type %in% c("commercial", "industrial", "institutional/governmental") ~ "reported final commercial, industrial, and institutional water",
-                        use_type == "other non-potable" ~ "reported recycled water",
-                        use_type == "losses" ~ "reported non-revenue water"),
-         EAR = case_when(use_type == "single family" ~ "annualsf",
-                         use_type == "multi-family" ~ "annualmf",
-                         use_type == "commercial" ~ "annualci",
-                         use_type == "industrial" ~ "annuali",
-                         use_type == "landscape" ~ "annualli",
-                         use_type == "other" ~ "annualo",
-                         use_type == "agricultural irrigation" ~ "annuala",
-                         use_type == "sales/transfers/exchanges to other agencies" ~ "annualop"))
+
+groundwater <- c("groundwater (not desalinated)", "desalinated water - groundwater", "gw")
+imported_purchased <- c("purchased or imported  water", "transfers", "exchanges", "ws_imported_vol_af", "purchased")
+nonpotable <- c("nonpotable")
+potable <- c("reported final total potable water production")
+recycled <- c("recycled", "recycled water")
+surface_water <- c("surface water (not desalinated)", "desalinated water - surface water", "sw")
+storage <- c("supply from storage")
+total_volume <- c("ws_water_supplied_vol_af", "total")
+own_sources <- c("ws_own_sources_vol_af")
+other <- c("other")
+
+combined_supply <- uwmp_supply %>%
+  mutate(UWMP = use_type,
+         use_type = case_when(UWMP %in% groundwater ~ "groundwater",
+                              UWMP %in% surface_water ~ "surface water",
+                              UWMP %in% imported_purchased ~ "imported/purchased",
+                              UWMP %in% storage ~ "storage",
+                              T ~ use_type)) %>%
+  bind_rows(tibble(use_type = c("nonpotable", "potable", "total volume", "own sources"),
+                   UWMP = c(NA,NA,NA,NA)))%>%
+  mutate(EAR = case_when(use_type == "groundwater" ~ "annualgw",
+                         use_type == "surface water" ~ "annualsw",
+                         use_type == "imported/purchased" ~ "annualpurchased",
+                         use_type == "nonpotable" ~ "annualnonpotable",
+                         use_type == "recycled water" ~ "annualrecycled",
+                         use_type == "total volume" ~ "annualtotal"),
+         CR = case_when(use_type == "potable" ~ "reported final total potable water production"),
+         WLR = case_when(use_type == "own sources" ~ "ws_own_sources_vol_af",
+                         use_type == "imported/purchased" ~ "ws_imported_vol_af",
+                         use_type == "total volume" ~ "ws_water_supplied_vol_af")) %>%
+  rename(use_group = use_type) %>%
+  pivot_longer(cols = UWMP:WLR, names_to = "report_name", values_to = "use_type") %>%
+  distinct()
+
+saveRDS(combined_supply, "data/supply_type_lookup.rds")
 
 # Losses ------------------------------------------------------------------
 uwmp_losses <- losses %>%

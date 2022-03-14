@@ -26,7 +26,7 @@ uwmp_supply <- readxl::read_excel("data-raw/uwmp_table_6_8_r_conv_to_af.xlsx") %
             "supplier_name" = WATER_SUPPLIER_NAME,
             "year" = 2020, 
             "month" = NA,
-            "category" = "supply total",
+            "category" = "supply",
             "use_type" = tolower(WATER_SUPPLY),
             "volume_af" = ACTUAL_VOLUME_AF) %>% 
   glimpse()

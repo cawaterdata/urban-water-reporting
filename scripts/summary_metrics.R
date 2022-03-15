@@ -16,7 +16,7 @@ agency_ids <- supply_and_demand_data %>%
 all_demand_metrics <- tibble()
 delta_metrics <- tibble()
 
-agency_ids <- "CA4510014"
+# agency_ids <- "CA4510014"
 
 get_demand_tables <- function(agency_ids){
   supply_and_demand_data <- supply_and_demand_data %>% filter(supplier_id == agency_ids)   
@@ -152,7 +152,17 @@ get_demand_tables <- function(agency_ids){
 
 tables <- purrr::map_df(agency_ids, get_demand_tables)
 
-delta_demands <- purrr::map_df(agency_ids, get_demand_tables)
+delta_demands <- purrr::map_df(agency_ids, get_demand_tables) 
+
+summary(delta_demands)
+
+# filtered to remove Na and 0 values 
+delta_demands %>% 
+  filter(!is.na(report_a_metric) & !is.na(report_b_metric), 
+         report_a_metric != 0 & report_b_metric != 0) %>% 
+  group_by(reports_compared) %>% 
+  summarise(mean_delta = mean(delta, na.rm = T),
+            mean_percent_delta = mean(percent_delta, na.rm = T))
 
 mean_delta_by_report_combinations <- delta_demands %>% 
   group_by(reports_compared) %>% 

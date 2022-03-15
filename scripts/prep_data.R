@@ -5,6 +5,7 @@ supplier_id_lookup <- readxl::read_excel("data-raw/uwmp_table_2_2_r_conv_to_af.x
             "supplier_id" = PUBLIC_WATER_SYSTEM_NUMBER) %>% 
   glimpse()
 
+
 uwmp_demand <- readr::read_csv("data-raw/uwmp_retail_actual_demand_with_categories.csv") %>% 
   left_join(supplier_id_lookup, by = c("WATER_SUPPLIER_NAME" = "supplier_name")) %>%
   transmute("report_name" = "UWMP",
@@ -30,18 +31,17 @@ uwmp_demand_2 <- readr::read_csv("data-raw/uwmp_retail_total_demand.csv") %>%
             "volume_af" = WATER_DEMAND_VOLUME_2020) %>%
   glimpse()
 
-# TODO think about adding more uwmp supply tables
-uwmp_supply <- readxl::read_excel("data-raw/uwmp_table_2_2_r_conv_to_af.xlsx") %>% 
+uwmp_supply <- readxl::read_excel("data-raw/uwmp_table_6_8_r_conv_to_af.xlsx") %>% 
   transmute("report_name" = "UWMP",
             "supplier_id" = PUBLIC_WATER_SYSTEM_NUMBER, 
             "supplier_name" = WATER_SUPPLIER_NAME,
             "year" = 2020, 
             "month" = NA,
-            "category" = "supply total",
-            "use_type" = NA,
-            "volume_af" = VOLUME_OF_WATER_SUPPLIED_AF) %>% 
+            "category" = "supply",
+            "use_type" = tolower(WATER_SUPPLY),
+            "volume_af" = ACTUAL_VOLUME_AF) %>% 
   glimpse()
-
+#unique(uwmp_supply$use_type)
 # Columns: Water supplier Name, Year, Report name, Supply or demand, use type, volume AF
 uwmp_data <- bind_rows(uwmp_demand, uwmp_demand_2, uwmp_supply)
 

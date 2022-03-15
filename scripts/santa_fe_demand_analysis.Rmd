@@ -44,7 +44,7 @@ Tables Names:
 
 What agency are we focused on? 
 
-"Santa Fe Irrigarion District"
+"Santa Fe Irrigation District"
 
 Load in data: 
 ```{r, warning=FALSE, message=FALSE}
@@ -53,7 +53,7 @@ supply_and_demand_data <- read_rds("../data/supply_and_demand_data.rds") %>%
 ```
 
 ```{r}
-agency_of_interest <- "Santa Fe Irrigarion District"
+agency_of_interest <- "Santa Fe Irrigation District"
 ```
 
 ### How is our chosen metric described in the report data?
@@ -208,7 +208,7 @@ ear_demand_table <- supply_and_demand_data %>%
   summarise(volume_af = sum(volume_af, na.rm = T)) %>%
   ungroup() %>%
   mutate(report_name = "EAR", 
-         supplier_name = "Santa Fe Irrigarion District", 
+         supplier_name = "Santa Fe Irrigation District", 
          year = 2020, 
          category = "demand")
 
@@ -223,7 +223,7 @@ ear_metric <- NA
 
 ```{r}
 demand_by_report <- tibble(
-  "Agency" = rep("Santa Fe Irrigarion District", 4),
+  "Agency" = rep("Santa Fe Irrigation District", 4),
   "Report" = c("Urban Water Management Plan", "Water Loss Report", "Conservation Report", "Electronic Annual Report"),
   "Volume AF" = as.numeric(c(uwmp_metric,wlr_metric,cr_metric,ear_metric)),
   "Metric" = rep("Annual Total Demand", 4))
@@ -247,7 +247,7 @@ ggplot(demand_by_report, aes(y = Report, x = `Volume AF`, fill = Report)) +
 
 ```{r}
 total_water_demand_table <- 
-  tibble("agency" = rep(c("Santa Fe Irrigarion District"), 6),
+  tibble("agency" = rep(c("Santa Fe Irrigation District"), 6),
          "reports_compared" = c("UWMP & WLR", "UWMP & CR", "UWMP & EAR", 
                                 "WLR & CR", "WLR & EAR", "CR & EAR"),
          "report_a" =  c("UWMP", "UWMP", "UWMP", "WLR", "WLR", "CR"),

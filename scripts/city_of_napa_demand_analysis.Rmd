@@ -307,10 +307,10 @@ The largest difference is between the CR and the Water Loss Report.
 ```{r}
 all_reports_demand <- bind_rows(uwmp_demand_table, wlr_demand_table, cr_demand_table, ear_demand_table) %>% 
   left_join(use_type_lookup) %>%
+  mutate(supplier_name = "City of Napa") %>%
   glimpse
 
-
-
+napa_d_with_subcategories <- write_rds(all_reports_demand, "../data/napa_d_with_subcategories.rds")
 ```
 
 #### Stacked Bar Plot: 

@@ -21,6 +21,7 @@ urban_water_reporting_data <- bind_rows(napa_d, santa_fe_d, napa_s, santa_fe_s) 
 write_rds(urban_water_reporting_data, "data/urban_water_reporting_data.rds")
 
 
+# 
 
 report_a_metrics <- urban_water_reporting_data %>% select(agency, "report" = report_a, "volume_af" = report_a_metric, metric)
 
@@ -29,3 +30,19 @@ report_b_metrics <- urban_water_reporting_data %>% select(agency, "report" = rep
 supply_and_demand_volume_af <- bind_rows(report_a_metrics, report_b_metrics) %>% unique()
 
 write_rds(supply_and_demand_volume_af, "data/supply_and_demand_volume_af.rds")
+
+
+# supply and demand with categories 
+
+#TODO add supply 
+santa_fe_d_with_subcategories <- read_rds("data/santa_fe_d_with_subcategories.rds") %>% 
+  mutate(parent_metric = "Total Water Demand")
+
+napa_d_with_subcategoreies <- read_rds("data/napa_d_with_subcategories.rds") %>% 
+  mutate(parent_metric = "Total Water Demand")
+
+supply_and_demand_volume_af_with_subcategories <- bind_rows(santa_fe_d_with_subcategories, napa_d_with_subcategoreies) %>% glimpse()
+
+
+write_rds(supply_and_demand_volume_af_with_subcategories, "data/supply_and_demand_volume_af_with_subcategories.rds")
+

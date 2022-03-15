@@ -32,8 +32,9 @@ uwmp_demand_2 <- readr::read_csv("data-raw/uwmp_retail_total_demand.csv") %>%
   glimpse()
 
 uwmp_supply <- readxl::read_excel("data-raw/uwmp_table_6_8_r_conv_to_af.xlsx") %>% 
+  left_join(supplier_id_lookup, by = c("WATER_SUPPLIER_NAME" = "supplier_name")) %>%
   transmute("report_name" = "UWMP",
-            "supplier_id" = PUBLIC_WATER_SYSTEM_NUMBER, 
+            "supplier_id" = supplier_id, 
             "supplier_name" = WATER_SUPPLIER_NAME,
             "year" = 2020, 
             "month" = NA,
@@ -235,3 +236,4 @@ ear_data <- bind_rows(ear_demand_data, ear_supply_data)
 supply_and_demand_data <- bind_rows(uwmp_data, wlr_data, conservation_report_data, ear_data)
 
 write_rds(supply_and_demand_data, "data/supply_and_demand_data.rds")
+

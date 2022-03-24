@@ -239,3 +239,7 @@ supply_and_demand_data <- bind_rows(uwmp_data, wlr_data, conservation_report_dat
 
 write_rds(supply_and_demand_data, "data/supply_and_demand_data.rds")
 
+# supply_and_demand_data %>%
+#   group_by(year, report_name) %>%
+#   distinct(supplier_id) %>%
+#   tally()

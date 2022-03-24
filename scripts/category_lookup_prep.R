@@ -70,7 +70,12 @@ combined_use <- uwmp_use %>%
                          use_type == "landscape" ~ "li",
                          use_type == "other" ~ "o",
                          use_type == "agricultural irrigation" ~ "a",
-                         use_type == "sales/transfers/exchanges to other agencies" ~ "op"))
+                         use_type == "sales/transfers/exchanges to other agencies" ~ "op")) %>%
+  bind_rows(tibble(use_type = "sales/transfers/exchanges to other agencies",
+                   UWMP = NA,
+                   WLR = NA,
+                   CR = NA,
+                   EAR = "sold"))
 # type lists ####
 # used the categories i created on the combined data dictionary to condense the use type categories
 agricultural_irrigation <- c("agricultural irrigation", "reported final commercial agricultural water", "annuala", "a")
@@ -80,7 +85,7 @@ groundwater_recharge <- c("groundwater recharge")
 landscape <- c("landscape", "annualli", "li")
 losses <- c("losses", "wl_water_losses_vol_af")
 residential <- c("multi-family", "single family", "final percent residential use", "annualsf", "annualmf", "sf","mf", "final residential use")
-sales_transfers_exchanges <- c("sales/transfers/exchanges to other agencies", "annualop", "op", "ws_exported_vol_af")
+sales_transfers_exchanges <- c("sales/transfers/exchanges to other agencies", "annualop", "op", "ws_exported_vol_af", "sold")
 saline_water_intrusion_barrier <- c("saline water intrusion barrier")
 # surface_water_augmentation <- c() # I thought the UWMP reports this but don't see it in the data
 unbilled <- c("ac_unbill_meter_vol_af", "ac_unbill_unmeter_vol_af")
@@ -98,6 +103,7 @@ use_type_table <- combined_use %>%
                               UWMP %in% losses ~ "losses",
                               UWMP %in% residential ~ "residential",
                               UWMP %in% sales_transfers_exchanges ~ "sales transfers exchanges to other agencies",
+                              EAR %in% sales_transfers_exchanges ~ "sales transfers exchanges to other agencies",
                               UWMP %in% saline_water_intrusion_barrier ~ "saline water intrusion barrier",
                               WLR %in% unbilled ~ "unbilled",
                               UWMP %in% wetlands_wildlife_habitat ~ "wetlands or wildlife habitat",
@@ -167,15 +173,15 @@ combined_supply <- uwmp_supply %>%
                               T ~ use_type)) %>%
   bind_rows(tibble(use_type = c("nonpotable", "potable", "total volume", "own sources"),
                    UWMP = c(NA,NA,NA,NA)))%>%
-  mutate(EAR = case_when(use_type == "groundwater" ~ "annualgw",
-                         use_type == "surface water" ~ "annualsw",
-                         use_type == "imported/purchased" ~ "annualpurchased",
-                         use_type == "nonpotable" ~ "annualnonpotable",
-                         use_type == "recycled water" ~ "annualrecycled",
-                         use_type == "total volume" ~ "annualtotal"),
+  mutate(EAR = case_when(use_type == "groundwater" ~ "gw",
+                         use_type == "surface water" ~ "sw",
+                         use_type == "imported/purchased" & UWMP == "purchased or imported  water" ~ "purchased",
+                         use_type == "nonpotable" ~ "nonpotable",
+                         use_type == "recycled water" ~ "recycled",
+                         use_type == "total volume" ~ "total"),
          CR = case_when(use_type == "potable" ~ "reported final total potable water production"),
          WLR = case_when(use_type == "own sources" ~ "ws_own_sources_vol_af",
-                         use_type == "imported/purchased" ~ "ws_imported_vol_af",
+                         use_type == "imported/purchased" & UWMP == "purchased or imported  water" ~ "ws_imported_vol_af",
                          use_type == "total volume" ~ "ws_water_supplied_vol_af")) %>%
   rename(use_group = use_type) %>%
   pivot_longer(cols = UWMP:WLR, names_to = "report_name", values_to = "use_type") %>%

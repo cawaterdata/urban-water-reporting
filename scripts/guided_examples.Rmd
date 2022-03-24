@@ -1,0 +1,366 @@
+---
+title: "Guided examples & key insights"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(DT)
+```
+
+```{r data_pull, include = F}
+# City of Napa, Santa Fe Irrigation District, Moulton Niguel
+selected_ids <- c("CA2810003", "CA3710023", "CA3010073")
+supply_and_demand_data <- read_rds("data/supply_and_demand_data.rds") %>% 
+  filter(supplier_id %in% selected_ids)
+data_dictionary <- read_csv("data/data_dictionary.csv")
+# decided to include sold (EAR) and exported water (WLR) to demand use types
+demand_data_raw <- filter(supply_and_demand_data, grepl("demand", category) | category == "losses" | use_type %in% c("sold", "ws_exported_vol_af"))
+supply_data_raw <- filter(supply_and_demand_data, grepl("supply", category) | !use_type %in% c("sold", "ws_exported_vol_af"))
+
+supply_total <- supply_and_demand_data %>% 
+  filter(category == "supply total") %>% 
+  select(-use_type, -category) %>%
+  rename("supply_total" = volume_af)
+
+# residential use for conservation report is reported as a percentage
+demand_data <- demand_data_raw %>% 
+  left_join(supply_total) %>%
+  mutate(volume_af = ifelse(use_type == "final percent residential use", (volume_af / 100) * supply_total, volume_af),
+         use_type = ifelse(use_type == "final percent residential use", "final residential use", use_type)) %>%
+  select(-supply_total) %>% 
+  # sum across all months
+  group_by(report_name, supplier_id, year, category, use_type) %>%
+  summarise(volume_af = sum(volume_af, na.rm = T))
+
+supply_data <- supply_data_raw %>%
+  # sum across all months
+  group_by(report_name, supplier_id, year, category, use_type) %>%
+  summarise(volume_af = sum(volume_af, na.rm = T))
+
+# use_type "op" and "sold" should be the same so remove op
+demand_use_type <- filter(demand_data, category != "demand total", use_type != "total", use_type != "op") %>%
+  mutate(category = "demand")
+supply_use_type <- filter(supply_data, (category == "supply" | use_type == "reported final total potable water production"), use_type != "total")
+
+# Lookup tables ####
+# use type lookup
+use_type_lookup <- read_rds("data/use_type_lookup.rds") %>%
+  mutate(category = "demand")
+
+# supply type lookup
+supply_type_lookup <- read_rds("data/supply_type_lookup.rds") %>%
+  mutate(category = "supply")
+
+filter(demand_data, category == "demand") %>% ungroup() %>% distinct(use_type)
+filter(supply_data, category == "supply") %>% ungroup() %>% distinct(use_type)
+```
+# Data mapping
+
+State reporting requirements maintain definitions for the water use and supply
+groups that suppliers are required to report on. In many cases, the name of the 
+water use or supply group varies across reporting requirements and the definition
+may also vary.
+
+The creation of an inclusive list of water use and supply groups and mappings across
+reporting requirements were informed by the synthesis of summary documents for 
+state reporting requirements (also referred to as templates).
+
+Table 1 below shows the mapping for water use groups across the Urban Water Management Plan (UWMP),
+Monthly Urban Water Conservation Report (CR), Electronic Annual Report (EAR), and Water Loss Audit (WLR). 
+The Water Use Objective and Annual Water Supply and Demand Assessment are upcoming 
+requirements and are not included in this analysis. 
+
+The UWMP requires the most water use groups to be reported on. The CR and EAR require
+some of the same groups as the UWMP but not all. The WLR has the least amount of
+overlap, in terms of water use groups, across reports.
+
+```{r use_mapping}
+# Assumptions are the mappings created for the categories
+# multiple terms per use group so errors and creates list
+#TODO make this look nicer
+use_type_mapping_table <- filter(use_type_lookup, !is.na(use_type)) %>%
+  pivot_wider(values_from = "use_type", names_from = "report_name") %>% 
+  select(-category) %>%
+  arrange(use_group) %>%
+  rename(`Use group` = use_group,
+         `Urban Water Management Plan` = UWMP,
+         `Monthly Urban Water Conservation Report` = CR,
+         `Electronic Annual Report` = EAR,
+         `Water Loss Audit` = WLR)
+
+DT::datatable(use_type_mapping_table, rownames = F) %>%
+  formatStyle('Urban Water Management Plan', background = styleEqual(NA, 'lightgray')) %>%
+  formatStyle('Monthly Urban Water Conservation Report', background = styleEqual(NA, 'lightgray')) %>%
+  formatStyle('Electronic Annual Report', background = styleEqual(NA, 'lightgray')) %>%
+  formatStyle('Water Loss Audit', background = styleEqual(NA, 'lightgray')) 
+```
+Table 2 below shows the mapping for water supply groups across the UWMP, CR, EAR, and WLR. 
+The UWMP requires the most supply groups to be reported on. The EAR requires
+some of the same groups as the UWMP but not all. The WLR and CR require reporting
+of water supply at a coarse scale.
+
+The water use and supply mapping tables will be an important guide throughout this
+analysis.
+
+```{r supply_mapping}
+supply_type_mapping_table <- filter(supply_type_lookup, !is.na(use_type), !grepl("total", use_group)) %>%
+  pivot_wider(values_from = "use_type", names_from = "report_name") %>% 
+  select(-category) %>%
+  arrange(use_group) %>%
+  rename(`Use group` = use_group,
+         `Urban Water Management Plan` = UWMP,
+         `Monthly Urban Water Conservation Report` = CR,
+         `Electronic Annual Report` = EAR,
+         `Water Loss Audit` = WLR)
+
+DT::datatable(supply_type_mapping_table, rownames = F) %>%
+  formatStyle('Urban Water Management Plan', background = styleEqual(NA, 'lightgray')) %>%
+  formatStyle('Monthly Urban Water Conservation Report', background = styleEqual(NA, 'lightgray')) %>%
+  formatStyle('Electronic Annual Report', background = styleEqual(NA, 'lightgray')) %>%
+  formatStyle('Water Loss Audit', background = styleEqual(NA, 'lightgray')) 
+```
+
+```{r demand data, include = F}
+demand_analysis <- demand_use_type %>%
+  left_join(use_type_lookup) %>%
+  filter(year == 2020) %>%
+  mutate(year = as.factor(year),
+         supplier_id = case_when(supplier_id == "CA2810003" ~ "Agency 1",
+                                 supplier_id == "CA3710023" ~ "Agency 2",
+                                 supplier_id == "CA3010073" ~ "Agency 3"))
+
+total_demand <- filter(demand_analysis, use_type != "recycled", !is.na(use_group)) %>%
+  group_by(supplier_id, report_name) %>%
+  summarize(total_demand = sum(volume_af))
+
+demand_analysis_percent <- left_join(filter(demand_analysis, use_type != "recycled", !is.na(use_group)), 
+                                     total_demand) %>%
+  mutate(percent_total = volume_af/total_demand)
+  
+# 10 demand use groups
+use_group_list <- unique(demand_analysis$use_group)
+
+report_colors <- c("WLR" = "#1b9e77",
+                   "CR" = "#d95f02",
+                   "EAR" = "#7570b3",
+                   "UWMP" = "#e7298a")
+
+use_type_stacked_bar <- function(dat) {
+  ggplot(dat, aes(x = year, y = volume_af, fill = report_name)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_manual(values = report_colors) +
+  facet_wrap(~supplier_id, scales = "free_y") +
+  labs(x = "") +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+}
+
+use_type_percent_bar <- function(dat) {
+  ggplot(dat, aes(x = year, y = percent_total, fill = report_name)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_manual(values = report_colors) +
+  facet_wrap(~supplier_id, scales = "free_y") +
+  labs(x = "") +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+}
+```
+
+# Residential
+
+Residential water use is reported on the UWMP and EAR through single family use
+and multi-family use. On the CR residential use is reported as a percentage of total
+potable water use. The WLR does not require residential water use to be reported.
+
+```{r residential}
+# Residential
+# Example of data quality issue
+# Moulton residential (sf) is huge for the EAR in 2020
+# why EAR missing for Santa Fe in 2020
+# wishlist pull more years for EAR
+filter(demand_analysis, use_group == "residential") %>%
+  use_type_stacked_bar() +
+  labs(y = "Residential volume (af)")
+
+filter(demand_analysis_percent, use_group == "residential") %>%
+  use_type_percent_bar() +
+  labs(y = "Residential volume (af)")
+# TODO how best to show definitions or if they are needed here?
+# filter(data_dictionary, `Definition group` == "Residential use type")
+```
+
+CR is greater than UWMP in 2 cases. Residential use is reported as a percentage
+of total potable water rather than a volume. 
+
+*Interview insight* The tight timeline to report data for the CR may result in data quality
+issues. There may not be enough time for QA/QC checks and numbers may not be final.
+In some cases, supply data rather than use data is reported on the CR. 
+
+*Data quality* Agency 3 has abnormally large values for the EAR in 2020. This trend
+persists to other use types. Agency 2 did not report any data for the 2020 EAR.
+
+# Agriculture and irrigation
+
+Agricultural and irrigation water use is reported on the UWMP, EAR, and CR.
+
+```{r }
+# Ag/irrigation
+# City of Napa reports on the EAR/UWMP but not CR
+filter(demand_analysis, use_group == "agricultural irrigation") %>%
+  use_type_stacked_bar() +
+  labs(y = "Agricultural irrigation volume (af)")
+
+filter(demand_analysis_percent, use_group == "agricultural irrigation") %>%
+  use_type_percent_bar() +
+  labs(y = "Agricultural irrigation volume (af)")
+
+# TODO how best to show definitions
+# filter(data_dictionary, `Definition group` == "Agricultural irrigation use type")
+```
+
+Why doesn't Agency 1 report agricultural use on the CR when they report it on EAR and UWMP?
+- In CR they note that their data is collected on a bimonthly meter read cycle
+- Are they unable to distinguish this use type from others and it is lumped in with CII?
+
+For both residential and agriculture use types, Agency 1 reports the exact same value on the UWMP and EAR.
+
+# Commercial, industrial, institutional
+
+Commercial, industrial, and institutional are reported separately on the UWMP, whereas
+they are reported together on the CR. The EAR requires "commercial/industrial", and 
+"industrial."
+
+```{r}
+# commerical industrial institutional
+# Moulton Niguel is huge
+filter(demand_analysis, use_group == "commerical industrial institutional") %>%
+  use_type_stacked_bar() +
+  labs(y = "Commerical industrial institutional volume (af)") 
+
+filter(demand_analysis_percent, use_group == "commerical industrial institutional") %>%
+  use_type_percent_bar() +
+  labs(y = "Commerical industrial institutional volume (af)")
+
+#filter(data_dictionary, `Definition group` == "CII use type")
+```
+Agency 2
+- CII for CR is much larger than the UWMP. Is there a reason why this might be the case?
+
+# Losses
+
+Losses are reported for the UWMP, CR, and WLR, and are not reported on the EAR.
+
+```{r}
+# losses
+# City of napa does not report on CR, santa fe UWMP dwarfs CR
+filter(demand_analysis, use_group == "losses") %>%
+  use_type_stacked_bar()
+  labs(y = "Losses demand volume (af)")
+  
+filter(demand_analysis_percent, use_group == "losses") %>%
+  use_type_percent_bar()
+  labs(y = "Losses demand volume (af)")
+```
+Agency 1 does not report losses on the CR and Agency 2 reports a very low number.
+Do these agencies not have the capacity to report losses on a monthly basis?
+
+```{r}
+# TODO make recycled its own category - is it supply or is it demand?
+# recycled
+# only data is on CR, make sure we aren't losing data
+filter(demand_analysis, use_group == "recycled") %>%
+  use_type_stacked_bar() +
+  labs(y = "Recycled demand volume (af)")
+
+```
+
+# Landscape
+
+The UWMP and EAR report landscape water use. The CR and WLR do not include landscape
+as a separate use category.
+
+```{r}
+# landscape
+# Moulton Niguel EAR is huge
+filter(demand_analysis, use_group == "landscape") %>%
+  use_type_stacked_bar() +
+  labs(y = "Landscape demand volume (af)")
+
+filter(demand_analysis_percent, use_group == "landscape") %>%
+  use_type_percent_bar() +
+  labs(y = "Landscape demand volume (af)")
+```
+# Sales, transfers, exchanges
+
+The UWMP, EAR, and WLR require sales, transfers and exchanges to be reported.
+Sales, transfers and exchanges are reported as one group for the UWMP. Water that is
+sold is reported on the EAR and water that is exported is reported on the WLR.
+
+```{r}
+# sales transfers exchanges to other agencies
+filter(demand_analysis, use_group == "sales transfers exchanges to other agencies") %>%
+  use_type_stacked_bar() +
+  labs(y = "Sales transfers exchanges to other agencies volume (af)")
+
+filter(demand_analysis_percent, use_group == "sales transfers exchanges to other agencies") %>%
+  use_type_percent_bar() +
+  labs(y = "Sales transfers exchanges to other agencies volume (af)")
+```
+# Issues
+
+Characteristics of local agencies relative to state reporting requirements
+Data collection
+- Frequency and scale of data collected do not align with reporting requirements,
+particularly the CR monthly reporting
+- Examples: Bimonthly meter cycle does not align with monthly reporting requirements,
+budget-based rate structures compared to use types defined by land use, some water uses
+require manual reading, 
+
+Data processing
+- Timing of QA/QC does not align with reporting requirements, particularly the CR
+monthly reporting
+- Examples: Reconciling incoming/outgoing water users may not happen in time for
+monthly reports, data may not be ready or available so estimates are applied instead,
+even in cases where water use is automatically collected
+through meter reads there may be QA/QC issues that require manual checks
+
+Data analysis
+- Different methodologies are used to summarize data across agencies
+- Different methodologies and data are used within an agency across reports
+- Examples: Water production data may be used for the monthly reports because
+billing data are not yet available, estimates may be used in cases where data
+are not collected at that scale
+
+Characteristics of state reporting requirements
+High volume
+Challenging timelines
+High complexity
+Inconsistency of definitions across reports
+Redundant information across reports
+Lack of clarity about what data are being used for
+
+There is a disconnect between state reporting requirements and the reality of what data
+are collected by suppliers and how that data is collected and reported. This results
+in a lack of data quality with unknown error and uncertainty. In order to improve 
+data quality and utility either local agencies need to adjust their processes to
+meet reporting requirements or state reporting requirements need to be adjusted
+to better meet the reality of local suppliers. There may also be opportunities
+for movement from the state and local side to meet somewhere in the middle.
+
+# Recommendations
+
+Aligning state reporting requirements with data available locally (currently or could be developed), 
+local data collection, and that is useful locally. This may require developing groups or 
+clusters of suppliers that are most similar to develop appropriate solutions.
+
+Developing data management systems that facilitate automated and standardized
+data reporting to meet the volume, timing, and complexity of state reporting requirements.
+- Organized by state or third-party
+- Development and building would be funded by the state
+- Maintenance would be funded by local suppliers
+
+
+

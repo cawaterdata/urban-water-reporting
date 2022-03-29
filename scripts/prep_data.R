@@ -162,7 +162,7 @@ agency_name_lookup <- data_report_4 %>%
   select(WSSurveyID, "supplier_name" = QuestionResults)
 
 agency_id_lookup <- data_report_4 %>%
-  filter(QuestionName == "PWSName") %>% 
+  filter(QuestionName == "PwsID") %>% 
   select(WSSurveyID, "supplier_id" = QuestionResults)
 
 units_lookup <- data_report_4 %>%
@@ -189,6 +189,7 @@ ear_supply_data <- data_report_4 %>%
          volume = as.numeric(QuestionResults)) %>% 
   filter(!is.na(volume)) %>% 
   transmute("report_name" = "EAR",
+            "supplier_id" = supplier_id,
             "supplier_name" = supplier_name,
             "year" = 2020, 
             "month" = month,
@@ -217,6 +218,7 @@ ear_demand_data <- data_report_4 %>%
          volume = as.numeric(QuestionResults)) %>% 
   filter(!is.na(volume)) %>% 
   transmute("report_name" = "EAR",
+            "supplier_id" = supplier_id,
             "supplier_name" = supplier_name,
             "year" = 2020, 
             "month" = month,
@@ -237,3 +239,7 @@ supply_and_demand_data <- bind_rows(uwmp_data, wlr_data, conservation_report_dat
 
 write_rds(supply_and_demand_data, "data/supply_and_demand_data.rds")
 
+# supply_and_demand_data %>%
+#   group_by(year, report_name) %>%
+#   distinct(supplier_id) %>%
+#   tally()

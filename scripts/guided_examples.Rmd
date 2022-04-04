@@ -1,5 +1,5 @@
 ---
-title: "Urban Water Data Reporting | Guided examples & key insights"
+title: "Guided examples & key insights"
 output:
   rmarkdown::html_document:
     theme: yeti
@@ -88,66 +88,8 @@ may also vary.
 
 The creation of an inclusive list of water use and supply groups, and mappings across
 reporting requirements was informed by the synthesis of summary documents for 
-state reporting requirements (also referred to as templates).
-
-## Water use groups
-
-Table 1 below shows the mapping for water use groups across the UWMP, CR, EAR and WLR. 
-The Water Use Objective and Annual Water Supply and Demand Assessment are upcoming 
-requirements and are not included in this analysis. 
-
-The UWMP divides water use into the most categories. The CR and EAR require
-some of the same groups as the UWMP but not all. The WLR has the least amount of
-overlap, in terms of water use groups, across reports.
-
-```{r use_mapping, echo = F}
-# Assumptions are the mappings created for the categories
-# multiple terms per use group so errors and creates list
-#TODO make this look nicer
-use_type_mapping_table <- filter(use_type_lookup, !is.na(use_type)) %>%
-  pivot_wider(values_from = "use_type", names_from = "report_name") %>% 
-  select(-category) %>%
-  arrange(use_group) %>%
-  rename(`Use group` = use_group,
-         `Urban Water Management Plan` = UWMP,
-         `Monthly Urban Water Conservation Report` = CR,
-         `Electronic Annual Report` = EAR,
-         `Water Loss Audit` = WLR)
-
-DT::datatable(use_type_mapping_table, rownames = F) %>%
-  formatStyle('Urban Water Management Plan', background = styleEqual(NA, 'lightgray')) %>%
-  formatStyle('Monthly Urban Water Conservation Report', background = styleEqual(NA, 'lightgray')) %>%
-  formatStyle('Electronic Annual Report', background = styleEqual(NA, 'lightgray')) %>%
-  formatStyle('Water Loss Audit', background = styleEqual(NA, 'lightgray')) 
-```
-
-## Water supply groups
-
-Table 2 below shows the mapping for water supply groups across the UWMP, CR, EAR, and WLR. 
-The UWMP requires the most supply groups to be reported on. The EAR requires
-some of the same groups as the UWMP but not all. The WLR and CR require reporting
-of water supply at a coarse scale.
-
-The water use and supply mapping tables will be an important guide throughout this
-analysis.
-
-```{r supply_mapping, echo = F}
-supply_type_mapping_table <- filter(supply_type_lookup, !is.na(use_type), !grepl("total", use_group)) %>%
-  pivot_wider(values_from = "use_type", names_from = "report_name") %>% 
-  select(-category) %>%
-  arrange(use_group) %>%
-  rename(`Use group` = use_group,
-         `Urban Water Management Plan` = UWMP,
-         `Monthly Urban Water Conservation Report` = CR,
-         `Electronic Annual Report` = EAR,
-         `Water Loss Audit` = WLR)
-
-DT::datatable(supply_type_mapping_table, rownames = F) %>%
-  formatStyle('Urban Water Management Plan', background = styleEqual(NA, 'lightgray')) %>%
-  formatStyle('Monthly Urban Water Conservation Report', background = styleEqual(NA, 'lightgray')) %>%
-  formatStyle('Electronic Annual Report', background = styleEqual(NA, 'lightgray')) %>%
-  formatStyle('Water Loss Audit', background = styleEqual(NA, 'lightgray')) 
-```
+state reporting requirements (also referred to as templates). Refer to the Data Mapping
+tab for additional information.
 
 ```{r demand_data, include = F, echo = F}
 demand_analysis_raw <- demand_use_type %>%
@@ -219,19 +161,19 @@ cycles or may not collect data for a particular category. The quotes from two re
 below describe the challenges in meeting monthly reporting requirements for water use data
 and the different approaches that are used to meet the requirements.
 
-"At the customer level, it's every two months; bimonthly for most customers. So you don't
+*"At the customer level, it's every two months; bimonthly for most customers. So you don't
 have real time data for that; and so, there's a little bit of an issue when, like we
 do a monthly report and they want to know residential use. We use, you know, an equation
 to guess based on a ratio from last year or something to determine that; we just don't have
 real time data for metered billed use. But we have it for production, so there's a little bit
-of inconsistency there in terms of the time, the time periods that are available for us." 
-(Source: Retailer 2022).
+of inconsistency there in terms of the time, the time periods that are available for us."* 
+(Source: Large retailer 2022).
 
-"What they are reporting to the state is not what is being asked for. And it is pretty common
+*"What they are reporting to the state is not what is being asked for. And it is pretty common
 knowledge among water agencies that's not what you're doing. We don't report water use at all.
 Honestly, we report production, and we are hoping to change that, but we honestly just don't
-have the staff or the capabilities to do it accurately."
-(Source: Retailer 2022).
+have the staff or the capabilities to do it accurately."*
+(Source: Small retailer 2022).
 
 In Figure 1, percent of total water use reported by water use category is compared across
 the CR, UWMP, EAR, and WLR. The CR asks for water use to be reported by each of the
@@ -241,21 +183,7 @@ Agency 1 reports agricultural use and losses on the EAR and UWMP but reports nei
 on the CR. While differences exist across all reports, the CR is often the outlier, 
 and where the biggest differences exist.
 
-This suggests that for some suppliers data reported on the CR represents an estimate
-rather than actual volumes. This characteristic distinguishes the CR from the UWMP,
-EAR, and WLR. 
-
-The disconnect between state reporting requirements and the reality of local supplier
-data collection and analysis methods extends beyond the CR. For instance, one supplier
-discussed the timing expectations of the upcoming Annual Water Supply and Demand Assessment:
-
-"Now have the Annual Water Supply and Demand Assessment Reporting requirement, right.
-This was happening July 1st and and they assume that every district does it the same 
-way, you know, we're all gonna know our projection end of June or all this for the next 
-year and stuff. And we don't do it that way."
-(Source: Retailer 2022).
-
-```{r disconnect, echo = F}
+```{r disconnect, echo = F, fig.cap = "Figure 1. Percent of total water use reported by water use category (only those reported on the CR) compared across the CR, UWMP, EAR, and WLR for three agencies."}
 filter(demand_analysis_percent, use_group %in% c("residential", "agricultural irrigation",
                                          "commerical industrial institutional", "losses")) %>%
   mutate(use_group = case_when(use_group == "residential" ~ "Residential",
@@ -276,26 +204,40 @@ filter(demand_analysis_percent, use_group %in% c("residential", "agricultural ir
 
 ```
 
+This suggests that for some suppliers data reported on the CR represents an estimate
+rather than actual volumes. This characteristic distinguishes the CR from the UWMP,
+EAR, and WLR. 
+
+The disconnect between state reporting requirements and the reality of local supplier
+data collection and analysis methods extends beyond the CR. For instance, one supplier
+discussed the timing expectations of the upcoming Annual Water Supply and Demand Assessment:
+
+*"Now have the Annual Water Supply and Demand Assessment Reporting requirement, right.
+This was happening July 1st and and they assume that every district does it the same 
+way, you know, we're all gonna know our projection end of June or all this for the next 
+year and stuff. And we don't do it that way."*
+(Source: Larger retailer 2022).
+
 ## Redundancy across reports
 
-Table 1 and 2 provide an interpretation of the alignment in data elements across
+The tables presented in the Data Mapping tab provide an interpretation of the alignment in data elements across
 reports. While the names and definitions may vary, the data reported are very similar
 indicating that for all intents and purposes they are interpreted as the same. 
 Regardless of the intention of reporting requirements, this suggests that there 
 is redundancy across reports. 
 
-This redundancy may not always apparent when comparing raw volumes because there may
+This redundancy may not always be apparent when comparing raw volumes because there may
 be differences in the exact values being reported on each report as discussed above.
 When comparing use types across reports by percentage of total demand, in some cases,
 the redundancy becomes more apparent.
 
 For instance, Agency 1 reports different volumes of commercial, industrial and institutional
 consumption across reports where the values reported on the EAR and UWMP are more similar than
-on the CR. CII demand reported on the CR is 23% different than the UWMP and 20% different than the EAR.
-However, when comparing this use type as a percentage of total demand reported, all reports are very similar 
-(within 1% difference).
+on the CR (Figure 2). CII demand reported on the CR is 23% different than the UWMP and 20% different than the EAR.
+However, when comparing this use type as a percentage of total demand reported, all 
+reports are very similar, within 1% difference (Figure 2).
 
-```{r redundancy, echo = F}
+```{r redundancy, echo = F, fig.cap = "Figure 2. Commercial, industrial, institutional (CII) volume in acre feet and as a percentage of total demand for Agency 1 on the CR, EAR, and UWMP."}
 example_1_raw <- filter(demand_analysis, use_group == "commerical industrial institutional", supplier_id == "Agency 1") %>%
   ggplot(aes(x = year, y = volume_af, fill = report_name)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -342,47 +284,3 @@ example_2_format <- select(example_2, report_name, volume_af) %>%
          percent_diff_cr_ear = (abs(CR-EAR)/(0.5 * (CR+EAR)))*100,
          percent_diff_ear_uwmp = (abs(EAR-UWMP)/(0.5 * (EAR+UWMP)))*100)
 ```
-
-## Resources
-
-The resources available to local agencies to meet state reporting requirements varies
-by agency. While there are nuances that exist within each agency, one broad categorization
-is that generally smaller agencies have fewer staff, resources, and capacity compared
-to larger agencies. 
-
-At smaller agencies staff may be "wearing many hats" and involved in many aspects of
-state reporting requirements where at larger agencies roles and responsibilities may
-be more divided involving many people spread across different units or divisions. 
-Larger agencies may have the capacity to develop processes and tools to streamline
-reporting; however, there may be challenges in coordinating across divisions. Smaller
-agencies may have challenges acquiring resources to develop streamlined processes.
-
-# Summary
-
-There is a disconnect between state reporting requirements and the reality of what data
-are collected by suppliers and how that data is collected and reported. This results
-in a lack of data quality with unknown error and uncertainty. In order to improve 
-data quality and utility either local agencies need to adjust their processes to
-meet reporting requirements or state reporting requirements need to be adjusted
-to better meet the reality of local suppliers. There may also be opportunities
-for movement from the state and local side to meet somewhere in the middle.
-
-### Characteristics of stare reporting requirements
-The characteristics of state reporting requirements relative to local suppliers can
-be described as:
-
-- High volume
-- Challenging timelines
-- High complexity
-- Inconsistent definitions across reports
-- Redundant information across reports
-- Lack of clarity about what data are being used for
-
-### Characteristics of local suppliers
-The characteristics of local agencies relative to state reporting requirements
-can be described as:
-
-- Misalignment in frequency and scale of data collected 
-- Misalignment in timing of QA/QC processes
-- Different methodologies used to summarize data across agencies
-- Different methodologies and data used within an agency across reports

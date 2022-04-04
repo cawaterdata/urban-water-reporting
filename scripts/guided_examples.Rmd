@@ -6,7 +6,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width=12, fig.height=8)
 library(tidyverse)
 library(knitr)
 library(DT)
@@ -15,9 +15,9 @@ library(DT)
 ```{r data_pull, include = F}
 # City of Napa, Santa Fe Irrigation District, Moulton Niguel
 selected_ids <- c("CA2810003", "CA3710023", "CA3010073")
-supply_and_demand_data <- read_rds("data/supply_and_demand_data.rds") %>% 
+supply_and_demand_data <- read_rds("../data/supply_and_demand_data.rds") %>% 
   filter(supplier_id %in% selected_ids)
-data_dictionary <- read_csv("data/data_dictionary.csv")
+data_dictionary <- read_csv("../data/data_dictionary.csv")
 # decided to include sold (EAR) and exported water (WLR) to demand use types
 demand_data_raw <- filter(supply_and_demand_data, grepl("demand", category) | category == "losses" | use_type %in% c("sold", "ws_exported_vol_af"))
 supply_data_raw <- filter(supply_and_demand_data, grepl("supply", category) | !use_type %in% c("sold", "ws_exported_vol_af"))
@@ -49,11 +49,11 @@ supply_use_type <- filter(supply_data, (category == "supply" | use_type == "repo
 
 # Lookup tables ####
 # use type lookup
-use_type_lookup <- read_rds("data/use_type_lookup.rds") %>%
+use_type_lookup <- read_rds("../data/use_type_lookup.rds") %>%
   mutate(category = "demand")
 
 # supply type lookup
-supply_type_lookup <- read_rds("data/supply_type_lookup.rds") %>%
+supply_type_lookup <- read_rds("../data/supply_type_lookup.rds") %>%
   mutate(category = "supply")
 
 filter(demand_data, category == "demand") %>% ungroup() %>% distinct(use_type)
@@ -310,7 +310,7 @@ example_1_percent <- filter(demand_analysis_percent, use_group == "commerical in
   ggplot(aes(x = year, y = percent_total, fill = report_name)) +
   geom_bar(stat = "identity", position = "dodge") +
   scale_fill_manual(values = report_colors) +
-  labs(y = "Commerical industrial institutional volume (af)") +
+  labs(y = "Percent of Total Demand: Commerical industrial institutional volume (af) ") +
   labs(x = "") +
   theme_minimal() +
   theme(legend.title = element_blank())

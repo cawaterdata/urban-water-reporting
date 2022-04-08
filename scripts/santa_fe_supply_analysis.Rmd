@@ -213,7 +213,8 @@ write_rds(all_reports_supply, "data/santa_fe_s_with_subcategories.rds")
 ```{r}
 # removed NA use groups from plot because the only one that is missing is "total"
 filter(all_reports_supply, is.na(use_group))
-ggplot(filter(all_reports_supply, !is.na(use_group), use_group != "total volume"), aes(y = report_name, x = volume_af, fill = use_group)) +
+ggplot(filter(all_reports_supply, !is.na(use_group), use_group != "total volume")  %>%
+  mutate(volume_af = ifelse(use_type == "annualsold", volume_af*-1, volume_af)), aes(y = report_name, x = volume_af, fill = use_group)) +
   geom_col() + 
   labs(x = "Reported Annual AF Supply", y = "", 
        title = "Reported Annual Water Supply Across Reporting Requirements") +

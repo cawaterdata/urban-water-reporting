@@ -70,12 +70,7 @@ combined_use <- uwmp_use %>%
                          use_type == "landscape" ~ "li",
                          use_type == "other" ~ "o",
                          use_type == "agricultural irrigation" ~ "a",
-                         use_type == "sales/transfers/exchanges to other agencies" ~ "op")) %>%
-  bind_rows(tibble(use_type = "sales/transfers/exchanges to other agencies",
-                   UWMP = NA,
-                   WLR = NA,
-                   CR = NA,
-                   EAR = "sold"))
+                         use_type == "sales/transfers/exchanges to other agencies" ~ "op"))
 # type lists ####
 # used the categories i created on the combined data dictionary to condense the use type categories
 agricultural_irrigation <- c("agricultural irrigation", "reported final commercial agricultural water", "annuala", "a")
@@ -155,6 +150,7 @@ ear_supply_total <- supply %>%
 
 groundwater <- c("groundwater (not desalinated)", "desalinated water - groundwater", "gw")
 imported_purchased <- c("purchased or imported  water", "transfers", "exchanges", "ws_imported_vol_af", "purchased")
+sold <- c("sold")
 nonpotable <- c("nonpotable")
 potable <- c("reported final total potable water production")
 recycled <- c("recycled", "recycled water")
@@ -171,14 +167,15 @@ combined_supply <- uwmp_supply %>%
                               UWMP %in% imported_purchased ~ "imported/purchased",
                               UWMP %in% storage ~ "storage",
                               T ~ use_type)) %>%
-  bind_rows(tibble(use_type = c("nonpotable", "potable", "total volume", "own sources"),
-                   UWMP = c(NA,NA,NA,NA)))%>%
-  mutate(EAR = case_when(use_type == "groundwater" ~ "gw",
-                         use_type == "surface water" ~ "sw",
-                         use_type == "imported/purchased" & UWMP == "purchased or imported  water" ~ "purchased",
-                         use_type == "nonpotable" ~ "nonpotable",
-                         use_type == "recycled water" ~ "recycled",
-                         use_type == "total volume" ~ "total"),
+  bind_rows(tibble(use_type = c("nonpotable", "potable", "total volume", "own sources", "sold"),
+                   UWMP = c(NA,NA,NA,NA, NA)))%>%
+  mutate(EAR = case_when(use_type == "groundwater" ~ "annualgw",
+                         use_type == "surface water" ~ "annualsw",
+                         use_type == "imported/purchased" & UWMP == "purchased or imported  water" ~ "annualpurchased",
+                         use_type == "nonpotable" ~ "annualnonpotable",
+                         use_type == "recycled water" ~ "annualrecycled",
+                         use_type == "total volume" ~ "annualtotal",
+                         use_type == "sold" ~ "annualsold"),
          CR = case_when(use_type == "potable" ~ "reported final total potable water production"),
          WLR = case_when(use_type == "own sources" ~ "ws_own_sources_vol_af",
                          use_type == "imported/purchased" & UWMP == "purchased or imported  water" ~ "ws_imported_vol_af",

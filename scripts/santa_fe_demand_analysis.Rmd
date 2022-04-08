@@ -111,8 +111,7 @@ The Water Loss Report only has one demand category: report 2 authorized consumpt
 
 ```{r}
 wlr_demand_table <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, category == "demand" | 
-                                                        category == "losses" & use_type == "wl_water_losses_vol_af" |
-                                                        category == "supply"& use_type == "ws_exported_vol_af")
+                                                        category == "losses" & use_type == "wl_water_losses_vol_af")
 wlr_authorized_consumption <- supply_and_demand_data %>% filter(report_name == "WLR", year == 2020, category == "demand total") %>% pull(volume_af)
 wlr_authorized_consumption
 ```

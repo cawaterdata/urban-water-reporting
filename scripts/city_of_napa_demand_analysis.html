@@ -246,8 +246,7 @@ uwmp_metric</code></pre>
 <h4>Water Loss Report</h4>
 <p>The Water Loss Report only has one demand category: report 2 authorized consumption</p>
 <pre class="r"><code>wlr_demand_table &lt;- supply_and_demand_data %&gt;% filter(report_name == &quot;WLR&quot;, year == 2020, category == &quot;demand&quot; | 
-                                                        category == &quot;losses&quot; &amp; use_type == &quot;wl_water_losses_vol_af&quot; |
-                                                        category == &quot;supply&quot;&amp; use_type == &quot;ws_exported_vol_af&quot;)
+                                                        category == &quot;losses&quot; &amp; use_type == &quot;wl_water_losses_vol_af&quot;)
 wlr_authorized_consumption &lt;- supply_and_demand_data %&gt;% filter(report_name == &quot;WLR&quot;, year == 2020, category == &quot;demand total&quot;) %&gt;% pull(volume_af)
 wlr_authorized_consumption</code></pre>
 <pre><code>## [1] 12698.98</code></pre>
@@ -556,7 +555,7 @@ use_type_lookup &lt;- read_rds(&quot;data/use_type_lookup.rds&quot;)</code></pre
   mutate(supplier_name = &quot;City of Napa&quot;) %&gt;%
   glimpse</code></pre>
 <pre><code>## Joining, by = c(&quot;report_name&quot;, &quot;use_type&quot;)</code></pre>
-<pre><code>## Rows: 30
+<pre><code>## Rows: 29
 ## Columns: 8
 ## $ report_name   &lt;chr&gt; &quot;UWMP&quot;, &quot;UWMP&quot;, &quot;UWMP&quot;, &quot;UWMP&quot;, &quot;UWMP&quot;, &quot;UWMP&quot;, &quot;UWMP&quot;, …
 ## $ supplier_name &lt;chr&gt; &quot;City of Napa&quot;, &quot;City of Napa&quot;, &quot;City of Napa&quot;, &quot;City of…
@@ -571,11 +570,10 @@ use_type_lookup &lt;- read_rds(&quot;data/use_type_lookup.rds&quot;)</code></pre
 <h4>Stacked Bar Plot:</h4>
 <pre class="r"><code># removed NA use groups from plot because the only one that is missing is &quot;total&quot;
 filter(all_reports_demand, is.na(use_group))</code></pre>
-<pre><code>## # A tibble: 2 × 8
-##   report_name supplier_name  year month category use_type    volume_af use_group
-##   &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;    
-## 1 WLR         City of Napa   2020    NA supply   ws_exporte…     1179. &lt;NA&gt;     
-## 2 EAR         City of Napa   2020    NA demand   total          12493. &lt;NA&gt;</code></pre>
+<pre><code>## # A tibble: 1 × 8
+##   report_name supplier_name  year month category use_type volume_af use_group
+##   &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;    
+## 1 EAR         City of Napa   2020    NA demand   total       12493. &lt;NA&gt;</code></pre>
 <pre class="r"><code>ggplot(filter(all_reports_demand, !is.na(use_group)), aes(y = report_name, x = volume_af, fill = use_group)) +
   geom_col() + 
   labs(x = &quot;Reported Annual AF Demand&quot;, y = &quot;&quot;, 

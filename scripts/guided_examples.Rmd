@@ -14,11 +14,21 @@ library(DT)
 
 ```{r data_pull, include = F}
 # City of Napa, Santa Fe Irrigation District, Moulton Niguel
-selected_ids <- c("CA2810003", "CA3710023", "CA3010073")
-supply_and_demand_data <- read_rds("../data/supply_and_demand_data.rds") %>% 
-  filter(supplier_id %in% selected_ids)
-data_dictionary <- read_csv("../data/data_dictionary.csv")
-# decided to include sold (EAR) and exported water (WLR) to demand use types
+selected_agencies <- c("Moulton Niguel Water District", 
+                       "MOULTON NIGUEL WATER DISTRICT", 
+                       "Napa  City Of", 
+                       "Napa  City of", 
+                       "NAPA, CITY OF", 
+                       "Santa Fe Irrigation District", 
+                       "SANTA FE I.D.")
+#selected_ids <- c("CA2810003", "CA3710023", "CA3010073")
+supply_and_demand_data <- read_rds("data/supply_and_demand_data.rds") %>% 
+  filter(supplier_name %in% selected_agencies) %>%
+  mutate(supplier_name = case_when(supplier_name %in% c("Moulton Niguel Water District", "MOULTON NIGUEL WATER DISTRICT") ~ "Agency 3",
+                       supplier_name %in% c("Napa  City Of", "Napa  City of", "NAPA, CITY OF") ~ "Agency 1",
+                       supplier_name %in% c("Santa Fe Irrigation District", "SANTA FE I.D.") ~ "Agency 2"))
+data_dictionary <- read_csv("data/data_dictionary.csv")
+
 demand_data_raw <- filter(supply_and_demand_data, grepl("demand", category) | category == "losses" | use_type %in% c("sold", "ws_exported_vol_af"))
 supply_data_raw <- filter(supply_and_demand_data, grepl("supply", category) | !use_type %in% c("sold", "ws_exported_vol_af"))
 
@@ -34,12 +44,12 @@ demand_data <- demand_data_raw %>%
          use_type = ifelse(use_type == "final percent residential use", "final residential use", use_type)) %>%
   select(-supply_total) %>% 
   # sum across all months
-  group_by(report_name, supplier_id, year, category, use_type) %>%
+  group_by(report_name, supplier_name, year, category, use_type) %>%
   summarise(volume_af = sum(volume_af, na.rm = T))
 
 supply_data <- supply_data_raw %>%
   # sum across all months
-  group_by(report_name, supplier_id, year, category, use_type) %>%
+  group_by(report_name, supplier_name, year, category, use_type) %>%
   summarise(volume_af = sum(volume_af, na.rm = T))
 
 # use_type "op" and "sold" should be the same so remove op
@@ -49,11 +59,11 @@ supply_use_type <- filter(supply_data, (category == "supply" | use_type == "repo
 
 # Lookup tables ####
 # use type lookup
-use_type_lookup <- read_rds("../data/use_type_lookup.rds") %>%
+use_type_lookup <- read_rds("data/use_type_lookup.rds") %>%
   mutate(category = "demand")
 
 # supply type lookup
-supply_type_lookup <- read_rds("../data/supply_type_lookup.rds") %>%
+supply_type_lookup <- read_rds("data/supply_type_lookup.rds") %>%
   mutate(category = "supply")
 
 filter(demand_data, category == "demand") %>% ungroup() %>% distinct(use_type)
@@ -95,10 +105,7 @@ tab for additional information.
 demand_analysis_raw <- demand_use_type %>%
   left_join(use_type_lookup) %>%
   filter(year == 2020) %>%
-  mutate(year = as.factor(year),
-         supplier_id = case_when(supplier_id == "CA2810003" ~ "Agency 1",
-                                 supplier_id == "CA3710023" ~ "Agency 2",
-                                 supplier_id == "CA3010073" ~ "Agency 3")) 
+  mutate(year = as.factor(year)) 
 demand_analysis <- demand_analysis_raw %>%
   group_by(supplier_id, report_name, use_group, year) %>%
   summarize(volume_af = sum(volume_af))
@@ -163,17 +170,15 @@ and the different approaches that are used to meet the requirements.
 
 *"At the customer level, it's every two months; bimonthly for most customers. So you don't
 have real time data for that; and so, there's a little bit of an issue when, like we
-do a monthly report and they want to know residential use. We use, you know, an equation
+do a monthly report and they want to know residential use. We use an equation
 to guess based on a ratio from last year or something to determine that; we just don't have
 real time data for metered billed use. But we have it for production, so there's a little bit
-of inconsistency there in terms of the time, the time periods that are available for us."* 
-(Source: Large retailer 2022).
+of inconsistency there in terms of the time periods that are available for us."* 
 
 *"What they are reporting to the state is not what is being asked for. And it is pretty common
 knowledge among water agencies that's not what you're doing. We don't report water use at all.
 Honestly, we report production, and we are hoping to change that, but we honestly just don't
 have the staff or the capabilities to do it accurately."*
-(Source: Small retailer 2022).
 
 In Figure 1, percent of total water use reported by water use category is compared across
 the CR, UWMP, EAR, and WLR. The CR asks for water use to be reported by each of the
@@ -216,7 +221,6 @@ discussed the timing expectations of the upcoming Annual Water Supply and Demand
 This was happening July 1st and and they assume that every district does it the same 
 way, you know, we're all gonna know our projection end of June or all this for the next 
 year and stuff. And we don't do it that way."*
-(Source: Larger retailer 2022).
 
 ## Redundancy across reports
 
@@ -284,3 +288,24 @@ example_2_format <- select(example_2, report_name, volume_af) %>%
          percent_diff_cr_ear = (abs(CR-EAR)/(0.5 * (CR+EAR)))*100,
          percent_diff_ear_uwmp = (abs(EAR-UWMP)/(0.5 * (EAR+UWMP)))*100)
 ```
+
+## Definitional inconsistency
+
+Similar information is reported across reports; however, there are some distinct
+differences in how information is reported. Recycled water, for instance, is reported
+differently across reports. 
+
+- *EAR* Recycled water is reported as part of water production in the
+EAR and is not reported separately as a water use on the EAR. 
+- *UWMP* Table 4-1 (water demands) does not include a recycled water use. The recycled
+water reported in Table 6-8 (water supplies) may differ depending on whether the amount sold
+is reported or if the amount produced locally is reported.
+- *WLR* Does not include recycled water.
+- *CR* Does not include recycled water.
+
+Figure 3 compares water supply and demand by use category (see the data mapping tab for more details on categories)
+across reports for Agency 3. Recycled water accounts for some of the differences across reports
+because it is not reported for the WLR or CR. Agency 3 reports recycled water use as an Other use on the EAR (Figure 3).
+Another reason values may differ across reports is the reporting timeline may differ. The EAR is reported on an annual
+basis whereas the UWMP and WLR is reported as a fiscal year and the CR is reported monthly.
+

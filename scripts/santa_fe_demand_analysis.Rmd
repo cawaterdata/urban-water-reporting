@@ -48,7 +48,7 @@ What agency are we focused on?
 
 Load in data: 
 ```{r, warning=FALSE, message=FALSE}
-supply_and_demand_data <- read_rds("../data/supply_and_demand_data.rds") %>% 
+supply_and_demand_data <- read_rds("data/supply_and_demand_data.rds") %>% 
   filter(supplier_name  == "Santa Fe Irrigation District") %>% glimpse
 ```
 
@@ -228,7 +228,7 @@ demand_by_report <- tibble(
   "Volume AF" = as.numeric(c(uwmp_metric,wlr_metric,cr_metric,ear_metric)),
   "Metric" = rep("Annual Total Demand", 4))
 demand_by_report
-write_rds(demand_by_report, "../data/santa_fe_demand_af_volumes.rds")
+write_rds(demand_by_report, "data/santa_fe_demand_af_volumes.rds")
 ```
 
 ```{r}
@@ -261,7 +261,7 @@ total_water_demand_af_deltas <- total_water_demand_table %>%
   mutate(delta = abs(report_a_metric - report_b_metric), 
          percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
-write_rds(total_water_demand_af_deltas, "../data/santa_fe_total_water_demand_af_deltas.rds")
+write_rds(total_water_demand_af_deltas, "data/santa_fe_total_water_demand_af_deltas.rds")
 ```
 
 
@@ -307,7 +307,7 @@ formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile("transparent
 
 ```{r}
 # read in lookup tables for use type categories
-use_type_lookup <- read_rds("../data/use_type_lookup.rds")
+use_type_lookup <- read_rds("data/use_type_lookup.rds")
 ```
 
 The largest difference is between the CR and the Water Loss Report. 
@@ -317,7 +317,7 @@ all_reports_demand <- bind_rows(uwmp_demand_table, wlr_demand_table, cr_demand_t
   left_join(use_type_lookup) %>%
   glimpse
 
-santa_fe_d_with_subcategories <- write_rds(all_reports_demand, "../data/santa_fe_d_with_subcategories.rds")
+santa_fe_d_with_subcategories <- write_rds(all_reports_demand, "data/santa_fe_d_with_subcategories.rds")
 
 ```
 

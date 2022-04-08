@@ -51,7 +51,7 @@ agency_of_interest <- "Moulton Niguel Water District"
 
 Load in data: 
 ```{r, warning=FALSE, message=FALSE}
-supply_and_demand_data <- read_rds("../data/supply_and_demand_data.rds") %>% 
+supply_and_demand_data <- read_rds("data/supply_and_demand_data.rds") %>% 
   filter(supplier_name %in% c("Moulton Niguel Water District", "MOULTON NIGUEL WATER DISTRICT"))
   
 ```
@@ -102,7 +102,9 @@ cr_metric <- cr_total_supply
 
 ```{r}
 ear_supply_table <- supply_and_demand_data %>% filter(report_name == "EAR", year == 2020, category == "supply total", !grepl("max", use_type))
-ear_total_supply <- filter(ear_supply_table, use_type == "annualtotal")
+ear_total_supply <- filter(ear_supply_table, use_type != "annualtotal") %>%
+  mutate(volume_af = ifelse(use_type ==  "annualsold", volume_af*-1, volume_af)) %>%
+  summarize(volume_af = sum(volume_af))
 ear_metric <- ear_total_supply$volume_af
 ```
 
@@ -115,7 +117,7 @@ supply_by_report <- tibble(
   "Volume AF" = as.numeric(c(uwmp_metric,wlr_metric,cr_metric,ear_metric)),
   "Metric" = rep("Annual AF Supply", 4))
 supply_by_report
-write_rds(supply_by_report, "../data/moulton_niguel_supply_af_volumes.rds")
+write_rds(supply_by_report, "data/moulton_niguel_supply_af_volumes.rds")
 ```
 
 ```{r}
@@ -148,7 +150,7 @@ total_water_supply_af_deltas <- total_water_supply_table %>%
   mutate(delta = abs(report_a_metric - report_b_metric), 
          percent_delta = abs((report_a_metric / report_b_metric - 1) * 100))
 
-write_rds(total_water_supply_af_deltas, "../data/moulton_niguel_total_water_supply_af_deltas.rds")
+write_rds(total_water_supply_af_deltas, "data/moulton_niguel_total_water_supply_af_deltas.rds")
 ```
 
 ### Delta Table 
@@ -192,7 +194,7 @@ formattable(percent_delta_matrix, list(area(col = 2:4) ~ color_tile("transparent
 
 ```{r}
 # read in lookup tables for use type categories
-use_type_lookup <- read_rds("../data/supply_type_lookup.rds")
+use_type_lookup <- read_rds("data/supply_type_lookup.rds")
 ```
 
 The largest difference is between the eAR and the Water Loss Report.  
@@ -202,7 +204,7 @@ all_reports_supply <- bind_rows(uwmp_supply_table, wlr_supply_table, cr_supply_t
   left_join(use_type_lookup) %>%
   glimpse
 
-write_rds(all_reports_supply, "../data/moulton_niguel_s_with_subcategories.rds")
+write_rds(all_reports_supply, "data/moulton_niguel_s_with_subcategories.rds")
 ```
 
 #### Stacked Bar Plot: 

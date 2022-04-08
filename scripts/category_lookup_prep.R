@@ -55,8 +55,7 @@ combined_use <- uwmp_use %>%
   bind_rows(wlr_use %>%
               mutate(UWMP = NA,
                      WLR = use_type)) %>%
-  mutate(WLR = case_when(use_type == "sales/transfers/exchanges to other agencies" ~ "ws_exported_vol_af",
-                         use_type == "losses" ~ "wl_water_losses_vol_af",
+  mutate(WLR = case_when(use_type == "losses" ~ "wl_water_losses_vol_af",
                          T ~ WLR),
          CR = case_when(use_type %in% c("multi-family", "single family") ~ "final residential use",
                         use_type == "agricultural irrigation" ~ "reported final commercial agricultural water",
@@ -80,7 +79,7 @@ groundwater_recharge <- c("groundwater recharge")
 landscape <- c("landscape", "annualli", "li")
 losses <- c("losses", "wl_water_losses_vol_af")
 residential <- c("multi-family", "single family", "final percent residential use", "annualsf", "annualmf", "sf","mf", "final residential use")
-sales_transfers_exchanges <- c("sales/transfers/exchanges to other agencies", "annualop", "op", "ws_exported_vol_af", "sold")
+sales_transfers_exchanges <- c("sales/transfers/exchanges to other agencies", "annualop", "op")
 saline_water_intrusion_barrier <- c("saline water intrusion barrier")
 # surface_water_augmentation <- c() # I thought the UWMP reports this but don't see it in the data
 unbilled <- c("ac_unbill_meter_vol_af", "ac_unbill_unmeter_vol_af")
@@ -150,7 +149,7 @@ ear_supply_total <- supply %>%
 
 groundwater <- c("groundwater (not desalinated)", "desalinated water - groundwater", "gw")
 imported_purchased <- c("purchased or imported  water", "transfers", "exchanges", "ws_imported_vol_af", "purchased")
-sold <- c("sold")
+sold <- c("sold", "ws_exported_vol_af")
 nonpotable <- c("nonpotable")
 potable <- c("reported final total potable water production")
 recycled <- c("recycled", "recycled water")
@@ -179,7 +178,8 @@ combined_supply <- uwmp_supply %>%
          CR = case_when(use_type == "potable" ~ "reported final total potable water production"),
          WLR = case_when(use_type == "own sources" ~ "ws_own_sources_vol_af",
                          use_type == "imported/purchased" & UWMP == "purchased or imported  water" ~ "ws_imported_vol_af",
-                         use_type == "total volume" ~ "ws_water_supplied_vol_af")) %>%
+                         use_type == "total volume" ~ "ws_water_supplied_vol_af",
+                         use_type == "sold" ~ "ws_exported_vol_af")) %>%
   rename(use_group = use_type) %>%
   pivot_longer(cols = UWMP:WLR, names_to = "report_name", values_to = "use_type") %>%
   distinct()

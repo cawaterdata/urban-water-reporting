@@ -1,0 +1,266 @@
+---
+title: "Urban water data - Number of hours for reporting"
+author: "Ashley Vizek (FlowWest)"
+date: "`r Sys.Date()`"
+output: rmarkdown::github_document
+---
+
+# Overview
+
+The California Water Data Consortium surveyed water suppliers to understand the reporting
+burden associated with state urban water data reporting requirements. This document
+summarizes the responses of this survey. The survey is available [here](https://docs.google.com/forms/d/1KLGlqdTlFXfW6dlMXLupx3a_r5fF0ubb-KqbIfMLsqo/edit).
+
+```{r, include = F}
+library(tidyverse)
+
+clean_data <- read_csv("data/reporting_hours_clean.csv")
+# use annual UWMP hours
+long_data <- clean_data |> 
+  select(supplier_name, 
+         supplier_type,
+         ear_staff_hours,
+         awsda_staff_hours,
+         wla_staff_hours,
+         uwmp_staff_annual_hours,
+         dctro_staff_hours,
+         wuo_staff_hours) |> 
+  rename(ear = ear_staff_hours,
+         awsda = awsda_staff_hours,
+         wla = wla_staff_hours,
+         uwmp = uwmp_staff_annual_hours,
+         dctro = dctro_staff_hours,
+         wuo = wuo_staff_hours) |> 
+  pivot_longer(cols = ear:wuo, names_to = "report_type", values_to = "staff_hours") |> 
+  left_join(clean_data |> 
+              select(supplier_name, 
+                     ear_contractor_hours,
+                     awsda_contractor_hours,
+                     wla_contractor_hours,
+                     uwmp_contractor_annual_hours,
+                     dctro_contractor_hours,
+                     wuo_contractor_hours) |> 
+              rename(ear = ear_contractor_hours,
+                     awsda = awsda_contractor_hours,
+                     wla = wla_contractor_hours,
+                     uwmp = uwmp_contractor_annual_hours,
+                     dctro = dctro_contractor_hours,
+                     wuo = wuo_contractor_hours) |> 
+              pivot_longer(cols = ear:wuo, names_to = "report_type", values_to = "contractor_hours")) |> 
+  mutate(staff_hours = ifelse(is.na(staff_hours), 0, staff_hours),
+         contractor_hours = ifelse(is.na(contractor_hours), 0, contractor_hours),
+         total_hours = staff_hours + contractor_hours)
+
+longer_data <- long_data |> 
+  select(-total_hours) |> 
+  pivot_longer(cols = c("staff_hours", "contractor_hours"), names_to = "hour_type", values_to = "hours")
+
+```
+
+
+# Summary of responses
+
+As of October 2024, the Consortium received 21 responses including 13 retail suppliers, 4 wholesalers, and 4 both retail and wholesale. 15 of these agencies sometimes hire a consultant to support urban water data reporting requirements, 5 never hire a consultant, and 1 always hires a consultant.
+
+**Number of responses by supplier type**
+
+```{r}
+clean_data |> 
+  group_by(supplier_type) |> 
+  tally() |> 
+  mutate(supplier_type = factor(supplier_type, levels = c("Retailer", "Wholesaler", "Mixed"))) |> 
+  ggplot(aes(x = supplier_type, y = n)) +
+  geom_bar(stat = "identity", fill =  "#5a7c93") +
+  labs(x = "",
+       y = "Number of responses") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16))
+
+ggsave("figures/number_responses.png", width = 8, height = 8)
+```
+
+**Number of suppliers that hire consultants to work on urban water data reporting requirements**
+
+```{r}
+clean_data |> 
+  group_by(hire_consultant) |> 
+  tally() |> 
+  mutate(hire_consultant = factor(hire_consultant, levels = c("Sometimes", "No", "Yes"))) |> 
+  ggplot(aes(x = hire_consultant, y = n)) +
+  geom_bar(stat = "identity", fill =  "#5a7c93") +
+  labs(x = "Do you hire a consultant to support urban water data reporting?",
+       y = "Number of responses") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16))
+
+ggsave("figures/hire_contractor.png", width = 8, height = 8)
+```
+
+# Reporting time by report type 
+
+**Assumptions**
+
+- All hours represent annual investment except for the UWMP which occurs every 5 years. If hours were reported by month (e.g. DCRTO), these were multiplied by 12. Per request from Tara these numbers were updated to all be annual.
+- Investment reported in costs was divided by $150 to determine the number of hours.
+- If 0 hours were entered, these are removed as this represents reporting for those required to submit the report
+
+
+```{r}
+long_data |> 
+  filter(total_hours > 0) |> 
+  group_by(report_type) |> 
+  summarize(mean_hours = mean(total_hours),
+            sd = sd(total_hours)) |> 
+  ggplot(aes(x = report_type, y = mean_hours)) +
+  geom_bar(stat = "identity", fill = "#5a7c93") +
+  #geom_errorbar(aes(x = report_type, ymin = mean_hours-sd, ymax = mean_hours+sd), position = position_dodge()) +
+  labs(x = "",
+       y = "Average annual reporting hours",
+       fill = "") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16))
+
+ggsave("figures/average_hours_report_type.png", width = 8, height = 8)
+```
+
+
+```{r}
+longer_data |> 
+  filter(hours > 0) |> 
+  group_by(report_type, hour_type) |> 
+  summarize(mean_hours = mean(hours),
+            sd = sd(hours)) |> 
+  ggplot(aes(x = report_type, y = mean_hours, fill = hour_type)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  scale_fill_manual(values = c("#5a7c93","#1b2d48")) +
+  #geom_errorbar(aes(x = report_type, ymin = mean_hours-sd, ymax = mean_hours+sd), position = position_dodge()) +
+  labs(x = "",
+       y = "Average annual reporting hours",
+       fill = "") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16),
+        legend.text = element_text(size = 12))
+
+ggsave("figures/average_hours_report_type_labor.png", width = 10, height = 8)
+```
+
+```{r}
+  longer_data |>
+   filter(hours > 0) |> 
+    ggplot(aes(x = hour_type, y = hours, fill = hour_type)) +
+    scale_fill_manual(values = c("#5a7c93","#1b2d48")) +
+    geom_boxplot() +
+    labs(x = "",
+         y = "Annual reporting hours",
+         fill ="") +
+    theme_bw() +
+    facet_wrap( ~ report_type, scales = "free_y") +
+  theme(legend.position = "none") +
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 16))
+
+ggsave("figures/boxplot_report_type_labor.png", width = 10, height = 8)
+```
+
+
+```{r}
+all_reports <- long_data |> 
+  group_by(supplier_name) |> 
+  summarize(all_reports = sum(total_hours, na.rm = T)) |> 
+  ungroup() |> 
+  summarize(mean = round(mean(all_reports, na.rm = T),2),
+            median = round(median(all_reports, na.rm = T),2),
+            min = round(min(all_reports, na.rm = T),2),
+            max = round(max(all_reports, na.rm = T),2),
+            q25 = round(quantile(all_reports, probs = 0.25, na.rm = T), 2),
+            q75 = round(quantile(all_reports, probs = 0.75, na.rm = T), 2),
+            `standard deviation` = round(sd(all_reports, na.rm = T),2)) |> 
+  mutate(report_type = "all reports")
+
+summary_stats <- long_data |> 
+  group_by(report_type) |> 
+  filter(total_hours > 0) |> 
+  summarize(mean = round(mean(total_hours, na.rm = T),2),
+            median = round(median(total_hours, na.rm = T),2),
+            min = round(min(total_hours, na.rm = T),2),
+            max = round(max(total_hours, na.rm = T),2),
+            q25 = round(quantile(total_hours, probs = 0.25, na.rm = T), 2),
+            q75 = round(quantile(total_hours, probs = 0.75, na.rm = T), 2),
+            `standard deviation` = round(sd(total_hours, na.rm = T),2)) |> 
+  bind_rows(all_reports) |> 
+  mutate(range = paste0(min, " - ", max)) |> 
+  rename(`report type` = report_type) |> 
+  select(`report type`, mean, median, q25, q75, `standard deviation`, range)
+
+knitr::kable(summary_stats)
+write_csv(summary_stats, "data/summary_stats.csv")
+```
+
+**Differences by wholesaler or retailer**
+
+```{r}
+clean_data |> 
+  select(supplier_name, supplier_type) |> 
+  distinct() |> 
+  group_by(supplier_type) |> 
+  tally()
+
+summary_stats_supplier_type <- long_data |> 
+  group_by(report_type, supplier_type) |> 
+  summarize(mean = round(mean(total_hours, na.rm = T),2),
+            median = round(median(total_hours, na.rm = T),2),
+            min = round(min(total_hours, na.rm = T),2),
+            max = round(max(total_hours, na.rm = T),2),
+            `standard deviation` = round(sd(total_hours, na.rm = T),2)) |> 
+  mutate(range = paste0(min, " - ", max)) |> 
+  rename(`report type` = report_type,
+         `supplier type` = supplier_type) |> 
+  select(`report type`, `supplier type`, mean, median, `standard deviation`, range)
+
+long_data |> 
+  ggplot(aes(x = supplier_type, y = total_hours, fill = supplier_type)) +
+  geom_boxplot() +
+  facet_wrap(~report_type, scales = "free_y") +
+  scale_fill_manual(values = c("gray", "#5a7c93","#1b2d48")) +
+  theme_bw() +
+  theme(legend.position = "none") +
+  labs(x = "",
+       y = "Annual reporting hours") +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 16))
+
+ggsave("figures/boxplot_report_type_supplier.png", width = 10, height = 8)
+
+```
+
+
+# Data Quality Notes
+
+There is some uncertainty in whether the number of hours for UWMP was split up by year or reported for the entire UWMP cycle. I will reach out to respondents for clarity.
+
+## Outreach needed
+
+- patwater@cvwd.com: Do the number of hours reported for the UWMP represent an annual average or the total number of hours required to complete one UWMP cycle?
+- rtooker@roseville.ca.us: Do the number of hours reported for the UWMP represent an annual average or the total number of hours required to complete one UWMP cycle?
+
+- abonczewski@ontarioca.gov: Do the number of hours reported for the UWMP represent an annual average or the total number of hours required to complete one UWMP cycle?
+
+- mmatlock@wmwd.com: Do the number of hours reported for the UWMP represent an annual average or the total number of hours required to complete one UWMP cycle?
+- widemank@emwd.org: Do the number of hours reported for the UWMP represent an annual average or the total number of hours required to complete one UWMP cycle?
+- StacyT@MesaWater.org: Do the number of hours reported for the UWMP represent an annual average or the total number of hours required to complete one UWMP cycle?
+- cgriego@coltonca.gov: Do the number of hours reported for the UWMP represent an annual average or the total number of hours required to complete one UWMP cycle?
+- megan.maurino@acwd.com: Do the number of hours reported for the UWMP represent an annual average or the total number of hours required to complete one UWMP cycle?
+
+
+## Resolved
+- jcleaver@sdcwa.org: Reported as annual average so expanded this
+- jcarney@zone7water.com: Reported as per cycle
+- lmcphail@mwdh2o.com: Reported as per cycle
+- lsangines@valleywater.org: This should be expanded.
+- bbishop@cityofredding.org: Reported as per cycle
+- alyssaa@soquelcreekwater.org: per cycle
